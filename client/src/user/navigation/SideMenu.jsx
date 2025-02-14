@@ -3,11 +3,8 @@ import { useLocation, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../../assets/logos/logo.png";
 import { chevronUpIcon, menuIcon, xIcon } from "../../components/icons";
-import { RoutesData } from "./UsersRoutesData";
-import { profilePic } from '../../components/images'
 import { getUserDetails } from "../../services/userServices/UserData";
 import { jwtDecode } from 'jwt-decode';
-import { NextButton } from "../../components/NextButton";
 import { fadeIn } from "../../assets/utils/motion";
 import { Icon } from "@iconify/react";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
@@ -61,32 +58,46 @@ const SideMenu = ({ RoutesData, toggleSideMenu }) => {
                 variants={fadeIn("right", "", 0, 0)}
                 className={`border-1 border-background/20 dark:border-light/10 shadow-xl sm:m-1 rounded-lg md:block  h-[calc(100vh-96px)] overflow-auto max-w-full text-light dark:text-light  z-40 bg-light dark:bg-secondary ${collapsed ? 'w-20' : 'w-64'} transition-all duration-300 overflow-x-hidden`}>
                 {/* ${showSide ? 'block absolute' : 'hidden'}` */}
-                <div className='flex justify-between items-center'>
+                <div className={`flex justify-between items-center ${collapsed ? 'flex-col border-b-1 border-background/10 dark:border-light/10 pb-2' : 'flex-row'} `}>
                     <h2 className="flex mb-4 mt-2 items-center justify-center ">
-                        <LazyLoadImage src={logo} alt="logo" className={`${collapsed ? 'h-8 w-24' : 'h-16'}`} />
+                        <LazyLoadImage src={logo} alt="logo" className={`${collapsed ? 'w-24' : 'h-16'}`} />
                     </h2>
                     <button
-                        className={`text-background py-4 ${collapsed ? 'pr-0' : 'pr-4'}`}
+                        className={`text-background hidden md:block ${collapsed ? 'pr-0 ' : 'pr-4'}`}
                         onClick={toggleCollapse}
                     >
+
                         {collapsed ?
-                            <LazyLoadImage src={xIcon} alt="" /> : <LazyLoadImage src={menuIcon} alt="" />}
+                            <span className="text-background dark:text-light transition-all ease-in-out duration-150">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5L12 5L19 5M5 12H19M5 19L12 19L19 19"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 5L12 5L19 5M5 12H19M5 19L12 19L19 19;M5 5L12 12L19 5M12 12H12M5 19L12 12L19 19" /></path></svg>
+                            </span>
+                            :
+                            <span className="text-background dark:text-light transition-all ease-in-out duration-150">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="10" stroke-dashoffset="10" d="M3 9l3 3l-3 3"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="10;0" /></path><path stroke-dasharray="16" stroke-dashoffset="16" d="M5 5h14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.2s" dur="0.2s" values="16;0" /></path><path stroke-dasharray="10" stroke-dashoffset="10" d="M10 12h9"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.2s" values="10;0" /></path><path stroke-dasharray="16" stroke-dashoffset="16" d="M5 19h14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="16;0" /></path></g></svg>
+                            </span>
+                        }
                     </button>
                 </div>
-                <div className="p-2 text-background dark:text-light">
+                <div className="p-2 pt-0 text-background dark:text-light">
                     {!collapsed && user &&
                         <div>
-                            <div className="px-2 mb-1 rounded-md bg-background/10 dark:bg-light/10 py-1">
+                            <div className="px-2 mb-1 rounded-md 
+                            py-1 cursor-default border-1 dark:border-background/10  
+                            bg-background/10 dark:bg-light/10
+                            hover:border-background/20 dark:hover:border-light/20 
+                            ">
                                 <span className="capitalize">{user?.gender} &nbsp;</span>
                                 <span>{user?.age} year</span>
                             </div>
-                            <div className="flex justify-between px-2 mb-1 rounded-md bg-background/10 dark:bg-light/10  py-1">
+                            <div className="flex justify-between px-2 mb-1 rounded-md py-1 cursor-default border-1 dark:border-background/10  
+                            bg-background/10 dark:bg-light/10
+                            hover:border-background/20 dark:hover:border-light/20">
                                 <p className="flex flex-col  justify-center w-full text-xl font-semibold">Height
                                     <span className="text-sm font-normal">
                                         {user?.height} cm
                                     </span>
                                 </p>
-                                <p className="flex flex-col py-1 px-4 justify-center w-full text-xl font-semibold">Wight
+                                <p className="flex flex-col py-1 px-4 justify-center w-full text-xl font-semibold">Weight
                                     <span className="text-sm font-normal">
                                         {user?.weight} kg
                                     </span>
@@ -97,14 +108,14 @@ const SideMenu = ({ RoutesData, toggleSideMenu }) => {
                 </div>
                 <ul className={`transition-all duration-200 ease-in-out`}>
                     {RoutesData.map((menu, index) => (
-                        <li key={index} className="relative" onClick={toggleSideMenu}>
+                        <li key={index} className="group relative" onClick={toggleSideMenu}>
                             <Link
                                 to={menu.path}
                                 className={`flex items-center p-2 m-2 rounded-lg hover:bg-gray-200 text-background  hover:text-background hover:dark:text-background dark:text-light transition duration-200 ease-in-out ${menu.children ? '' : (location.pathname === menu.path ? 'bg-gray-300 dark:bg-gray-600 text-background ' : '')}`}
                                 onClick={() => handleToggleMenu(index)}
                             >
                                 <span className={`${collapsed ? 'pl-3' : ''}`}>
-                                    <Icon icon={menu.icon} width="24" height="24" />
+                                    <Icon icon={menu.icon} width="24" height="24" className="group-hover:scale-110 group-hover:text-primary transition-all ease-in-out duration-300" />
                                 </span>
                                 <span className={`transition-opacity duration-200 ${collapsed ? 'opacity-0' : 'opacity-100 ml-2'}`}>
                                     {menu.title}

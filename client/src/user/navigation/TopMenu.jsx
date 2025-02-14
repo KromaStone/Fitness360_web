@@ -71,21 +71,27 @@ const TopMenu = ({ RoutesData, toggleSideMenu }) => {
                     onClick={toggleSideMenu}
                     className="md:hidden text-background dark:text-light focus:outline-none"
                 >
-                    <Icon
-                        icon="solar:hamburger-menu-broken"
-                        width="24"
-                        height="24"
-                        className={`transition-all ease-in-out duration-300 ${isHamburgerOpen ? 'opacity-0 scale-75 invisible hidden' : 'opacity-100 scale-100 visible'}`}
-                        onClick={toggleMenu}
-                    />
+                    {
+                        isHamburgerOpen === false ?
+                            <Icon
+                                icon="solar:hamburger-menu-broken"
+                                width="24"
+                                height="24"
+                                className={`hover:scale-110 hover:text-primary transition-all ease-in-out duration-300 ${isHamburgerOpen ? 'opacity-0 scale-75 invisible hidden' : 'opacity-100 scale-100 visible'}`}
+                                onClick={toggleMenu}
+                            />
+                            :
+                            <Icon
+                                icon="radix-icons:cross-2"
+                                width="24"
+                                height="24"
+                                className={`hover:scale-110 hover:text-primary transition-all ease-in-out duration-300 ${isHamburgerOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-75 invisible hidden'}`}
+                                onClick={toggleMenu}
+                            />
 
-                    <Icon
-                        icon="radix-icons:cross-2"
-                        width="24"
-                        height="24"
-                        className={`transition-all ease-in-out duration-300 ${isHamburgerOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-75 invisible hidden'}`}
-                        onClick={toggleMenu}
-                    />
+                    }
+
+
 
                 </button>
                 <label className="relative hidden sm:block">

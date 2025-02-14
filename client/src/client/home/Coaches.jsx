@@ -9,6 +9,7 @@ import { ScrollShadow } from '@nextui-org/react';
 import { review1, review2, review3, review4 } from '../../components/images'
 import { Icon } from "@iconify/react";
 import { banner } from '../../components/images'
+import { useState } from 'react';
 
 const reviews = [
     { id: 2, userName: 'John Smith', image: review2, stars: 4, reviewTitle: 'Amazing Experience', reviewContent: 'The best personal training experience had! The trainer really focused on my goals and I saw great results in just a few weeks. Highly recommend!' },
@@ -22,9 +23,14 @@ const reviews = [
 
 
 
-const ReviewListItem = ({ userName, image, stars, reviewTitle, reviewContent }) => {
 
-    const filledStars = Math.floor(stars)
+function Coaches() {
+
+    const handleClick = () => {
+        alert('working')
+    }
+
+    const filledStars = Math.floor(reviews.stars)
     const emptyStart = 5 - filledStars;
 
     const renderStars = () => {
@@ -38,40 +44,6 @@ const ReviewListItem = ({ userName, image, stars, reviewTitle, reviewContent }) 
         }
 
         return starArray;
-    }
-
-
-    return (
-        <div className=" dark:text-light rounded-lg shadow-lg p-1 w-[460px] h-52 flex flex-col gap-2 items-center bg-gradient-to-r from-primary via-primary to-cyan-400 bg-[length:400%_400%] animate-revolve">
-            <div className='bg-light text-background dark:bg-background dark:text-light h-full w-full rounded-lg p-4 hover:scale-105 transition ease-in-out duration-300 flex flex-col justify-between'>
-                <div className='flex justify-between items-center w-80'>
-                    <div className=''>
-                        <span className='flex gap-2 '>
-                            <LazyLoadImage src={image} alt={userName} className="w-[52px] rounded-full aspect-square object-cover cursor-pointer" />
-                            <span className='flex flex-col gap-1'>
-                                <p className="">{userName}</p>
-                                <p className='text-xs'>20, Jan 2025</p>
-                            </span>
-                        </span>
-                    </div>
-                    <div className='flex gap-0'>
-                        {renderStars()}
-                    </div>
-                </div>
-                <div className=''>
-                    <p className="text-sm"><strong>{reviewTitle}</strong></p>
-                    <p className="text-sm">{reviewContent}</p>
-                </div>
-            </div>
-        </div>
-
-    )
-};
-
-function Coaches() {
-
-    const handleClick = () => {
-        alert('working')
     }
 
     return (
@@ -98,10 +70,6 @@ function Coaches() {
                     }}
                 />
 
-                {/* <div className='w-full max-w-[1640px] h-60 absolute pointer-events-none'
-                    style={{
-                        background: 'linear-gradient(90deg, rgba(29,32,41,1) 0%, rgba(201,249,222,0) 5%, rgba(189,241,216,0) 90%, rgba(29,32,41,1) 96%)'
-                    }}></div> */}
 
 
                 {/* ----------------------- */}
@@ -112,7 +80,29 @@ function Coaches() {
                         size={20}
                     >
                         {reviews.map((product) => (
-                            <ReviewListItem key={product.id} {...product} className="snap-start kkk" />
+                            // <ReviewListItem key={product.id} {...product} className="snap-start kkk" />
+                            <div key={product.id} className=" dark:text-light rounded-lg shadow-lg p-1 w-[460px] h-52 flex flex-col gap-2 items-center bg-gradient-to-r from-primary via-primary to-cyan-400 bg-[length:400%_400%] animate-revolve ">
+                                <div className='bg-light text-background dark:bg-background dark:text-light h-full   hover:scale-105 w-full rounded-lg p-4  transition ease-in-out duration-300 flex flex-col justify-between'>
+                                    <div className='flex justify-between items-center w-80'>
+                                        <div className=''>
+                                            <span className='flex gap-2 '>
+                                                <LazyLoadImage src={product.image} alt={product.userName} className="w-[52px] rounded-full aspect-square object-cover cursor-pointer" />
+                                                <span className='flex flex-col gap-1'>
+                                                    <p className="">{product.userName}</p>
+                                                    <p className='text-xs'>20, Jan 2025</p>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div className='flex gap-0'>
+                                            {renderStars()}
+                                        </div>
+                                    </div>
+                                    <div className=''>
+                                        <p className="text-sm"><strong>{product.reviewTitle}</strong></p>
+                                        <p className="text-sm">{product.reviewContent}</p>
+                                    </div>
+                                </div>
+                            </div>
                         ))}
                     </ScrollShadow>
                 </div>

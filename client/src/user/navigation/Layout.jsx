@@ -12,7 +12,7 @@ const Layout = () => {
     return (
         <ApplicationUserProvider>
             <div className="bg-secondlight dark:bg-background text-background dark:text-light">
-                <div className="top-0 w-full p-1 sm:pt-[10px] sm:px-2">
+                <div className="top-0 w-full p-1 sm:pt-[10px] sm:px-2 relative">
                     <TopMenu RoutesData={RoutesData} toggleSideMenu={toggleSideMenu} />
                 </div>
 
