@@ -88,7 +88,8 @@ function Trainers() {
               viewport={{ once: false, amount: 0.2 }}
               variants={fadeIn("up", "", 0.1, 0.5)}
             >
-              <Card isFooterBlurred className="border-none border-2 border-yellow-400  h-56 bg-background/20 dark:bg-secondlight/20 dark:shadow-none mb-6 " radius="lg">
+
+              <Card isFooterBlurred className="shine-effect border-none border-2 border-yellow-400  h-56 bg-background/20 dark:bg-secondlight/20 dark:shadow-none mb-6 " radius="lg">
                 <CardFooter className=" before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10 justify-between">
                   <p className="text-tiny left-0 text-white/80 text-left">
 
@@ -104,11 +105,11 @@ function Trainers() {
                       color="default"
                       radius="lg"
                       size="sm" />
-                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                    <p className="text-tiny text-white bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
                       size="sm" />
-                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                    <p className="text-tiny text-white bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
                       size="sm" />
@@ -121,9 +122,10 @@ function Trainers() {
               whileInView="show"
               initial="hidden"
               viewport={{ once: false, amount: 0.2 }}
-              variants={fadeIn("up", "", 0.1, 0.5)}
+              variants={fadeIn("up", "", 0.2, 0.5)}
             >
-              <Card isFooterBlurred className="border-none border-2 border-yellow-400  h-56 bg-background/20 dark:bg-secondlight/20 dark:shadow-none mb-6 " radius="lg">
+
+              <Card isFooterBlurred className="shine-effect border-none border-2 border-yellow-400  h-56 bg-background/20 dark:bg-secondlight/20 dark:shadow-none mb-6 " radius="lg">
                 <CardFooter className=" before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10 justify-between">
                   <p className="text-tiny left-0 text-white/80 text-left">
 
@@ -135,15 +137,15 @@ function Trainers() {
                     radius="lg"
                     size="sm"
                   >
-                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                    <p className="text-tiny text-white bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
                       size="sm" />
-                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                    <p className="text-tiny text-white bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
                       size="sm" />
-                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                    <p className="text-tiny text-white bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
                       size="sm" />
@@ -156,9 +158,10 @@ function Trainers() {
               whileInView="show"
               initial="hidden"
               viewport={{ once: false, amount: 0.2 }}
-              variants={fadeIn("up", "", 0.1, 0.5)}
+              variants={fadeIn("up", "", 0.3, 0.5)}
             >
-              <Card isFooterBlurred className="border-none border-2 border-yellow-400  h-56 bg-background/20 dark:bg-secondlight/20 dark:shadow-none mb-6 " radius="lg">
+
+              <Card isFooterBlurred className="shine-effect border-none border-2 border-yellow-400  h-56 bg-background/20 dark:bg-secondlight/20 dark:shadow-none mb-6 " radius="lg">
                 <CardFooter className=" before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10 justify-between">
                   <p className="text-tiny left-0 text-white/80 text-left">
 
@@ -170,15 +173,15 @@ function Trainers() {
                     radius="lg"
                     size="sm"
                   >
-                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                    <p className="text-tiny text-white bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
                       size="sm" />
-                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                    <p className="text-tiny text-white bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
                       size="sm" />
-                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                    <p className="text-tiny text-white bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
                       size="sm" />
@@ -191,9 +194,10 @@ function Trainers() {
               whileInView="show"
               initial="hidden"
               viewport={{ once: false, amount: 0.2 }}
-              variants={fadeIn("up", "", 0.1, 0.5)}
+              variants={fadeIn("up", "", 0.4, 0.5)}
             >
-              <Card isFooterBlurred className="border-none border-2 border-yellow-400  h-56 bg-background/20 dark:bg-secondlight/20 dark:shadow-none mb-6 " radius="lg">
+
+              <Card isFooterBlurred className="shine-effect border-none border-2 border-yellow-400  h-56 bg-background/20 dark:bg-secondlight/20 dark:shadow-none mb-6 " radius="lg">
                 <CardFooter className=" before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10 justify-between">
                   <p className="text-tiny left-0 text-white/80 text-left">
 
@@ -205,15 +209,15 @@ function Trainers() {
                     radius="lg"
                     size="sm"
                   >
-                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                    <p className="text-tiny text-white bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
                       size="sm" />
-                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                    <p className="text-tiny text-white bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
                       size="sm" />
-                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                    <p className="text-tiny text-white bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
                       size="sm" />
@@ -226,9 +230,10 @@ function Trainers() {
               whileInView="show"
               initial="hidden"
               viewport={{ once: false, amount: 0.2 }}
-              variants={fadeIn("up", "", 0.1, 0.5)}
+              variants={fadeIn("up", "", 0.5, 0.5)}
             >
-              <Card isFooterBlurred className="border-none border-2 border-yellow-400  h-56 bg-background/20 dark:bg-secondlight/20 dark:shadow-none mb-6 " radius="lg">
+
+              <Card isFooterBlurred className="shine-effect border-none border-2 border-yellow-400  h-56 bg-background/20 dark:bg-secondlight/20 dark:shadow-none mb-6 " radius="lg">
                 <CardFooter className=" before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10 justify-between">
                   <p className="text-tiny left-0 text-white/80 text-left">
 
@@ -240,15 +245,15 @@ function Trainers() {
                     radius="lg"
                     size="sm"
                   >
-                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                    <p className="text-tiny text-white bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
                       size="sm" />
-                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                    <p className="text-tiny text-white bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
                       size="sm" />
-                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                    <p className="text-tiny text-white bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
                       size="sm" />
@@ -257,6 +262,7 @@ function Trainers() {
                 </CardFooter>
               </Card>
             </motion.div>
+
 
           </div>
           :

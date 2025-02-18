@@ -57,9 +57,12 @@ function Navbar() {
                                 key={link.to}
                                 to={link.to}
                                 aria-current={location.pathname === link.to ? 'page' : undefined}
-                                className="hover:text-primary transition-colors text-light"
+                                className="hover:text-light transition-colors text-light/90  group relative"
                             >
                                 {link.label}
+                                <span className='absolute bottom-0 left-0 bg-primary pt-[2px] w-0 group-hover:w-full transition-all ease-in-out duration-300'>
+
+                                </span>
                             </Link>
                         ))}
                     </div>

@@ -25,10 +25,10 @@ const footerSections = [
   {
     title: "Get in Touch",
     items: [
-      { text: "123-456-7890", icon: phoneIcon },
-      { text: "contact@fitness360.com", icon: mailIcon },
-      { text: "Book a Personal Training Session", icon: phoneIcon },
-      { text: "New York, USA", icon: mapPinIcon }
+      { text: "123-456-7890" },
+      { text: "contact@fitness360.com" },
+      { text: "Book a Personal Training Session" },
+      { text: "New York, USA" }
     ]
   },
   {
@@ -57,14 +57,19 @@ function Footer() {
                     initial="hidden"
                     viewport={{ once: false, amount: 0.2 }}
                     variants={fadeIn("", "", index * 0.1, 0.4)}
-
                     key={index}
-                    className="hover:text-background dark:hover:text-light cursor-pointer hover:scale-105 right-0 transition-all ease-in-out duration-300 flex"
+                    className="group hover:text-background dark:hover:text-light cursor-pointer hover:scale-105 right-0 transition-all ease-in-out duration-300 flex items-center"
                   >
                     {item.icon && (
-                      <Icon icon={item.icon} width="20" className="hover:scale-125 transition ease-in-out duration-300 block" />
+                      <Icon icon={item.icon} width="20" className="group-hover:scale-125 transition ease-in-out duration-300 block" />
                     )}
-                    {item.text}
+                    &nbsp;
+                    <p className='group relative'>
+                      {item.text}
+                      <span className={` ${item.icon ? '' : 'absolute bottom-0 left-0 bg-background dark:bg-light pt-[1px] w-0 group-hover:w-full transition-all ease-in-out duration-300'}`}>
+
+                      </span>
+                    </p>
                   </motion.li>
                 ))}
               </ul>

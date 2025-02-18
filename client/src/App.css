@@ -63,3 +63,39 @@ html {
   color: black;
   background: rgb(22, 182, 80);
 }
+
+.shine-effect {
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.3) 25%, rgba(138, 138, 138, 0.37) 50%, rgba(255, 255, 255, 0.3) 75%);
+  background-size: 200% 100%;
+  animation: shine 6s infinite;
+  /* animation: forwards ; */
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200%;
+  }
+
+  50% {
+    background-position: 200%;
+  }
+
+  100% {
+    background-position: -200%;
+  }
+}
+
+.revolve {
+  animation: revolveRedDiv 5s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes revolveRedDiv {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

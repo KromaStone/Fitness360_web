@@ -76,7 +76,7 @@ function ChooseUs() {
                     {/* Images */}
                     <div
                         className="w-full hidden lg:w-4/12 md:flex flex-col">
-                        <div className="m-4 flex flex-col sm:flex-row ">
+                        <div className="m-4 flex flex-col sm:flex-row">
                             <motion.div
 
                                 whileInView="show"
@@ -88,7 +88,7 @@ function ChooseUs() {
                                         key={index}
                                         src={image.src}
                                         alt={image.alt}
-                                        className={`${image.className} rounded-[40px] border  border-background dark:border-light `}
+                                        className={`${image.className} rounded-[40px] border  border-background dark:border-light hover:scale-105 transition-all ease-in-out duration-300`}
                                     />
                                 ))}
                             </motion.div>
@@ -101,7 +101,7 @@ function ChooseUs() {
                                 <LazyLoadImage
                                     src={imageData[2].src}
                                     alt={imageData[2].alt}
-                                    className={`rounded-[40px] border border-background dark:border-light ${imageData[2].className} `}
+                                    className={`rounded-[40px] border border-background dark:border-light  group hover:scale-105 transition-all ease-in-out duration-300 ${imageData[2].className} `}
                                 />
                             </motion.div>
                         </div>
