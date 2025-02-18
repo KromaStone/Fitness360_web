@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { knowAllTrainers } from "../services/homeService/HomeService";
 import Loader from "../components/Loader";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-
+import { useLocation } from 'react-router-dom'
 function Trainers() {
 
   const [trainersData, setTrainersData] = useState([]);
@@ -19,10 +19,13 @@ function Trainers() {
   const [totalPages, setTotalPages] = useState(0);
   const [currentPageData, setCurrentPageData] = useState([]);
 
+  const location = useLocation();
 
   useEffect(() => {
+    if (location.pathname === '/trainers') {
+      document.title = 'Trainers | Fitness360';
+    }
     fetchTrainers(page);
-    document.title = 'Trainers | Fitness360';
   }, [page]);
 
   const fetchTrainers = async (page) => {
