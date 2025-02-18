@@ -2,46 +2,105 @@ import { fadeIn } from "../assets/utils/motion"
 import { motion } from "framer-motion";
 import profilePic from '../assets/images/profilePic.jpg'
 import profileBanner from '../assets/images/profileBanner.jpg'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { useApplicationUser } from "../utils/ApplicationUserContext";
+import { getUserDetails, getUsersAllDetails } from "../services/userServices/UserData";
+import { Button, ButtonGroup, Input } from "@nextui-org/react";
 
 function Profile() {
-  const userName = localStorage.getItem('userName');
-  const [activeTab, setActiveTab] = useState('tab1');
+  const [user, setUser] = useState({
+    firstName: "",
+    lastName: "",
+    gender: "",
+    age: 0,
+    height: 0,
+    weight: 0,
+    contactNumber: "0",
+    email: "",
+    profilePicture: "",
+    address: "",
+    city: "",
+    state: ""
+  });
 
+  const [activeTab, setActiveTab] = useState('tab1');
+  const { appUserId } = useApplicationUser();
+  const [isEdit, setIsEdit] = useState(false)
   const tabs = ['tab1', 'tab2', 'tab3'];
-  const user = {
-    fullName: 'John Doe',
-    email: 'john@example.com',
-    phone: '45783804539',
-    mobile: '45783804539',
-    address: 'test',
-  };
+
+  useEffect(() => {
+    document.title = 'Profile | Fitness360'
+    GetUserDetails()
+  }, [])
+
+
+  const GetUserDetails = async () => {
+    try {
+      const result = await getUsersAllDetails(appUserId)
+      setUser(result);
+      console.log(result)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  const editDetails = async () => {
+    setIsEdit(!isEdit)
+  }
 
   const userInfo = [
-    { label: 'Full Name', value: user.fullName },
-    { label: 'Email', value: user.email },
-    { label: 'Phone', value: user.phone },
-    { label: 'Mobile', value: user.mobile },
-    { label: 'Address', value: user.address },
+    { label: 'First Name', name: 'firstName', value: user.firstName },
+    { label: 'Last Name', name: 'lastName', value: user.lastName },
+    { label: 'Gender', name: 'gender', value: user.gender },
+    { label: 'Age', name: 'age', value: user.age },
+    { label: 'Height', name: 'height', value: user.height },
+    { label: 'Weight', name: 'weight', value: user.weight },
+    { label: 'Email', name: 'email', value: user.email },
+    { label: 'Contact Number', name: 'contactNumber', value: user.contactNumber },
+    { label: 'Profile Picture URL', name: 'profilePicture', value: user.profilePicture },
+    { label: 'Address', name: 'address', value: user.address },
+    { label: 'City', name: 'city', value: user.city },
+    { label: 'State', name: 'state', value: user.state }
   ];
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser((prevUser) => ({
+      ...prevUser,
+      [name]: value
+    }));
+  };
+
+  const cancelEditClick = () => {
+    GetUserDetails()
+    setIsEdit(false)
+  }
   const content = {
     tab1: (
-      <motion.div initial='hidden' animate='show' variants={fadeIn("", "", .1, 0.5)} className=" rounded-md h-fit w-full">
+      <motion.div initial='hidden' animate='show' variants={fadeIn("", "", .1, 0.5)} className="p-0 sm:p-4 md:px-8 lg:px-12 xl:px-28 rounded-md h-full w-full">
         <div className="grid grid-cols-2 gap-4">
           {userInfo.map((item) => (
             <div key={item.label} className="col-span-1">
-              <h6 className="mb-0">{item.label}</h6>
-              <input
+              <Input
+                label={item.label}
                 type="text"
-                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                className="mt-1 border-1 hover:border-background/30 rounded-xl w-full"
                 value={item.value}
-                readOnly
+                name={item.name}
+                onChange={handleChange}
+                disabled={isEdit === false}
               />
             </div>
           ))}
           <div className="col-span-2 text-right">
-            <button className="bg-blue-500 text-white px-4 py-2 rounded">Save Changes</button>
+            {isEdit === false ?
+              <Button className="rounded-lg bg-transparent border-1 border-background dark:border-light hover:bg-primary hover:border-green-600 dark:hover:text-light transition ease-in-out duration-300" onClick={editDetails}>Edit</Button>
+              :
+              <div className="flex items-end justify-end gap-2">
+                <Button className="rounded-lg bg-transparent border-1 hover:text-light border-background dark:border-light hover:bg-fitnessRed hover:border-red-600 dark:hover:text-light transition ease-in-out duration-300" onClick={cancelEditClick}>Cancel</Button>
+                <Button className="rounded-lg bg-transparent border-1 hover:text-light border-background dark:border-light hover:bg-primary hover:border-green-600 dark:hover:text-light transition ease-in-out duration-300">Save Changes</Button>
+              </div>
+            }
           </div>
         </div>
       </motion.div>
@@ -62,7 +121,8 @@ function Profile() {
 
   return (
     <>
-      <div className=" flex justify-center w-full gap-4 " style={{ height: 'calc(100vh - 105px)' }}>
+      {/* <div className=" flex justify-center w-full gap-4 " style={{ height: 'calc(100vh - 120px)' }}> */}
+      <div className=" flex justify-center w-full gap-4 min-h-full" >
 
         <motion.div initial='hidden' animate='show' variants={fadeIn("right", "spring", .1, 0.5)} className="bg-light dark:bg-secondary text-secondary dark:text-light rounded-lg shadow-lg w-1/4 border border-gray-200 " onClick={(e) => e.stopPropagation()}>
 
@@ -75,8 +135,8 @@ function Profile() {
 
           <div className="relative top-[-40px] m-3">
             <div className=" flex align-baseline justify-between">
-              <p className='text-xl text-center font-bold'>{userName}</p>
-              <p className='text-base text-center font-semibold'>{userName}</p>
+              <p className='text-xl text-center font-bold'>{user.firstName} {user.lastName}</p>
+              <p className='text-base text-center font-semibold'>{user.email}</p>
             </div>
 
             <div className=" p-2 flex flex-col">
@@ -84,7 +144,7 @@ function Profile() {
               {tabs.map((tab) => (
                 <button
                   key={tab}
-                  className="border rounded-md my-4 p-3 cursor-pointer"
+                  className="border rounded-md my-1 p-3 cursor-pointer"
                   onClick={() => setActiveTab(tab)}
                 >
                   {tab}
