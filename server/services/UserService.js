@@ -109,7 +109,20 @@ export const findUserById = async (id) => {
         }
     }
 }
-
+export const getUserDetails = async (id) => {
+    const isUserExists = await getUserById(id);
+    if (!isUserExists) {
+        return createResponse(404, "User does not exist", null);
+    }
+    else {
+        try {
+            const user = await UserModel.findOne({ _id: id }).select('firstName lastName email age gender height weight address city state contactNumber profilePicture');
+            return user
+        } catch (error) {
+            throw new Error(error.message || "DB Error")
+        }
+    }
+}
 
 
 

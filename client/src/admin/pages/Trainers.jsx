@@ -93,6 +93,7 @@ function Trainers() {
 
 
     useEffect(() => {
+        document.title = 'Trainers | Fitness360'
         GetAllTrainers(currentPage); // Fetch the first page initially
     }, [currentPage]);
 

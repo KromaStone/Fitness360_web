@@ -2,9 +2,9 @@
 "use client";
 
 // import React from 'react'
-import { Button, Input, Select, SelectItem, Link, Divider, } from "@nextui-org/react";
+import { Input, Select, SelectItem, Link, Divider, } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeIn } from "../assets/utils/motion";
@@ -46,6 +46,9 @@ function Signup() {
   const [error, setError] = useState(true)
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.title = 'Register | Fitness360'
+  }, [])
 
   const nextStep = () => {
     setStep(step + 1);

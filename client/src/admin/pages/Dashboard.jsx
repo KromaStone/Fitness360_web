@@ -17,6 +17,7 @@ function Dashboard() {
   const maxTrainers = totalTrainer ? totalTrainer * 1.2 : 1;
 
   useEffect(() => {
+    document.title = 'Admin Dashboard | Fitness360'
     UserCount();
     TrainerCount();
     WorkoutCount();

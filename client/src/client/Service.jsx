@@ -5,7 +5,12 @@ import { NextButton } from '../components/NextButton'
 import { serviceBg1, serviceBg2 } from "../components/images";
 import { useNavigate } from 'react-router-dom'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { useEffect } from "react";
 function Service() {
+  useEffect(() => {
+    document.title = 'Services | Fitness360'
+  }, [])
+
   const navigate = useNavigate()
   const shopClick = () => {
     navigate('/shop')
@@ -15,7 +20,7 @@ function Service() {
   }
   return (
     <>
-      <section className="bg-background text-light flex flex-col md:flex-row justify-center items-center gap-6 sm:gap-8 py-20 ">
+      <section className="bg-background text-light flex flex-col md:flex-row justify-center items-center gap-6 sm:gap-8 py-20">
         <motion.div
           whileInView="show"
           initial="hidden"

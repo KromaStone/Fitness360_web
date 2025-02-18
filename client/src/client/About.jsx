@@ -2,9 +2,7 @@ import { fadeIn } from "../assets/utils/motion";
 import { motion } from "framer-motion";
 import { treeCompany, cocoCompany, leafCompany, coffeeCompany, mixlrCompany, gym1Company, gym2Company, watchVideo, aboutUsBanner, step1, step2, step3 } from "../components/images";
 import '../styleSheets/about.css'
-import { NextButton } from "../components/NextButton";
-import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { gymTrainer } from '../components/images'
 import { trainerCard, trainerCorner } from '../components/icons'
@@ -85,6 +83,10 @@ function About() {
   ];
   const [isPlaying, setIsPlaying] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    document.title = 'About | Fitness360'
+  }, [])
 
   const handlePlayPause = () => {
     const video = document.querySelector('video');

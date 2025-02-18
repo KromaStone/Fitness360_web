@@ -22,6 +22,7 @@ function Trainers() {
 
   useEffect(() => {
     fetchTrainers(page);
+    document.title = 'Trainers | Fitness360';
   }, [page]);
 
   const fetchTrainers = async (page) => {

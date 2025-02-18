@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Input } from "@nextui-org/input";
 import { Checkbox } from "@nextui-org/react";
@@ -15,7 +15,6 @@ import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { Divider, } from "@nextui-org/react";
 import FacebookLogin from "./FacebookLogin";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import AnimatedBackground from "../components/AnimatedBackground";
 const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 function Login() {
@@ -26,6 +25,10 @@ function Login() {
   const [rememberMe, setRememberMe] = useState(true);
   const [oAuthProvider, setOAuthProvider] = useState({ provider: '', token: '' })
   const [oAuthFacebook, setOAuthFacebook] = useState({ provider: '', firstName: '', lastName: '', email: '', profilePicture: '', facebookId: '' })
+
+  useEffect(() => {
+    document.title = 'Login | Fitness360'
+  }, [])
 
   const toggleEye = () => {
     setViewType(viewType === 'password' ? 'text' : 'password');

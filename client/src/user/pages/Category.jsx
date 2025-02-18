@@ -4,6 +4,7 @@ import { Card, CardFooter, image, Image, Link } from "@nextui-org/react";
 import { categoryimg1, categoryimg2, categoryimg3, categoryimg4, categoryimg5, categoryimg6, categoryimg7, categoryimg8 } from "../../components/images";
 import { useNavigate } from "react-router-dom";
 import Workouts from "./Workouts";
+import { useEffect } from "react";
 function Category() {
     const navigate = useNavigate()
     const categoryData = [
@@ -49,7 +50,9 @@ function Category() {
             workoutValue: 'lowerbody'
         },
     ]
-
+    useEffect(() => {
+        document.title = 'Category | Fitness360'
+    }, [])
     const navigateToWorkout = async (workoutValue) => {
         // navigate('/user/workout')
         sessionStorage.setItem('workoutValue', workoutValue);

@@ -1,5 +1,5 @@
 import '../styleSheets/Home.css'
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 const Loader = React.lazy(() => import('../components/Loader.jsx'))
 const Banner = React.lazy(() => import('./home/Banner.jsx'));
 const StatBanner = React.lazy(() => import('./home/StatBanner.jsx'));
@@ -12,6 +12,9 @@ const Faq = React.lazy(() => import('./home/Faq.jsx'));
 
 
 function Home() {
+  useEffect(() => {
+    document.title = 'Home | Fitness360'
+  }, [])
   const components = [Banner, StatBanner, ChooseUs, Trainers, Coaches, JoinToday, CallUs, Faq
   ];
   // const components = [Banner, StatBanner, ChooseUs, Trainers, Coaches, JoinToday, CallUs];

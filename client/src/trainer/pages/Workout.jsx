@@ -43,6 +43,7 @@ function Workout() {
     const [getData, setGetData] = useState('')
 
     useEffect(() => {
+        document.title = 'Workout | Fitness360'
         const token = sessionStorage.getItem('token') || localStorage.getItem('token');
         if (token) {
             const decodedToken = jwtDecode(token);

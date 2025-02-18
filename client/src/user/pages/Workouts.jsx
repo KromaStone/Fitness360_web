@@ -31,6 +31,7 @@ function Workouts() {
     const navigate = useNavigate()
 
     useEffect(() => {
+        document.title = 'Workouts | Fitness360'
         const workoutValue = (sessionStorage.getItem('workoutValue'))
         if (workoutValue && workoutValue.length > 0) {
             setworkOut(selectedCategory);

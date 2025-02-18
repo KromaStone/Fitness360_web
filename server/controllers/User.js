@@ -1,4 +1,4 @@
-import { createUser, deleteUser, findUserById, getUsers, updateUser, userCount } from '../services/UserService.js';
+import { createUser, deleteUser, findUserById, getUserDetails, getUsers, updateUser, userCount } from '../services/UserService.js';
 import { validatePagination } from '../utils/utilityFunctions.js';
 // const imageBaseUrl = 'http://localhost:8080';
 
@@ -65,12 +65,23 @@ export const DeleteUser = async (req, res) => {
 
 export const FindUserById = async (req, res) => {
     try {
-        const userData = await findUserById(req.query.id); // Use req.params.
+        const userData = await findUserById(req.query.id); 
         if (!userData) {
             return res.status(404).send({ error: "User does not exist" });
         }
         res.status(200).send(userData);
     } catch (e) {
-        res.status(500).send({ error: e.message || "Internal Server Error" }); // Change to 500 for internal errors
+        res.status(500).send({ error: e.message || "Internal Server Error" }); 
+    }
+};
+export const GetUserDetails = async (req, res) => {
+    try {
+        const userData = await getUserDetails(req.query.id);
+        if (!userData) {
+            return res.status(404).send({ error: "User does not exist" });
+        }
+        res.status(200).send(userData);
+    } catch (e) {
+        res.status(500).send({ error: e.message || "Internal Server Error" });
     }
 };

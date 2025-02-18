@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import { CreateAdmin, DeleteAdmin, FindAdminById, GetAdmin, UpdateAdmin } from "./controllers/Admin.js";
-import { CreateUser, DeleteUser, FindUserById, GetUsers, UpdateUser, UserCount } from "./controllers/User.js";
+import { CreateUser, DeleteUser, FindUserById, GetUserDetails, GetUsers, UpdateUser, UserCount } from "./controllers/User.js";
 import { CreateTrainer, DeleteTrainer, FindTrainerById, GetTrainers, GetTrainersName, TrainerCount, UpdateTrainer } from "./controllers/Trainer.js";
 import { Login, oAuth } from "./controllers/Login.js";
 import { GetTrainerDetails } from "./controllers/Home.js";
@@ -92,6 +92,7 @@ if (cluster.isPrimary) {
     router.put("/user", verifyAndCheckRole(['admin', 'user']), UpdateUser);
     router.delete("/user", verifyAndCheckRole(['admin', 'user']), DeleteUser);
     router.get("/finduserbyid", verifyAndCheckRole(['admin', 'trainer', 'user']), FindUserById);
+    router.get("/getUserDetails", verifyAndCheckRole(['admin', 'trainer', 'user']), GetUserDetails);
 
     //trainers
     router.get("/trainercount", verifyAndCheckRole(['admin']), TrainerCount)

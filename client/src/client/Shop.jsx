@@ -4,8 +4,13 @@ import { product1, product2, product3, product4 } from '../components/images'
 import { NextButton } from "../components/NextButton";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { toast, Toaster } from "sonner";
+import { useEffect } from "react";
 
 function Shop() {
+
+  useEffect(() => {
+    document.title = 'Shop | Fitness360'
+  }, [])
 
   const products = [
     { id: 1, image: product1, name: 'Super Dumble', price: ' 10' },

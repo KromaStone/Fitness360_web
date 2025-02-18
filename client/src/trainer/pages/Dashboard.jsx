@@ -2,9 +2,12 @@ import { Card, CardBody, CircularProgress } from "@nextui-org/react"
 import { fadeIn } from "../../assets/utils/motion"
 import { motion } from "framer-motion"
 import { traineeLoader, trainerLoader } from "../../components/icons"
+import { useEffect } from "react"
 function Dashboard() {
+  useEffect(() => {
+    document.title = 'Trainer DashBoard | Fitness360'
+  }, [])
   return (
-
     <>
       <div className="flex gap-5">
         {/* trainer  */}
@@ -65,17 +68,6 @@ function Dashboard() {
             variants={fadeIn("up", "", 0.6, 0.5)}
             src={traineeLoader} alt="" className="h-56 aspect-auto  hover:cursor-pointer" />
         </div>
-
-        {/* <div className="w-2/6 flex flex-col gap-5">
-          <div className="border border-yellow-200 rounded-xl p-4 flex flex-col justify-between h-[50%] dark:text-light">
-            <Progress className="max-w-md" size="lg" value={totalWorkout} />
-            <p>Total Workouts: {totalWorkout}
-            </p>
-          </div>
-          <div className=" bg-blue-50 border border-blue-200 rounded-xl p-4 flex justify-between h-[50%] dark:text-light">
-
-          </div>
-        </div> */}
       </div>
     </>
   )

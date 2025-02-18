@@ -25,10 +25,15 @@ const TopMenu = ({ RoutesData, toggleSideMenu }) => {
     };
     useEffect(() => {
         const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-        const decodedToken = jwtDecode(token);
-        setUserName(decodedToken.userName);
-        setUserEmail(decodedToken.email);
-        setProfilePicture(decodedToken.profilePicture)
+        if (!token) {
+            navigate('/home')
+        } else {
+            const decodedToken = jwtDecode(token);
+            setUserName(decodedToken.userName);
+            setUserEmail(decodedToken.email);
+            setProfilePicture(decodedToken.profilePicture)
+        }
+
     }, [])
     const [isOpen, setIsOpen] = useState(false);
 

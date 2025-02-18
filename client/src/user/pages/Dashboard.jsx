@@ -19,6 +19,12 @@ function Dashboard() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
 
+  useEffect(() => {
+    getEnrolledWorkout(appUserId);
+    document.title = `DashBoard | Fitness360`
+  }, [])
+
+
   const handlePlayPause = () => {
     const video = videoRef.current;
     if (isPlaying) {
@@ -63,11 +69,6 @@ function Dashboard() {
   const handleLoadedMetadata = () => {
     setDuration(videoRef.current.duration);
   };
-
-  useEffect(() => {
-    getEnrolledWorkout(appUserId);
-  }, [])
-
 
   const getEnrolledWorkout = async (appUserId) => {
     try {

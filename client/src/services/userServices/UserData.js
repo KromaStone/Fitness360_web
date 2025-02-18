@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { userdetail } from '../apiEndPoint/EnpPoint'
+import { getUserdetails, userdetail } from '../apiEndPoint/EnpPoint'
 
 const token = localStorage.getItem('token') || sessionStorage.getItem('token');
 
@@ -14,6 +14,20 @@ export const getUserDetails = async (id) => {
         )
         return response.data
     } catch (error) {
-        // console.log(error)
+        console.log(error)
+    }
+}
+export const getUsersAllDetails = async (id) => {
+    try {
+        const response = await axios.get(`${getUserdetails}?id=${id}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        )
+        return response.data
+    } catch (error) {
+        console.log(error)
     }
 }

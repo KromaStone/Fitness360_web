@@ -19,14 +19,17 @@ const TopMenu = ({ RoutesData, toggleSideMenu }) => {
     const navigate = useNavigate()
     useEffect(() => {
         const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-        const decodedToken = jwtDecode(token);
-        // setUserName(decodedToken.userName);
-        let userName = decodedToken.userName;
-        let nameParts = userName.split(' ');
-        let cleanedName = nameParts.filter(part => part !== 'undefined' && part.trim() !== '').join(' ');
-        setUserName(cleanedName);
-        setUserEmail(decodedToken.email);
-        setProfilePicture(decodedToken.profilePicture)
+        if (!token) {
+            navigate('/home')
+        } else {
+            const decodedToken = jwtDecode(token);
+            let userName = decodedToken.userName;
+            let nameParts = userName.split(' ');
+            let cleanedName = nameParts.filter(part => part !== 'undefined' && part.trim() !== '').join(' ');
+            setUserName(cleanedName);
+            setUserEmail(decodedToken.email);
+            setProfilePicture(decodedToken.profilePicture)
+        }
     }, [])
     const [isOpen, setIsOpen] = useState(false);
 

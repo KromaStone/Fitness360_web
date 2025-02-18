@@ -85,6 +85,7 @@ function Users() {
     };
 
     useEffect(() => {
+        document.title = 'Users | Fitness360'
         fetchAllUsers(currentPage);
     }, [currentPage]);
 

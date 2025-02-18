@@ -34,6 +34,7 @@ function Workout() {
     const [selectedValue, setSelectedValue] = useState("Trainer")
     const [trainerId, setTrainerId] = useState('')
     useEffect(() => {
+        document.title = 'Workouts | Fitness360'
         getWorkout(trainerId, currentPage)
         getTrainersName();
     }, [currentPage, trainerId]);
