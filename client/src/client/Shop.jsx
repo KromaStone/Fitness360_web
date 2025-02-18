@@ -75,9 +75,6 @@ function Shop() {
                 <p className="text-sm text-secondary/70 dark:text-secondlight/70">&#8377;
                   {product.price}</p>
               </div>
-              {/* <button className="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition duration-300">
-              Add to Cart
-            </button> */}
               <div className="flex justify-between gap-2 w-full">
                 <NextButton className="w-5/12 bg-light text-background border-background/30 border-1 dark:bg-secondary/90 dark:text-light dark:border-light/5" onClick={workFeature}>
                   save

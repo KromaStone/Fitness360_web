@@ -64,10 +64,6 @@ function Trainers() {
 
   return (
     <>
-      <div className={`absolute z-20 rounded-2xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-svh w-svw ${loading === true ? "" : "hidden"}`}>
-        <Loader />
-      </div>
-
       <section className="w-full h-full border-solid text-center px-6 sm:px-12 lg:px-24 py-10 lg:py-20 text-background bg-light dark:bg-background dark:text-light">
         <motion.h2
           whileInView="show"
@@ -83,68 +79,246 @@ function Trainers() {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ipsa deleniti, ipsum saepe earum obcaecati praesentium officiis maxime hic ullam.
         </motion.p>
 
-        <motion.div
-          whileInView="show"
-          initial="hidden"
-          viewport={{ once: false, amount: 0.2 }}
-          variants={fadeIn("up", "", 0.6, 0.5)} className="grid gap-4 grid-cols-[repeat(auto-fill,_minmax(320px,_1fr))] auto-rows-min plcai">
-
-          {trainersData.map((trainer, index) => (
+        {loading === true ?
+          // <Loader />
+          <div className="grid gap-4 grid-cols-[repeat(auto-fill,_minmax(320px,_1fr))] auto-rows-min plcai">
             <motion.div
               whileInView="show"
               initial="hidden"
               viewport={{ once: false, amount: 0.2 }}
-              variants={fadeIn("up", "", index * 0.1, 0.5)}
-              key={index}
+              variants={fadeIn("up", "", 0.1, 0.5)}
             >
-              <Card isFooterBlurred className="border-none w-fit  h-56 bg-background dark:bg-secondlight/40 dark:shadow-none mb-6 " radius="lg">
-                <Image
-                  alt="Woman listing to music"
-                  className="object-cover w-full "
-                  src={trainer.image || trainer4}
-                />
+              <Card isFooterBlurred className="border-none border-2 border-yellow-400  h-56 bg-background/20 dark:bg-secondlight/20 dark:shadow-none mb-6 " radius="lg">
                 <CardFooter className=" before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10 justify-between">
                   <p className="text-tiny left-0 text-white/80 text-left">
-                    <span className="block text-base">{trainer.firstName + " " + trainer.lastName}</span>
-                    <span>{trainer.serviceType}</span>
+
                   </p>
 
                   <p
-                    className="text-tiny text-white bg-background/40 flex gap-1 p-1 rounded-full"
+                    className="text-tiny text-white bg-background/20 flex gap-1 p-1 rounded-full"
                     color="default"
                     radius="lg"
                     size="sm"
                   >
-                    <LazyLoadImage src={instagramIcon} className="text-tiny text-white hover:cursor-pointer bg-secondary hover:bg-primary p-1 rounded-full transition ease-in-out duration-800"
+                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
-                      size="sm"
-                      onClick={() => onSmClick(trainer.instaId)} />
-                    <LazyLoadImage src={twitterIcon} className="text-tiny text-white hover:cursor-pointer bg-secondary hover:bg-primary p-1 rounded-full transition ease-in-out duration-800"
+                      size="sm" />
+                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
-                      size="sm"
-                      onClick={() => onSmClick(trainer.twitter)} />
-                    <LazyLoadImage src={facebookIcon} className="text-tiny text-white hover:cursor-pointer bg-secondary hover:bg-primary p-1 rounded-full transition ease-in-out duration-800"
+                      size="sm" />
+                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
                       color="default"
                       radius="lg"
-                      size="sm"
-                      onClick={() => onSmClick(trainer.facebook)} />
+                      size="sm" />
+
                   </p>
                 </CardFooter>
               </Card>
             </motion.div>
-          ))}
-        </motion.div>
+            <motion.div
+              whileInView="show"
+              initial="hidden"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={fadeIn("up", "", 0.1, 0.5)}
+            >
+              <Card isFooterBlurred className="border-none border-2 border-yellow-400  h-56 bg-background/20 dark:bg-secondlight/20 dark:shadow-none mb-6 " radius="lg">
+                <CardFooter className=" before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10 justify-between">
+                  <p className="text-tiny left-0 text-white/80 text-left">
 
+                  </p>
+
+                  <p
+                    className="text-tiny text-white bg-background/20 flex gap-1 p-1 rounded-full"
+                    color="default"
+                    radius="lg"
+                    size="sm"
+                  >
+                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                      color="default"
+                      radius="lg"
+                      size="sm" />
+                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                      color="default"
+                      radius="lg"
+                      size="sm" />
+                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                      color="default"
+                      radius="lg"
+                      size="sm" />
+
+                  </p>
+                </CardFooter>
+              </Card>
+            </motion.div>
+            <motion.div
+              whileInView="show"
+              initial="hidden"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={fadeIn("up", "", 0.1, 0.5)}
+            >
+              <Card isFooterBlurred className="border-none border-2 border-yellow-400  h-56 bg-background/20 dark:bg-secondlight/20 dark:shadow-none mb-6 " radius="lg">
+                <CardFooter className=" before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10 justify-between">
+                  <p className="text-tiny left-0 text-white/80 text-left">
+
+                  </p>
+
+                  <p
+                    className="text-tiny text-white bg-background/20 flex gap-1 p-1 rounded-full"
+                    color="default"
+                    radius="lg"
+                    size="sm"
+                  >
+                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                      color="default"
+                      radius="lg"
+                      size="sm" />
+                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                      color="default"
+                      radius="lg"
+                      size="sm" />
+                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                      color="default"
+                      radius="lg"
+                      size="sm" />
+
+                  </p>
+                </CardFooter>
+              </Card>
+            </motion.div>
+            <motion.div
+              whileInView="show"
+              initial="hidden"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={fadeIn("up", "", 0.1, 0.5)}
+            >
+              <Card isFooterBlurred className="border-none border-2 border-yellow-400  h-56 bg-background/20 dark:bg-secondlight/20 dark:shadow-none mb-6 " radius="lg">
+                <CardFooter className=" before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10 justify-between">
+                  <p className="text-tiny left-0 text-white/80 text-left">
+
+                  </p>
+
+                  <p
+                    className="text-tiny text-white bg-background/20 flex gap-1 p-1 rounded-full"
+                    color="default"
+                    radius="lg"
+                    size="sm"
+                  >
+                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                      color="default"
+                      radius="lg"
+                      size="sm" />
+                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                      color="default"
+                      radius="lg"
+                      size="sm" />
+                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                      color="default"
+                      radius="lg"
+                      size="sm" />
+
+                  </p>
+                </CardFooter>
+              </Card>
+            </motion.div>
+            <motion.div
+              whileInView="show"
+              initial="hidden"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={fadeIn("up", "", 0.1, 0.5)}
+            >
+              <Card isFooterBlurred className="border-none border-2 border-yellow-400  h-56 bg-background/20 dark:bg-secondlight/20 dark:shadow-none mb-6 " radius="lg">
+                <CardFooter className=" before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10 justify-between">
+                  <p className="text-tiny left-0 text-white/80 text-left">
+
+                  </p>
+
+                  <p
+                    className="text-tiny text-white bg-background/20 flex gap-1 p-1 rounded-full"
+                    color="default"
+                    radius="lg"
+                    size="sm"
+                  >
+                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                      color="default"
+                      radius="lg"
+                      size="sm" />
+                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                      color="default"
+                      radius="lg"
+                      size="sm" />
+                    <p className="text-tiny text-white hover:cursor-pointer bg-secondary/20 rounded-full w-10 h-10 transition ease-in-out duration-800"
+                      color="default"
+                      radius="lg"
+                      size="sm" />
+
+                  </p>
+                </CardFooter>
+              </Card>
+            </motion.div>
+
+          </div>
+          :
+          <motion.div
+            whileInView="show"
+            initial="hidden"
+            viewport={{ once: false, amount: 0.2 }}
+            variants={fadeIn("up", "", 0.6, 0.5)} className="grid gap-4 grid-cols-[repeat(auto-fill,_minmax(320px,_1fr))] auto-rows-min plcai">
+
+            {trainersData.map((trainer, index) => (
+              <motion.div
+                whileInView="show"
+                initial="hidden"
+                viewport={{ once: false, amount: 0.2 }}
+                variants={fadeIn("up", "", index * 0.1, 0.5)}
+                key={index}
+              >
+                <Card isFooterBlurred className="border-none w-fit  h-56 bg-background dark:bg-secondlight/40 dark:shadow-none mb-6 " radius="lg">
+                  <Image
+                    alt="Woman listing to music"
+                    className="object-cover w-full "
+                    src={trainer.image || trainer4}
+                  />
+                  <CardFooter className=" before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10 justify-between">
+                    <p className="text-tiny left-0 text-white/80 text-left">
+                      <span className="block text-base">{trainer.firstName + " " + trainer.lastName}</span>
+                      <span>{trainer.serviceType}</span>
+                    </p>
+
+                    <p
+                      className="text-tiny text-white bg-background/40 flex gap-1 p-1 rounded-full"
+                      color="default"
+                      radius="lg"
+                      size="sm"
+                    >
+                      <LazyLoadImage src={instagramIcon} className="text-tiny text-white hover:cursor-pointer bg-secondary hover:bg-primary p-1 rounded-full transition ease-in-out duration-800"
+                        color="default"
+                        radius="lg"
+                        size="sm"
+                        onClick={() => onSmClick(trainer.instaId)} />
+                      <LazyLoadImage src={twitterIcon} className="text-tiny text-white hover:cursor-pointer bg-secondary hover:bg-primary p-1 rounded-full transition ease-in-out duration-800"
+                        color="default"
+                        radius="lg"
+                        size="sm"
+                        onClick={() => onSmClick(trainer.twitter)} />
+                      <LazyLoadImage src={facebookIcon} className="text-tiny text-white hover:cursor-pointer bg-secondary hover:bg-primary p-1 rounded-full transition ease-in-out duration-800"
+                        color="default"
+                        radius="lg"
+                        size="sm"
+                        onClick={() => onSmClick(trainer.facebook)} />
+                    </p>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        }
         <div className="pagination-controls text-light flex justify-end">
           <div className="text-white bg-background/40 flex gap-1 rounded-full p-2 dark:bg-secondlight/50">
             <button onClick={() => handlePageChange("back")} disabled={page === 1} className={`bg-secondary py-1 rounded-full px-4 border-[1px] border-secondary hover:border-secondlight transition ease-in-out duration-400 ${page === totalPages ? "hover:border-secondary" : ""}`} >
               Back
             </button>
-            {/* <span className="mx-4">
-            Page {page} of {totalPages}
-          </span> */}
             <button onClick={() => handlePageChange("next")} disabled={page === totalPages} className={`bg-secondary py-1 rounded-full px-4 border-[1px] border-secondary hover:border-secondlight transition ease-in-out duration-400 ${page === totalPages ? "hover:border-secondary" : ""}`}>
               See More
             </button>
