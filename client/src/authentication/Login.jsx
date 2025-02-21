@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Input } from "@nextui-org/input";
 import { Checkbox } from "@nextui-org/react";
@@ -25,8 +25,9 @@ function Login() {
   const [rememberMe, setRememberMe] = useState(true);
   const [oAuthProvider, setOAuthProvider] = useState({ provider: '', token: '' })
   const [oAuthFacebook, setOAuthFacebook] = useState({ provider: '', firstName: '', lastName: '', email: '', profilePicture: '', facebookId: '' })
-
+  const loginRef = useRef()
   useEffect(() => {
+    loginRef.current.focus();
     document.title = 'Login | Fitness360'
   }, [])
 
@@ -194,6 +195,7 @@ function Login() {
           <form >
             <div className="w-full">
               <Input
+                ref={loginRef}
                 name="email"
                 label="Email"
                 className="w-full mb-4 text-background h-12 border-1 border-background/10 rounded-lg"
