@@ -411,7 +411,7 @@ function About() {
                   <div className="relative w-full h-80 px-6">
                     <div className=" h-full w-full bg-background dark:bg-light rounded-t-full transition ease-in-out duration-300 "></div>
 
-                    <div className="group-hover:h-full h-0 w-[calc(100%-48px)] bg-fitnessRed dark:bg-light rounded-t-full transition-all ease-in-out duration-300 absolute bottom-0"></div>
+                    <div className="group-hover:h-full h-0 w-[calc(100%-48px)] bg-fitnessRed  dark:bg-fitnessRed rounded-t-full transition-all ease-in-out duration-300 absolute bottom-0"></div>
                   </div>
 
 
