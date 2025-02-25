@@ -144,7 +144,7 @@ function Dashboard() {
                   <div className="flex flex-col gap-2 w-full md:w-9/12">
 
                     <div
-                      className="w-full h-full flex flex-col items-center justify-center rounded-xl relative bg-black"
+                      className="w-full h-fit flex flex-col items-center justify-center rounded-xl relative bg-black"
                       onMouseEnter={() => setIsHovered(true)}
                       onMouseLeave={() => setIsHovered(false)}
                     >
@@ -172,8 +172,7 @@ function Dashboard() {
                       )}
 
                       {isHovered && (
-                        <div className="absolute bottom-4 w-[98%] backdrop-blur-lg bg-secondary/20 border-1 border-light/30 text-light p-3 rounded-lg flex flex-col gap-2">
-
+                        <div className="absolute bottom-1 md:bottom-2 lg:bottom-3 w-[98%] backdrop-blur-lg bg-secondary/20 border-1 border-light/30 text-light p-1 md:p-2 lg:p-3 rounded-lg flex flex-col gap-2">
 
                           {/* Seek Bar */}
                           <div className="flex justify-between gap-2 text-sm mt-1">
@@ -190,9 +189,9 @@ function Dashboard() {
 
 
 
-                          <div className="flex items-center justify-between gap-0">
+                          <div className="flex items-center justify-between gap-0 h-fit">
 
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-1 md:gap-2 h-1 sm:h-2 md:h-fit">
 
                               <button
                                 className={`pl-0 p-2 rounded-md`}
@@ -251,7 +250,7 @@ function Dashboard() {
 
 
 
-                    <p className="bg-light dark:bg-secondary border-1 border-background/20 rounded-xl px-4 py-2">
+                    <p className="bg-light dark:bg-secondary border-1 border-background/20 rounded-xl px-4 py-2 h-full">
                       <strong>Description:</strong> {selectedWorkout.description}
                     </p>
                   </div>

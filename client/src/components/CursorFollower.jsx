@@ -42,7 +42,7 @@ const CursorFollower = () => {
                 {Array.from({ length: 4 }).map((_, index) => (
                     <motion.div
                         key={index}
-                        className={` fixed top-0 left-0 rounded-full z-4`}
+                        className={`cursorfollower fixed top-0 left-0 rounded-full z-4`}
                         custom={index}
                         variants={cursorVariants}
                         animate="default"

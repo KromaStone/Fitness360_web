@@ -66,9 +66,7 @@ function Workout() {
     const deleteCofirm = async () => {
         setDeleteConfirm(false)
         try {
-            // console.log(selectedWorkoutId)
             const result = await deleteWorkout(selectedWorkoutId)
-            // console.log(result)
             if (result.statusCode === 200) {
                 toast.success(result.message)
                 const closeBtn = document.getElementById('closeVideo')
@@ -107,11 +105,11 @@ function Workout() {
     };
 
     const workoutDetails = (data) => {
-        // console.log('workout details', data)
         setSelectedWorkout(data);
     }
 
     const handleFormSubmit = async (e) => {
+        setLoading(true)
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
 
@@ -171,9 +169,9 @@ function Workout() {
 
         try {
             setLoading(true)
-            console.log("-----API HITTED-----");
+            // console.log("-----API HITTED-----");
             const response = await saveWorkout(formData);
-            console.log("response", response);
+            // console.log("response", response);
             if (response.statusCode === 200) {
                 toast.success(response.message);
                 const closeBtn = document.getElementById("closeBtn");
@@ -250,7 +248,7 @@ function Workout() {
                     <NextButton color='secondary' className='border-1 dark:border-light/50 dark:bg-background dark:text-light bg-light border-background/50 text-background ' onPress={onOpen}>Add Workout</NextButton>
                 </div>
 
-                <div className={`absolute z-50 rounded-2xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-svh w-svw ${loading === true ? "" : "hidden"}`}>
+                <div className={`z-100 absolute z-50 rounded-2xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-svh w-svw ${loading === true ? "" : "hidden"}`}>
                     <Loader />
                 </div>
 

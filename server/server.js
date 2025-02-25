@@ -42,10 +42,8 @@ if (cluster.isPrimary) {
             cb(null, userFolder);
         },
         filename: (req, file, cb) => {
-            // const timestamp = new Date().toISOString().replace(/[-:T]/g, "").slice(0, 12);
             const fileExt = path.extname(file.originalname);
             const email = req.body.email?.replace(/[@.]/g, "") || "unknown";
-            // const fileName = `${email}${timestamp}${fileExt}`;
             const fileName = `${email}${fileExt}`;
             cb(null, fileName);
         },
