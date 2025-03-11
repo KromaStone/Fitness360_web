@@ -7,6 +7,9 @@ import { Icon } from "@iconify/react";
 import { gymTrainer } from '../components/images'
 import { trainerCard, trainerCorner } from '../components/icons'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import ServiceCard from "./components/ServiceCard";
+
+
 function About() {
 
   const companies = [
@@ -101,7 +104,7 @@ function About() {
 
   const stepsData = [
     {
-      stepImage: step1, // Image source
+      stepImage: step1,
       stepHeading: "Gym Movement",
       stepData: "Many gyms offer tools and resources to track progress, such as fitness apps, workout logs, or integrated gym software.",
     },
@@ -195,8 +198,8 @@ function About() {
           variants={fadeIn("", "", 0.3, 0.5)}
           className="text-base sm:text-md lg:text-lg text-center justify-center items-center flex gap-2 text-secondary dark:text-secondlight"
         >
-          <span className="bg-fitnessRed h-[2px] rounded-md w-10 inline-block"></span> Work Process{" "}
-          <span className="bg-fitnessRed h-[2px] rounded-md w-10 inline-block"></span>
+          <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span> Work Process{" "}
+          <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>
         </motion.p>
 
         <motion.h2
@@ -215,7 +218,7 @@ function About() {
               key={index}
               className="w-full md:w-4/12 lg:w-4/12 xl:w-3/12 flex flex-row md:flex-col gap-4 items-center justify-center my-4"
             >
-              <div className="bg-fitnessRed w-[40%] md:w-[70%] rounded-full aspect-square flex items-start justify-center">
+              <div className="bg-primary w-[40%] md:w-[70%] rounded-full aspect-square flex items-start justify-center">
                 <LazyLoadImage
                   src={step.stepImage}
                   alt={step.stepHeading}
@@ -294,7 +297,7 @@ function About() {
           viewport={{ once: false, amount: 0.2 }}
           variants={fadeIn("", "", 0.3, 0.5)}
           className="text-base sm:text-md lg:text-lg text-center justify-center items-center flex gap-2 text-secondary dark:text-secondlight uppercase ">
-          <span className="bg-fitnessRed h-[2px] rounded-md w-10 inline-block"></span> our servies <span className="bg-fitnessRed h-[2px] rounded-md w-10 inline-block"></span>
+          <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span> our servies <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>
         </motion.p>
         <motion.h2
           whileInView="show"
@@ -309,31 +312,13 @@ function About() {
         <div className="container mx-auto p-4 mt-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-8 lg:gap-16 xl:gap-20">
             {serviceData.map((item, index) => (
-              <motion.div
-                whileInView="show"
-                initial="hidden"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={fadeIn("", "", 0.1, 0.2)}
+              <ServiceCard
                 key={index}
-                className={`group hover:bg-fitnessRed hover:text-light bg-secondlight dark:bg-secondary  rounded-3xl flex flex-col gap-3 h-fit transition text ease-in-out duration-300 dark:hover:bg-fitnessRed mt-4`}
-              >
-                <motion.div
-                  whileInView="show"
-                  initial="hidden"
-                  viewport={{ once: false, amount: 0.2 }}
-                  variants={fadeIn("", "", 0.2, 0.4)}
-                  className="group-hover:bg-background dark:group-hover:bg-light dark:group-hover:text-fitnessRed bg-fitnessRed dark:bg-light dark:text-background w-16 h-16 rounded-full relative -top-[36px] left-7 -mb-[60px] flex items-center justify-center border-[6px] text-light z-20 border-light  dark:border-background transition ease-in-out duration-300">
-                  <Icon icon={item.serviceIcon} width="28" />
-                </motion.div>
-                <LazyLoadImage src={trainerCorner} alt="" className="w-20 relative -top-4 -mb-14" />
-
-                <h2 className="mx-8 text-2xl font-bold">{item.serviceHeading}</h2>
-                <p className="mx-8 text-background/80 font-medium group-hover:text-light dark:text-light/80">{item.servicePara}</p>
-                <p className="mx-8 mb-8 inline-block border-b-1  border-current w-fit cursor-pointer hover:scale-105 text-sm hover:transition hover:ease-in-out hover:duration-300">
-                  {item.serviceLink}
-                  <Icon icon="si:arrow-right-fill" width="24" height="24" className="inline" />
-                </p>
-              </motion.div>
+                serviceHeading={item.serviceHeading}
+                servicePara={item.servicePara}
+                serviceIcon={item.serviceIcon}
+                serviceLink={item.serviceLink}
+              />
             ))}
           </div>
         </div>
@@ -373,7 +358,7 @@ function About() {
           viewport={{ once: false, amount: 0.2 }}
           variants={fadeIn("", "", 0.3, 0.5)}
           className="text-base sm:text-md lg:text-lg text-left w-full justify-start items-center flex gap-2 text-secondary dark:text-secondlight uppercase ">
-          our trainers <span className="bg-fitnessRed h-[2px] rounded-md w-10 inline-block"></span>
+          our trainers <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>
         </motion.p>
         <motion.h2
           whileInView="show"
@@ -405,13 +390,13 @@ function About() {
                     src={trainer.TrainerImage} alt=""
                     className="w-64 relative top-[276px] -mt-[256px] z-10" />
                   {/* <div className="relative w-full h-80 px-6">
-                    <div className="group-hover:bg-fitnessRed h-full w-full bg-background dark:bg-light rounded-t-full transition ease-in-out duration-300"></div>
+                    <div className="group-hover:bg-primary h-full w-full bg-background dark:bg-light rounded-t-full transition ease-in-out duration-300"></div>
                     <div className="group-hover:h-full h-0 w-full bg-background dark:bg-light rounded-t-full transition-all ease-in-out duration-300 absolute bottom-0 "></div>
                   </div> */}
                   <div className="relative w-full h-80 px-6">
                     <div className=" h-full w-full bg-background dark:bg-light rounded-t-full transition ease-in-out duration-300 "></div>
 
-                    <div className="group-hover:h-full h-0 w-[calc(100%-48px)] bg-fitnessRed  dark:bg-fitnessRed rounded-t-full transition-all ease-in-out duration-300 absolute bottom-0"></div>
+                    <div className="group-hover:h-full h-0 w-[calc(100%-48px)] bg-primary  dark:bg-primary rounded-t-full transition-all ease-in-out duration-300 absolute bottom-0"></div>
                   </div>
 
 

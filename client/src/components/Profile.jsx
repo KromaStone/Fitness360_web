@@ -97,7 +97,7 @@ function Profile() {
               <Button className="rounded-lg bg-transparent border-1 border-background dark:border-light hover:bg-primary hover:border-green-600 dark:hover:text-light transition ease-in-out duration-300" onClick={editDetails}>Edit</Button>
               :
               <div className="flex items-end justify-end gap-2">
-                <Button className="rounded-lg bg-transparent border-1 hover:text-light border-background dark:border-light hover:bg-fitnessRed hover:border-red-600 dark:hover:text-light transition ease-in-out duration-300" onClick={cancelEditClick}>Cancel</Button>
+                <Button className="rounded-lg bg-transparent border-1 hover:text-light border-background dark:border-light hover:bg-primary hover:border-red-600 dark:hover:text-light transition ease-in-out duration-300" onClick={cancelEditClick}>Cancel</Button>
                 <Button className="rounded-lg bg-transparent border-1 hover:text-light border-background dark:border-light hover:bg-primary hover:border-green-600 dark:hover:text-light transition ease-in-out duration-300">Save Changes</Button>
               </div>
             }
