@@ -13,7 +13,7 @@ function Banner() {
     return (
         <>
             <section
-                className='w-full h-screen flex flex-col justify-center items-center  p-4 overflow-hidden'
+                className='w-full h-screen flex flex-col justify-center items-center  p-4 overflow-hidden -mb-[74px] kkk'
                 style={{ backgroundColor: bannerBg, backgroundPosition: 'center', }}
             >
                 <video
