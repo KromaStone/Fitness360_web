@@ -3,11 +3,9 @@ import { motion } from "framer-motion";
 import { treeCompany, cocoCompany, leafCompany, coffeeCompany, mixlrCompany, gym1Company, gym2Company, watchVideo, aboutUsBanner, step1, step2, step3 } from "../components/images";
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
-import { gymTrainer } from '../components/images'
-import { trainerCard, trainerCorner } from '../components/icons'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import ServiceCard from "./components/ServiceCard";
-
+import Trainers from "./Trainers";
 
 function About() {
 
@@ -146,40 +144,6 @@ function About() {
     }
   ];
 
-  const trainerData = [
-    {
-      TrainerName: "John Doe",
-      TrainerDescription: "Workout Trainer",
-      TrainerImage: gymTrainer,
-      socialMediaLink1: "",
-      socialMediaLink2: "",
-      socialMediaLink3: "",
-    },
-    {
-      TrainerName: "Jane Smith",
-      TrainerDescription: "Yoga Instructor",
-      TrainerImage: gymTrainer,
-      socialMediaLink1: "",
-      socialMediaLink2: "",
-      socialMediaLink3: "",
-    },
-    {
-      TrainerName: "Mike Johnson",
-      TrainerDescription: "Strength Coach",
-      TrainerImage: gymTrainer,
-      socialMediaLink1: "",
-      socialMediaLink2: "",
-      socialMediaLink3: "",
-    },
-    {
-      TrainerName: "Emily Davis",
-      TrainerDescription: "Pilates Expert",
-      TrainerImage: gymTrainer,
-      socialMediaLink1: "",
-      socialMediaLink2: "",
-      socialMediaLink3: "",
-    }
-  ]
 
   return (
     <>
@@ -350,104 +314,7 @@ function About() {
 
 
       {/* trainers  */}
-      <section className="py-8  sm:py-16 lg:py-20px-4 sm:px-8 lg:px-32 bg-light text-background  dark:bg-background dark:text-light flex flex-col justify-center items-center">
-        <motion.p
-          whileInView="show"
-          initial="hidden"
-          viewport={{ once: false, amount: 0.2 }}
-          variants={fadeIn("", "", 0.3, 0.5)}
-          className="text-base sm:text-md lg:text-lg text-left w-full justify-start items-center flex gap-2 text-secondary dark:text-secondlight uppercase ">
-          our trainers <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>
-        </motion.p>
-        <motion.h2
-          whileInView="show"
-          initial="hidden"
-          viewport={{ once: false, amount: 0.2 }}
-          variants={fadeIn("", "", 0.2, 0.5)}
-          className="mt-2 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-wide fade_appear text-left w-full ">
-          Meet Our Skilled Trainer
-        </motion.h2>
-
-
-        <div className="container mx-auto p-4 -mt-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-4 sm:gap-x-8 lg:gap-x-16 xl:gap-x-20">
-            {trainerData.map((trainer, index) => (
-              <motion.div
-                whileInView="show"
-                initial="hidden"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={fadeIn("", "", 0.1, 0.2)}
-                key={index}
-                className={`group bg-transparent dark:bg-transparent p-1 rounded-3xl flex flex-col h-fit transition text ease-in-out duration-300 mt-4 w-full max-w-[300px]`} // fixed width here
-              >
-                <div className="relative top-12 flex flex-col items-center">
-                  <motion.img
-                    whileInView="show"
-                    initial="hidden"
-                    viewport={{ once: true, amount: 0.2 }}
-                    variants={fadeIn("", "", 0.1, 0.2)}
-                    src={trainer.TrainerImage} alt=""
-                    className="w-64 relative top-[276px] -mt-[256px] z-10" />
-                  {/* <div className="relative w-full h-80 px-6">
-                    <div className="group-hover:bg-primary h-full w-full bg-background dark:bg-light rounded-t-full transition ease-in-out duration-300"></div>
-                    <div className="group-hover:h-full h-0 w-full bg-background dark:bg-light rounded-t-full transition-all ease-in-out duration-300 absolute bottom-0 "></div>
-                  </div> */}
-                  <div className="relative w-full h-80 px-6">
-                    <div className=" h-full w-full bg-background dark:bg-light rounded-t-full transition ease-in-out duration-300 "></div>
-
-                    <div className="group-hover:h-full h-0 w-[calc(100%-48px)] bg-primary  dark:bg-primary rounded-t-full transition-all ease-in-out duration-300 absolute bottom-0"></div>
-                  </div>
-
-
-                </div>
-                <LazyLoadImage src={trainerCard} alt="sc" className="w-fit h-fit relative -top-16 -mb-20 z-20" />
-                <div className="bg-secondlight text-center pb-8 rounded-br-xl rounded-bl-xl borde-0 z-20">
-                  <h2 className="text-2xl font-bold dark:text-background relative -top-6">{trainer.TrainerName}</h2>
-                  <p className="text-background/80 font-medium text-sm relative -top-6 -mb-6">{trainer.TrainerDescription}</p>
-                  <div className="flex gap-1 w-full items-center justify-center">
-                    {/* Social icons */}
-                    <motion.div
-                      whileInView="show"
-                      initial="hidden"
-                      viewport={{ once: false, amount: 0.2 }}
-                      variants={fadeIn("", "", 0.2, 0.4)}
-                      className="dark:hover:bg-light bg-secondary dark:bg-light dark:text-background dark:hover:text-light w-12 h-12 rounded-full relative bottom-1 -mb-[70px] flex items-center justify-center border-[4px] text-light border-light dark:border-background transition ease-in-out duration-400
-            hover:bg-gradient-to-tr hover:from-purple-500 hover:via-pink-500 hover:to-red-500 cursor-pointer"
-                    >
-                      <Icon icon="line-md:instagram" width="20" className="hover:scale-125 transition ease-in-out duration-300" />
-                    </motion.div>
-
-                    <motion.div
-                      whileInView="show"
-                      initial="hidden"
-                      viewport={{ once: false, amount: 0.2 }}
-                      variants={fadeIn("", "", 0.2, 0.4)}
-                      className="bg-secondary dark:bg-light dark:text-background dark:hover:text-light w-12 h-12 rounded-full relative bottom-1 -mb-[70px] flex items-center justify-center border-[4px] text-light border-light dark:border-background transition ease-in-out duration-300
-            hover:bg-gradient-to-tr hover:from-blue hover:via-indigo-500 hover:to-purple-500 cursor-pointer"
-                    >
-                      <Icon icon="line-md:facebook" width="20" className="hover:scale-125 transition ease-in-out duration-300" />
-                    </motion.div>
-
-                    <motion.div
-                      whileInView="show"
-                      initial="hidden"
-                      viewport={{ once: false, amount: 0.2 }}
-                      variants={fadeIn("", "", 0.2, 0.4)}
-                      className="bg-secondary dark:bg-light dark:text-background dark:hover:text-light w-12 h-12 rounded-full relative bottom-1 -mb-[70px] flex items-center justify-center border-[4px] text-light border-light dark:border-background transition ease-in-out duration-300
-            hover:bg-gradient-to-tr hover:from-blue hover:via-cyan-600 hover:to-cyan-600 cursor-pointer"
-                    >
-                      <Icon icon="line-md:twitter" width="20" className="hover:scale-125 transition ease-in-out duration-300" />
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-        </div>
-
-      </section>
-
+      <Trainers />
 
 
 
