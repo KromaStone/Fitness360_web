@@ -1,8 +1,8 @@
-import { Icon } from "@iconify/react/dist/iconify.js"
-import { Card, CardBody, CardFooter, Image, Modal, ModalBody, ModalContent, ModalHeader, Tooltip, useDisclosure } from "@nextui-org/react"
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { Card, CardBody, CardFooter, Image, Modal, ModalBody, ModalContent, ModalHeader, Tooltip, useDisclosure } from "@nextui-org/react";
 import { useEffect, useRef, useState } from "react";
-import { useApplicationUser } from "../../utils/ApplicationUserContext";
 import { getEnrolledWorkoutData } from "../../services/userServices/EnrollWorkout";
+import { useApplicationUser } from "../../utils/ApplicationUserContext";
 
 function Dashboard() {
 

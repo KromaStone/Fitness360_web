@@ -1,17 +1,15 @@
 import React from 'react';
 
 function AnimatedBackground() {
-    // Number of balls to display
     const numberOfBalls = 4;
 
-    // Generate an array of balls with random sizes and positions
     const balls = Array.from({ length: numberOfBalls }).map((_, index) => {
-        const size = Math.floor(Math.random() * 80 + 40); // Random size between 40px and 120px
-        const delay = Math.random() * 10; // Random animation delay
-        const duration = Math.random() * 20 + 10; // Random animation duration between 10s and 30s
+        const size = Math.floor(Math.random() * 80 + 40); 
+        const delay = Math.random() * 10; 
+        const duration = Math.random() * 20 + 10; 
         const color = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(
             Math.random() * 256
-        )}, ${Math.floor(Math.random() * 256)}, 0.7)`; // Random color
+        )}, ${Math.floor(Math.random() * 256)}, 0.7)`; 
 
         return (
             <div

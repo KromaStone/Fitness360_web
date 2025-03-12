@@ -1,6 +1,6 @@
+import { Icon } from '@iconify/react/dist/iconify.js';
 import React, { useEffect } from 'react';
 import { NextButton } from '../components/NextButton';
-import { Icon } from '@iconify/react/dist/iconify.js';
 const facebookId = import.meta.env.VITE_FACEBOOK_ID
 const FacebookLogin = ({ onSuccess }) => {
     // Initialize the Facebook SDK

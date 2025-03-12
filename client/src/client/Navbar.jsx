@@ -1,11 +1,11 @@
-import { Suspense, useState, useEffect, useRef } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import logo from './../assets/logos/logo.png';
 import { motion } from 'framer-motion';
+import { Suspense, useEffect, useRef, useState } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { fadeIn } from '../assets/utils/motion.js';
 import { NextButton } from '../components/NextButton';
 import ThemeToggle from '../theme/ThemeToggle.jsx';
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import logo from './../assets/logos/logo.png';
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navigate = useNavigate();

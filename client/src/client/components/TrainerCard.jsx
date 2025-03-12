@@ -1,9 +1,9 @@
-import React from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { motion } from 'framer-motion'
-import { fadeIn } from '../../assets/utils/motion'
 import { Icon } from "@iconify/react";
-import { trainerCard } from '../../components/icons'
+import { motion } from 'framer-motion';
+import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { fadeIn } from '../../assets/utils/motion';
+import { trainerCard } from '../../components/icons';
 
 function TrainerCard({ TrainerName, TrainerDescription, TrainerImage, socialMediaLink1, socialMediaLink2, socialMediaLink3 }) {
     return (

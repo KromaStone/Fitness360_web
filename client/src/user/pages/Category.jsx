@@ -1,10 +1,9 @@
+import { Card, CardFooter } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { fadeIn } from "../../assets/utils/motion";
-import { Card, CardFooter, image, Image, Link } from "@nextui-org/react";
-import { categoryimg1, categoryimg2, categoryimg3, categoryimg4, categoryimg5, categoryimg6, categoryimg7, categoryimg8 } from "../../components/images";
-import { useNavigate } from "react-router-dom";
-import Workouts from "./Workouts";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { fadeIn } from "../../assets/utils/motion";
+import { categoryimg1, categoryimg2, categoryimg3, categoryimg4, categoryimg5, categoryimg6, categoryimg7, categoryimg8 } from "../../components/images";
 function Category() {
     const navigate = useNavigate()
     const categoryData = [

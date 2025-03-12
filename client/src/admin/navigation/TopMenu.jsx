@@ -1,16 +1,15 @@
-import { useEffect, useState } from 'react';
-import { bellIcon } from '../../components/icons'
-import { useNavigate } from 'react-router-dom'
-import profileBanner from '../../assets/images/profileBanner.jpg'
-import profilePic from '../../assets/images/profilePic.jpg'
-import { searchIcon } from '../../components/icons'
-import { motion } from "framer-motion"
-import { fadeIn } from '../../assets/utils/motion';
+import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 import { jwtDecode } from 'jwt-decode';
+import { useEffect, useState } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useNavigate } from 'react-router-dom';
+import profileBanner from '../../assets/images/profileBanner.jpg';
+import profilePic from '../../assets/images/profilePic.jpg';
+import { fadeIn } from '../../assets/utils/motion';
+import { bellIcon, searchIcon } from '../../components/icons';
 import { NextButton } from '../../components/NextButton';
 import ThemeToggle from '../../theme/ThemeToggle';
-import { Icon } from "@iconify/react";
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const LazyLoadImageBaseUrl = '';
 

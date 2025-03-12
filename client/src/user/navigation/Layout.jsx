@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import { ApplicationUserProvider } from '../../utils/ApplicationUserContext.jsx';
 import SideMenu from './SideMenu';
 import TopMenu from './TopMenu';
 import { RoutesData } from './UsersRoutesData';
-import { ApplicationUserProvider } from '../../utils/ApplicationUserContext.jsx';
 
 const Layout = () => {
     const [isSideMenuOpen, setSideMenuOpen] = useState(false);

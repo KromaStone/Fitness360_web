@@ -1,13 +1,13 @@
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import { RoutesData } from './AdminRoutesData.js';
 import SideMenu from './SideMenu';
 import TopMenu from './TopMenu';
-import { RoutesData } from './AdminRoutesData.js';
-import { useState } from 'react';
 
 const Layout = () => {
-       const [isSideMenuOpen, setSideMenuOpen] = useState(false);
-        const toggleSideMenu = () => setSideMenuOpen((prev) => !prev);
-    
+    const [isSideMenuOpen, setSideMenuOpen] = useState(false);
+    const toggleSideMenu = () => setSideMenuOpen((prev) => !prev);
+
     return (
         <div className="bg-secondlight dark:bg-background text-background dark:text-light">
             <div className="top-0 w-full p-1 sm:pt-[10px] sm:px-2">

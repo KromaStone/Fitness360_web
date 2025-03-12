@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { getWorkoutByCategoryData, getWorkoutData } from "../../services/adminService/Workout";
-import { NextButton } from "../../components/NextButton";
+import { Icon } from "@iconify/react";
 import {
-    Button, Card, CardBody, CardFooter, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Image, Tooltip, Modal,
+    Button, Card, CardBody, CardFooter, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Image,
+    Modal,
+    ModalBody,
     ModalContent,
     ModalHeader,
-    ModalBody,
-    ModalFooter,
-    useDisclosure,
+    Tooltip,
+    useDisclosure
 } from "@nextui-org/react";
-import { Icon } from "@iconify/react";
-import { useApplicationUser } from "../../utils/ApplicationUserContext";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { toast, Toaster } from "sonner";
+import { NextButton } from "../../components/NextButton";
+import { getWorkoutByCategoryData } from "../../services/adminService/Workout";
 import { enrollWorkoutData } from "../../services/userServices/EnrollWorkout";
-import { useNavigate } from 'react-router-dom'
+import { useApplicationUser } from "../../utils/ApplicationUserContext";
 
 function Workouts() {
     const [selectedCategory, setSelectedCategory] = useState('');

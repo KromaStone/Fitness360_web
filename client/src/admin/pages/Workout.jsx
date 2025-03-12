@@ -1,24 +1,30 @@
-import React, { useEffect, useMemo, useState } from 'react'
-import { getTrainersNameDate, getWorkoutData } from '../../services/adminService/Workout';
-import Loader from '../../components/Loader';
+import { Icon } from "@iconify/react";
+import { Form } from "@nextui-org/form";
+import {
+    Button,
+    Card, CardBody,
+    CardFooter,
+    Dropdown,
+    DropdownItem,
+    DropdownMenu,
+    DropdownTrigger,
+    Image,
+    Input,
+    Modal,
+    ModalBody,
+    ModalContent,
+    ModalFooter,
+    ModalHeader,
+    Tooltip,
+    useDisclosure
+} from "@nextui-org/react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
-import { Toaster, toast } from 'sonner'
-import { motion } from 'framer-motion';
-import { fadeIn } from '../../assets/utils/motion';
-import {
-    Input,
-    Card, CardBody, Image, Button, Slider, Modal,
-    ModalContent,
-    ModalHeader,
-    ModalBody,
-    ModalFooter,
-    CardFooter,
-    useDisclosure, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Tooltip
-} from "@nextui-org/react";
-import { Form } from "@nextui-org/form";
+import React, { useEffect, useState } from 'react';
+import { Toaster, toast } from 'sonner';
+import Loader from '../../components/Loader';
 import { NextButton } from '../../components/NextButton';
-import { Icon } from "@iconify/react";
+import { getTrainersNameDate, getWorkoutData } from '../../services/adminService/Workout';
 
 
 function Workout() {

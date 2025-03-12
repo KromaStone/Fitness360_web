@@ -1,5 +1,5 @@
-import '../styleSheets/test.css'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import '../styleSheets/test.css'
 function Test() {
     return (
         <>

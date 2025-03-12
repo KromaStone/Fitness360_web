@@ -1,5 +1,4 @@
 import { Icon } from '@iconify/react/dist/iconify.js';
-import { phoneIcon, mailIcon, mapPinIcon } from '../../src/components/icons'
 import { motion } from 'framer-motion';
 import { fadeIn } from '../assets/utils/motion';
 

@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import { useLocation, Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import logo from "../../assets/logos/logo.png";
-import { chevronUpIcon, menuIcon, xIcon } from "../../components/icons";
-import { getUserDetails } from "../../services/userServices/UserData";
-import { jwtDecode } from 'jwt-decode';
-import { fadeIn } from "../../assets/utils/motion";
 import { Icon } from "@iconify/react";
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { AnimatePresence, motion } from "framer-motion";
+import { jwtDecode } from 'jwt-decode';
+import { useEffect, useState } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Link, useLocation } from "react-router-dom";
+import logo from "../../assets/logos/logo.png";
+import { fadeIn } from "../../assets/utils/motion";
+import { chevronUpIcon } from "../../components/icons";
+import { getUserDetails } from "../../services/userServices/UserData";
 const SideMenu = ({ RoutesData, toggleSideMenu }) => {
     const [openMenu, setOpenMenu] = useState(null);
     const [collapsed, setCollapsed] = useState(false);

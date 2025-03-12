@@ -1,10 +1,10 @@
-import { fadeIn } from "../assets/utils/motion";
 import { motion } from "framer-motion";
-import { product1, product2, product3, product4 } from '../components/images'
-import { NextButton } from "../components/NextButton";
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { toast, Toaster } from "sonner";
 import { useEffect } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { toast, Toaster } from "sonner";
+import { fadeIn } from "../assets/utils/motion";
+import { product1, product2, product3, product4 } from '../components/images';
+import { NextButton } from "../components/NextButton";
 
 function Shop() {
 

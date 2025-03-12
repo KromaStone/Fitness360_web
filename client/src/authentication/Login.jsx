@@ -1,20 +1,19 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useState, useRef } from "react";
-import { useNavigate } from 'react-router-dom';
 import { Input } from "@nextui-org/input";
-import { Checkbox } from "@nextui-org/react";
-import { eyeIcon, eyeOffIcon } from '../components/icons';
-import { toast, Toaster } from "sonner";
-import Loader from "../components/Loader";
-import { LoginUser, openAuth } from "../services/AuthenticationService";
+import { Checkbox, Divider } from "@nextui-org/react";
+import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import { motion } from "framer-motion";
-import { fadeIn } from "../assets/utils/motion";
 import { jwtDecode } from "jwt-decode";
+import { useEffect, useRef, useState } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useNavigate } from 'react-router-dom';
+import { toast, Toaster } from "sonner";
+import { fadeIn } from "../assets/utils/motion";
+import { eyeIcon, eyeOffIcon } from '../components/icons';
+import Loader from "../components/Loader";
 import { NextButton } from "../components/NextButton";
-import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import { Divider, } from "@nextui-org/react";
+import { LoginUser, openAuth } from "../services/AuthenticationService";
 import FacebookLogin from "./FacebookLogin";
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 function Login() {

@@ -1,12 +1,12 @@
-import { fadeIn } from "../assets/utils/motion"
+import { Button, Input } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import profilePic from '../assets/images/profilePic.jpg'
-import profileBanner from '../assets/images/profileBanner.jpg'
 import { useEffect, useState } from "react";
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import profileBanner from '../assets/images/profileBanner.jpg';
+import profilePic from '../assets/images/profilePic.jpg';
+import { fadeIn } from "../assets/utils/motion";
+import { getUsersAllDetails } from "../services/userServices/UserData";
 import { useApplicationUser } from "../utils/ApplicationUserContext";
-import { getUserDetails, getUsersAllDetails } from "../services/userServices/UserData";
-import { Button, ButtonGroup, Input } from "@nextui-org/react";
 
 function Profile() {
   const [user, setUser] = useState({

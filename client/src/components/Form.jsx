@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react';
 import { Input } from "@nextui-org/input";
+import { useEffect, useState } from 'react';
 
 const Form = ({ fields, onSubmit, initialValues }) => {
     const [formData, setFormData] = useState(initialValues || {});

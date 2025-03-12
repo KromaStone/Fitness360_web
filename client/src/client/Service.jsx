@@ -1,11 +1,11 @@
 // import React from 'react'
-import { fadeIn } from "../assets/utils/motion";
 import { motion } from "framer-motion";
-import { NextButton } from '../components/NextButton'
-import { serviceBg1, serviceBg2 } from "../components/images";
-import { useNavigate } from 'react-router-dom'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useEffect } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useNavigate } from 'react-router-dom';
+import { fadeIn } from "../assets/utils/motion";
+import { NextButton } from '../components/NextButton';
+import { serviceBg1, serviceBg2 } from "../components/images";
 function Service() {
   useEffect(() => {
     document.title = 'Services | Fitness360'

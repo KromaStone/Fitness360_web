@@ -1,8 +1,8 @@
 import { Card, CardBody, CircularProgress } from "@nextui-org/react"
-import { fadeIn } from "../../assets/utils/motion"
 import { motion } from "framer-motion"
-import { traineeLoader, trainerLoader } from "../../components/icons"
 import { useEffect } from "react"
+import { fadeIn } from "../../assets/utils/motion"
+import { traineeLoader, trainerLoader } from "../../components/icons"
 function Dashboard() {
   useEffect(() => {
     document.title = 'Trainer DashBoard | Fitness360'

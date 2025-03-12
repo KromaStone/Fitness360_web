@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom"
+import CursorFollower from "../components/CursorFollower"
 import Footer from "./Footer"
 import Navbar from "./Navbar"
-import CursorFollower from "../components/CursorFollower"
 
 function HomePage() {
     return (

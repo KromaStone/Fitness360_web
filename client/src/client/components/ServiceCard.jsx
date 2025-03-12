@@ -1,9 +1,9 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { fadeIn } from '../../assets/utils/motion';
 import { Icon } from '@iconify/react';
+import { motion } from 'framer-motion';
+import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { trainerCorner } from '../../components/icons'
+import { fadeIn } from '../../assets/utils/motion';
+import { trainerCorner } from '../../components/icons';
 
 function ServiceCard({ serviceHeading, servicePara, serviceIcon, serviceLink }) {
     return (

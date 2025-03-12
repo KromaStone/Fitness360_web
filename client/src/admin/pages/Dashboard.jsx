@@ -1,12 +1,12 @@
 
 
-import { useEffect, useState } from "react";
+import { Card, CardBody, CircularProgress, Progress } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { userCount } from "../../services/adminService/userService";
-import { trainerCount, workoutCount } from "../../services/adminService/TrainerService";
-import { traineeLoader, trainerLoader } from '../../components/icons'
+import { useEffect, useState } from "react";
 import { fadeIn } from "../../assets/utils/motion";
-import { Progress, CircularProgress, Card, CardBody, CardFooter, Chip } from "@nextui-org/react";
+import { traineeLoader, trainerLoader } from '../../components/icons';
+import { trainerCount, workoutCount } from "../../services/adminService/TrainerService";
+import { userCount } from "../../services/adminService/userService";
 
 
 function Dashboard() {

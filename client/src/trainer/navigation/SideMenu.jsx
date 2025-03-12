@@ -1,11 +1,10 @@
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { useLocation, Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logos/logo.png";
 import { chevronUpIcon, menuIcon, xIcon } from "../../components/icons";
-import { RoutesData } from "./TrainerRoutesData";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 const SideMenu = ({ RoutesData, toggleSideMenu }) => {
     const [openMenu, setOpenMenu] = useState(null);
     const [collapsed, setCollapsed] = useState(false);

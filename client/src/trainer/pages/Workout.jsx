@@ -1,27 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import { deleteWorkout, getWorkoutData, saveWorkout } from '../../services/trainerServices/Workout'
-import Loader from '../../components/Loader';
+import { Icon } from "@iconify/react";
+import { Form } from "@nextui-org/form";
+import {
+    Button,
+    Card, CardBody,
+    CardFooter,
+    Image,
+    Input,
+    Modal,
+    ModalBody,
+    ModalContent,
+    ModalFooter,
+    ModalHeader,
+    Select,
+    SelectItem,
+    Textarea,
+    Tooltip,
+    useDisclosure
+} from "@nextui-org/react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
-import { motion } from 'framer-motion';
-import { fadeIn } from '../../assets/utils/motion';
-import {
-    Input,
-    Card, CardBody, Image, Button, Slider, Modal,
-    ModalContent,
-    ModalHeader,
-    ModalBody,
-    ModalFooter,
-    CardFooter,
-    useDisclosure, Textarea, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem,
-    Select,
-    SelectItem, Tooltip
-} from "@nextui-org/react";
-import { Form } from "@nextui-org/form";
-import { NextButton } from '../../components/NextButton';
 import { jwtDecode } from 'jwt-decode';
+import React, { useEffect, useState } from 'react';
 import { toast, Toaster } from "sonner";
-import { Icon } from "@iconify/react";
+import Loader from '../../components/Loader';
+import { NextButton } from '../../components/NextButton';
+import { deleteWorkout, getWorkoutData, saveWorkout } from '../../services/trainerServices/Workout';
 
 
 function Workout() {

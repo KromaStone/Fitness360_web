@@ -1,5 +1,5 @@
-import '../styleSheets/Home.css'
-import React, { Suspense, useEffect } from 'react'
+import React, { Suspense, useEffect } from 'react';
+import '../styleSheets/Home.css';
 const Loader = React.lazy(() => import('../components/Loader.jsx'))
 const Banner = React.lazy(() => import('./home/Banner.jsx'));
 const ServicesHome = React.lazy(() => import('./home/ServicesHome.jsx'));

@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 import SideMenu from "./SideMenu";
 import TopMenu from "./TopMenu";
 import { RoutesData } from "./TrainerRoutesData";
-import { Outlet } from "react-router-dom";
 
 const Layout = () => {
         const [isSideMenuOpen, setSideMenuOpen] = useState(false);

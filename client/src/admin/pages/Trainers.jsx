@@ -1,16 +1,16 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from "react";
-import Loader from "../../components/Loader";
-import { CreateTrainer, DeleteTrainer, getAllTrainers } from "../../services/adminService/TrainerService";
-import { AgGridReact } from "ag-grid-react";
-import { toast, Toaster } from "sonner";
-import MyForm from '../../components/Form'
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
+import { AgGridReact } from "ag-grid-react";
 import { motion } from 'framer-motion';
+import { useEffect, useState } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { toast, Toaster } from "sonner";
 import { fadeIn } from "../../assets/utils/motion";
+import MyForm from '../../components/Form';
+import Loader from "../../components/Loader";
 import { NextButton } from "../../components/NextButton";
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { CreateTrainer, DeleteTrainer, getAllTrainers } from "../../services/adminService/TrainerService";
 const imgBaseUrl = '';
 function Trainers() {
 

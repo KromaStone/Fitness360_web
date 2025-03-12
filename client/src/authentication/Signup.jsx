@@ -2,18 +2,18 @@
 "use client";
 
 // import React from 'react'
-import { Input, Select, SelectItem, Link, Divider, } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
+import { Divider, Input, Link, Select, SelectItem, } from "@nextui-org/react";
+import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
+import { motion } from "framer-motion";
+import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { fadeIn } from "../assets/utils/motion";
 import { toast, Toaster } from "sonner";
+import { fadeIn } from "../assets/utils/motion";
 import Loader from "../components/Loader";
-import { CreateUser, openAuth } from "../services/AuthenticationService";
 import { NextButton } from "../components/NextButton";
-import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
+import { CreateUser, openAuth } from "../services/AuthenticationService";
 import FacebookLogin from "./FacebookLogin";
 const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 

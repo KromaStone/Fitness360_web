@@ -1,9 +1,9 @@
-import { fadeIn } from "../assets/utils/motion";
-import { motion } from "framer-motion";
-import { treeCompany, cocoCompany, leafCompany, coffeeCompany, mixlrCompany, gym1Company, gym2Company, watchVideo, aboutUsBanner, step1, step2, step3 } from "../components/images";
-import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { fadeIn } from "../assets/utils/motion";
+import { aboutUsBanner, cocoCompany, coffeeCompany, gym1Company, gym2Company, leafCompany, mixlrCompany, step1, step2, step3, treeCompany, watchVideo } from "../components/images";
 import ServiceCard from "./components/ServiceCard";
 import Trainers from "./Trainers";
 

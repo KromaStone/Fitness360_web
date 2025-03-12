@@ -1,8 +1,8 @@
-import React from 'react'
 import { motion } from 'framer-motion'
+import React from 'react'
 import { fadeIn } from '../assets/utils/motion'
-import { gymTrainer1, gymTrainer2, gymTrainer3, gymTrainer4 } from '../components/images'
 import TrainerCard from '../client/components/TrainerCard'
+import { gymTrainer1, gymTrainer2, gymTrainer3, gymTrainer4 } from '../components/images'
 function Trainers() {
   const trainerData = [
     {
