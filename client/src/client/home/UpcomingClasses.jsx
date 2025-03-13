@@ -40,7 +40,7 @@ function UpcomingClasses() {
 
     return (
 
-        <section className=" py-8  sm:py-16 lg:py-20px-4 sm:px-8 lg:px-32 bg-light text-background  dark:bg-background dark:text-light flex flex-col justify-center items-center gap-2 sm:gap-4">
+        <section className=" py-8  sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-32  xl:px-52 bg-light text-background  dark:bg-background dark:text-light flex flex-col justify-center items-center gap-2 sm:gap-4">
             <motion.p
                 whileInView="show"
                 initial="hidden"
