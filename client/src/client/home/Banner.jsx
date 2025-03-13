@@ -35,7 +35,7 @@ function Banner() {
                     variants={fadeIn("up", "", 0.6, 0.5)}
                     className='relative z-10 w-full pl-1 sm:pl-8 lg:pl-32 xl:pl-52 pb-[74px]'
                 >
-                    <p className="text-base sm:text-md lg:text-lg  items-center flex gap-2 text-secondary dark:text-secondlight uppercase ">
+                    <p className="text-base sm:text-md lg:text-lg  items-center flex gap-2 text-primary uppercase ">
                         <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>Keep your body fit with workouts
                     </p>
                     <h1 className='font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[110px] text-left mb-4 text-white uppercase'>
