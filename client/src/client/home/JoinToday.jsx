@@ -48,7 +48,7 @@ function JoinToday() {
                         initial="hidden"
                         viewport={{ once: false, amount: 0.2 }}
                         variants={fadeIn("", "", 0.5, 0.5)}
-                        className='text-4xl md:text-6xl my-2 font-extrabold'>Join Today</motion.h2>
+                        className='text-2xl sm:text-3xl md:4xl lg:text-5xl xl:6xl my-2 font-extrabold'>Join Today</motion.h2>
                 </div>
                 <div>
                     <div className="relative w-[150px] h-[36px] mt-[-20px] mx-auto overflow-hidden drop-shadow-x border-1 border-background dark:border-light pb-[8px] bg-light dark:bg-background rounded-xl cursor-pointer" onClick={monthYearToggle}>

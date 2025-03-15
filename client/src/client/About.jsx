@@ -170,7 +170,7 @@ function About() {
           initial="hidden"
           viewport={{ once: false, amount: 0.2 }}
           variants={fadeIn("", "", 0.2, 0.5)}
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-wide fade_appear text-center"
+          className="text-2xl sm:text-3xl md:4xl lg:text-5xl xl:6xl font-bold tracking-wide fade_appear text-center"
         >
           Easy Step To Achieve Your Goals.
         </motion.h2>
@@ -267,7 +267,7 @@ function About() {
           initial="hidden"
           viewport={{ once: false, amount: 0.2 }}
           variants={fadeIn("", "", 0.2, 0.5)}
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-wide fade_appear text-center">
+          className="text-2xl sm:text-3xl md:4xl lg:text-5xl xl:6xl font-bold tracking-wide fade_appear text-center">
           Our Service For You
         </motion.h2>
 

@@ -50,7 +50,7 @@ function Shop() {
           initial="hidden"
           viewport={{ once: false, amount: 0.2 }}
           variants={fadeIn("", "", 0.2, 0.4)}
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-wide fade_appear text-left w-full mb-2  sm:mb-4 lg:mb-8"
+          className="text-2xl sm:text-3xl md:4xl lg:text-5xl xl:6xl font-bold tracking-wide fade_appear text-left w-full mb-2  sm:mb-4 lg:mb-8"
         >
           Shop Out Latest Products
         </motion.h2>
