@@ -46,7 +46,7 @@ function Trainers() {
         initial="hidden"
         viewport={{ once: false, amount: 0.2 }}
         variants={fadeIn("", "", 0.3, 0.5)}
-        className="text-base sm:text-md lg:text-lg text-left w-full justify-start items-center flex gap-2 text-secondary dark:text-secondlight uppercase ">
+        className="text-base sm:text-md lg:text-lg text-left w-full justify-start items-center flex gap-2 text-secondary dark:text-secondlight uppercase  font-semibold">
         our trainers <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>
       </motion.p>
       <motion.h2

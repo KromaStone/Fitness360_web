@@ -37,7 +37,13 @@ function ServicesHome() {
 
     return (
         <>
-            <section className=" py-8  sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-32 xl:px-52 bg-light text-background  dark:bg-background dark:text-light flex flex-col justify-center items-center gap-2 sm:gap-4">
+            <section className=" py-8  sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-32 xl:px-52 bg-light text-background  dark:bg-background dark:text-light flex flex-col justify-center items-center gap-2 sm:gap-4 relative overflow-hidden w-full ">
+
+                <div className='w-16 md:w-[70px] lg:w-[80px] xl:w-[120px] 2xl:w-[134px] -left-[48px] md: lg: xl:-left-[60px]  2xl:-left-[70px] top-16 md: lg: xl:top-24  2xl: aspect-square absolute -rotate-45 bg-gradient-to-bl from-50% from-gray-400 to-secondlight  to-50% dark:from-black dark:to-secondary'></div>
+                <div className='w-16 md:w-[70px] lg:w-[80px] xl:w-[120px] 2xl:w-[134px] -left-[48px] md: lg: xl:-left-[60px]  2xl:-left-[70px] top-24 md:top-[98px] lg:top-[112px] xl:top-[180px]  2xl:top-[186px]  aspect-square absolute -rotate-45 bg-gradient-to-bl from-50% from-gray-400 to-secondlight  to-50% dark:from-black dark:to-secondary'></div>
+                <div className='w-16 md:w-[70px] lg:w-[80px] xl:w-[120px] 2xl:w-[134px] -right-[48px] md: lg: xl:-right-[60px]  2xl:-right-[70px] top-16 md: lg: xl:top-24  2xl: aspect-square absolute -rotate-45 bg-gradient-to-bl from-50% from-gray-400 to-secondlight  to-50% dark:from-black dark:to-secondary'></div>
+                <div className='w-16 md:w-[70px] lg:w-[80px] xl:w-[120px] 2xl:w-[134px] -right-[48px] md: lg: xl:-right-[60px]  2xl:-right-[70px] top-24 md:top-[98px] lg:top-[112px] xl:top-[180px]  2xl:top-[186px]  aspect-square absolute -rotate-45 bg-gradient-to-bl from-50% from-gray-400 to-secondlight  to-50% dark:from-black dark:to-secondary'></div>
+
                 <div className='flex flex-col sm:flex-row justify-between items-center gap-5 w-full'>
                     <div>
                         <motion.p
@@ -45,7 +51,7 @@ function ServicesHome() {
                             initial="hidden"
                             viewport={{ once: false, amount: 0.2 }}
                             variants={fadeIn("", "", 0.3, 0.5)}
-                            className="text-base sm:text-md lg:text-lg  items-center flex gap-2 text-secondary dark:text-secondlight uppercase ">
+                            className="text-base sm:text-md lg:text-lg  items-center flex gap-2 text-secondary dark:text-secondlight uppercase font-semibold">
                             <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span> our services
                         </motion.p>
                         <motion.h2

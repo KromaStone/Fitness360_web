@@ -159,7 +159,7 @@ function About() {
           initial="hidden"
           viewport={{ once: false, amount: 0.2 }}
           variants={fadeIn("", "", 0.3, 0.5)}
-          className="text-base sm:text-md lg:text-lg text-center justify-center items-center flex gap-2 text-secondary dark:text-secondlight"
+          className="text-base sm:text-md lg:text-lg text-center justify-center items-center flex gap-2 text-secondary dark:text-secondlight  font-semibold"
         >
           <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span> Work Process{" "}
           <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>
@@ -259,7 +259,7 @@ function About() {
           initial="hidden"
           viewport={{ once: false, amount: 0.2 }}
           variants={fadeIn("", "", 0.3, 0.5)}
-          className="text-base sm:text-md lg:text-lg text-center justify-center items-center flex gap-2 text-secondary dark:text-secondlight uppercase ">
+          className="text-base sm:text-md lg:text-lg text-center justify-center items-center flex gap-2 text-secondary dark:text-secondlight uppercase  font-semibold">
           <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span> our servies <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>
         </motion.p>
         <motion.h2
