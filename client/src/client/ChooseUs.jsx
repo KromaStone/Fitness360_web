@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { fadeIn } from '../assets/utils/motion'
-import watchVideo from '../assets/videos/bannerBg.mp4'
+import { watchVideo } from '../components/images'
 import { useState } from 'react';
 import { Icon } from "@iconify/react";
 

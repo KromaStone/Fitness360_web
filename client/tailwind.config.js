@@ -38,6 +38,10 @@ export default {
       animation: {
         'revolve': 'revolvingBackground 5s linear infinite',
       },
+      animation: {
+        orbit: 'orbit linear infinite',
+        marquee: 'marquee 20s linear infinite',
+      },
       keyframes: {
         revolvingBackground: {
           '0%': { backgroundPosition: '0% 50%' },
@@ -48,10 +52,12 @@ export default {
           '0%': { transform: 'rotate(0deg) translateX(200px) rotate(0deg)' },
           '100%': { transform: 'rotate(360deg) translateX(200px) rotate(-360deg)' },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
       },
-      animation: {
-        orbit: 'orbit linear infinite',
-      },
+
     },
   },
   darkMode: "class",

@@ -1,44 +1,22 @@
-/* eslint-disable react/prop-types */
-import  { useState, useRef } from "react";
+import React from 'react'
 
-const Marquee = ({ speed = 20 }) => {
-    const marqueeRef = useRef(null); // Ref for the marquee container
-    const [isPaused, setIsPaused] = useState(false);
-
-    const handleMouseEnter = () => {
-        if (marqueeRef.current) {
-            marqueeRef.current.style.animationPlayState = "paused";
-        }
-        setIsPaused(true);
-    };
-
-    const handleMouseLeave = () => {
-        if (marqueeRef.current) {
-            marqueeRef.current.style.animationPlayState = "running";
-        }
-        setIsPaused(false);
-    };
-
+function Marquee() {
     return (
-        <div
-            className="relative w-full overflow-hidden"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-        >
-            {/* Marquee container */}
-            <div
-                ref={marqueeRef}
-                className="whitespace-nowrap flex gap-10"
-                style={{
-                    animation: `marquee ${speed}s linear infinite`,
-                    animationPlayState: isPaused ? "paused" : "running",
-                }}
-            >
-                <div className="bg-green-400 h-40 w-60"></div>
-                <div className="bg-green-900 h-40 w-60"></div>
+
+        <div className="overflow-hidden whitespace-nowrap mt-2  md:my-2 lg:my-3 xl:my-4">
+            <div className="inline-block animate-marquee">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold tracking-[.11em] fade_appear text-left w-full uppercase">
+                    FOCUS ON YOUR <span className='text-primary'>WORKOUTS </span> NOT YOUR LOSS&nbsp;<span className='h-full w-full border-2 border-primary/50 p-1'></span>
+                    &nbsp;</h2>
+            </div>
+
+            <div className="inline-block animate-marquee">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold tracking-[.11em] fade_appear text-left w-full uppercase">
+                    FOCUS ON YOUR <span className='text-primary'>WORKOUTS </span> NOT YOUR LOSS&nbsp;<span className='h-full w-full border-2 border-primary/50 p-1'></span>
+                    &nbsp;</h2>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Marquee;
+export default Marquee 
