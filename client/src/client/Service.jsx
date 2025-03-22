@@ -101,50 +101,53 @@ function Service() {
       <section className="w-full h-full border-solid text-center 
       px-2 sm:px-20 lg:px-40 xl:px-64
       py-4 sm:py-8 lg:py-16 xl:py-20
-       bg-background flex flex-col md:flex-row gap-3 md:gap-0 ">
-        <div className="w-full md:w-1/2 bg-secondary p-4 lg:p-8 xl:p-12 pr-10 sm:pr-16 lg:pr-32 flex flex-col justify-between">
-          <motion.h2
-            whileInView="show"
-            initial="hidden"
-            viewport={{ once: false, amount: 0.2 }}
-            variants={fadeIn("up", "", 0.2, 0.5)}
-            className='text-xl sm:text-2xl lg:text-3xl xl:text-4xl  font-black text-left text-primary '>A1 Elliptical Trainer</motion.h2>
-          <motion.div
-            whileInView="show"
-            initial="hidden"
-            viewport={{ once: false, amount: 0.2 }}
-            variants={fadeIn("", "", 0.6, 0.5)} className='text-xs sm:text-sm md:text-base lg:text-lg my-1 sm:my-2 md:my-3 lg:my-4 xl:my-5  text-left text-secondlight'>
-            <ul className="list-disc font-bold ml-8">
-              <li>Feature your package or plan inclusions</li>
-              <li>In bullet form</li>
-              <li>For easy readability</li>
-              <li>Even for people on mobile</li>
-            </ul>
-          </motion.div>
+       bg-background">
+        <div className="flex flex-col md:flex-row gap-3 md:gap-0  max-w-[1550px] m-auto">
 
-          <motion.div
-            whileInView="show"
-            initial="hidden"
-            viewport={{ once: false, amount: 0.2 }}
-            variants={fadeIn("", "", 0.6, 0.5)} className='text-xs sm:text-sm md:text-base lg:text-lg my-1 sm:my-2 md:my-3 lg:my-4 xl:my-5  text-left text-secondlight'>
-            <div className="flex pt-4 sm:pt-6 lg:pt-8 gap-2">
-              <NextButton className="text-xs sm:text-sm md:text-base lg:text-lg rounded-none hover:bg-transparent border-1 border-primary" onClick={shopClick}>SHOP NOW</NextButton>
-              <NextButton className="text-xs sm:text-sm md:text-base lg:text-lg  px-8 rounded-none border-1 border-light hover:border-primary" color="secondary" onClick={aboutClick}>Full DETAILS</NextButton>
-            </div>
-          </motion.div>
-        </div>
+          <div className="w-full md:w-1/2 bg-secondary p-4 lg:p-8 xl:p-12 pr-10 sm:pr-16 lg:pr-32 flex flex-col justify-between">
+            <motion.h2
+              whileInView="show"
+              initial="hidden"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={fadeIn("up", "", 0.2, 0.5)}
+              className='text-xl sm:text-2xl lg:text-3xl xl:text-4xl  font-black text-left text-primary '>A1 Elliptical Trainer</motion.h2>
+            <motion.div
+              whileInView="show"
+              initial="hidden"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={fadeIn("", "", 0.6, 0.5)} className='text-xs sm:text-sm md:text-base lg:text-lg my-1 sm:my-2 md:my-3 lg:my-4 xl:my-5  text-left text-secondlight'>
+              <ul className="list-disc font-bold ml-8">
+                <li>Feature your package or plan inclusions</li>
+                <li>In bullet form</li>
+                <li>For easy readability</li>
+                <li>Even for people on mobile</li>
+              </ul>
+            </motion.div>
 
-        <div className="w-full md:w-1/2 flex  items-center justify-center bg-green-300">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d67947.04357262407!2d76.72951406693808!3d30.732347721790592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed0be66ec96b%3A0xa5ff67f9527319fe!2sChandigarh!5e1!3m2!1sen!2sin!4v1738035229652!5m2!1sen!2sin"
-            width="100%"  // Make the width responsive
-            height="450"
-            style={{ border: '0' }} // Use object for styles
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Google Map"
-          ></iframe>
+            <motion.div
+              whileInView="show"
+              initial="hidden"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={fadeIn("", "", 0.6, 0.5)} className='text-xs sm:text-sm md:text-base lg:text-lg my-1 sm:my-2 md:my-3 lg:my-4 xl:my-5  text-left text-secondlight'>
+              <div className="flex pt-4 sm:pt-6 lg:pt-8 gap-2">
+                <NextButton className="text-xs sm:text-sm md:text-base lg:text-lg rounded-none hover:bg-transparent border-1 border-primary" onClick={shopClick}>SHOP NOW</NextButton>
+                <NextButton className="text-xs sm:text-sm md:text-base lg:text-lg  px-8 rounded-none border-1 border-light hover:border-primary" color="secondary" onClick={aboutClick}>Full DETAILS</NextButton>
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="w-full md:w-1/2 flex  items-center justify-center bg-green-300">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d67947.04357262407!2d76.72951406693808!3d30.732347721790592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed0be66ec96b%3A0xa5ff67f9527319fe!2sChandigarh!5e1!3m2!1sen!2sin!4v1738035229652!5m2!1sen!2sin"
+              width="100%"  // Make the width responsive
+              height="450"
+              style={{ border: '0' }} // Use object for styles
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Google Map"
+            ></iframe>
+          </div>
         </div>
       </section>
 

@@ -41,85 +41,87 @@ function UpcomingClasses() {
     return (
 
         <section className=" py-8  sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-32  xl:px-52 bg-light text-background  dark:bg-background dark:text-light flex flex-col justify-center items-center gap-2 sm:gap-4">
-            <motion.p
-                whileInView="show"
-                initial="hidden"
-                viewport={{ once: false, amount: 0.2 }}
-                variants={fadeIn("", "", 0.3, 0.5)}
-                className="text-base sm:text-md lg:text-lg text-center justify-center items-center flex gap-2 text-secondary dark:text-secondlight uppercase  font-semibold">
-                <span className="bg-primary h-[2px] rounded-md w-10 inline-block font-semibold"></span>GYM & FITNESS TRAINING <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>
-            </motion.p>
-            <motion.h2
-                whileInView="show"
-                initial="hidden"
-                viewport={{ once: false, amount: 0.2 }}
-                variants={fadeIn("", "", 0.2, 0.5)}
-                className="text-2xl sm:text-3xl md:4xl lg:text-5xl xl:6xl font-bold tracking-wide fade_appear text-center">
-                Our Upcoming Classes
-            </motion.h2>
+            <div className=' max-w-[1550px] m-auto'>
+                <motion.p
+                    whileInView="show"
+                    initial="hidden"
+                    viewport={{ once: false, amount: 0.2 }}
+                    variants={fadeIn("", "", 0.3, 0.5)}
+                    className="text-base sm:text-md lg:text-lg text-center justify-center items-center flex gap-2 text-secondary dark:text-secondlight uppercase  font-semibold">
+                    <span className="bg-primary h-[2px] rounded-md w-10 inline-block font-semibold"></span>GYM & FITNESS TRAINING <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>
+                </motion.p>
+                <motion.h2
+                    whileInView="show"
+                    initial="hidden"
+                    viewport={{ once: false, amount: 0.2 }}
+                    variants={fadeIn("", "", 0.2, 0.5)}
+                    className="text-2xl sm:text-3xl md:4xl lg:text-5xl xl:6xl font-bold tracking-wide fade_appear text-center">
+                    Our Upcoming Classes
+                </motion.h2>
 
 
 
-            <div className='w-full min-w-[320px] rounded-2xl bg-light dark:bg-background p-4'>
-                <Swiper
-                    slidesPerView={4}
-                    spaceBetween={30}
-                    pagination={{
-                        clickable: true,
-                    }}
-                    modules={[Pagination]}
-                    className="mySwiper"
-                    breakpoints={{
-                        240: {
-                            slidesPerView: 1,
-                            spaceBetween: 10,
-                        },
-                        640: {
-                            slidesPerView: 2,
-                            spaceBetween: 20,
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                            spaceBetween: 25,
-                        },
-                        1280: {
-                            slidesPerView: 4,
-                            spaceBetween: 30,
-                        },
-                    }}
-                >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8 lg:gap-16 xl:gap-20 mt-6">
-                        {services.map((service, index) => (
-                            <SwiperSlide className='pb-8' key={index}>
-                                <div className='p-[2px] bg-gradient-to-t from-transparent to-transparent hover:from-primary rounded-xl group transition-all ease-in-out duration-300 overflow-visible'>
-                                    <div className='w-full bg-secondlight dark:bg-secondary rounded-xl p-2 sm:p-3 md:p-4 lg:p-5 xl:p-7 flex flex-col justify-between'>
-                                        <LazyLoadImage
-                                            src={service.image}
-                                            alt={service.title}
-                                            className='rounded-xl group-hover:scale-105 transition-all ease-in-out duration-300 aspect-[calc(4*3+1)/8] object-cover'
+                <div className='w-full min-w-[320px] rounded-2xl bg-light dark:bg-background p-4'>
+                    <Swiper
+                        slidesPerView={4}
+                        spaceBetween={30}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        modules={[Pagination]}
+                        className="mySwiper"
+                        breakpoints={{
+                            240: {
+                                slidesPerView: 1,
+                                spaceBetween: 10,
+                            },
+                            640: {
+                                slidesPerView: 2,
+                                spaceBetween: 20,
+                            },
+                            1024: {
+                                slidesPerView: 3,
+                                spaceBetween: 25,
+                            },
+                            1280: {
+                                slidesPerView: 4,
+                                spaceBetween: 30,
+                            },
+                        }}
+                    >
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8 lg:gap-16 xl:gap-20 mt-6">
+                            {services.map((service, index) => (
+                                <SwiperSlide className='pb-8' key={index}>
+                                    <div className='p-[2px] bg-gradient-to-t from-secondary/40 dark:from-secondlight/40 to-transparent hover:from-primary dark:hover:from-primary rounded-xl group transition-all ease-in-out duration-300 overflow-visible'>
+                                        <div className='w-full bg-secondlight dark:bg-secondary rounded-xl p-2 sm:p-3 md:p-4 lg:p-5 xl:p-7 flex flex-col justify-between'>
+                                            <LazyLoadImage
+                                                src={service.image}
+                                                alt={service.title}
+                                                className='rounded-xl group-hover:scale-105 transition-all ease-in-out duration-300 aspect-[calc(4*3+1)/8] object-cover'
 
-                                        />
-                                        <h2 className="text-center my-2 md:my-3 text-md sm:text-lg md:text-xl font-bold">{service.title}</h2>
-                                        <p className="text-center text-background/80 font-medium dark:text-light/80 text-xs sm:text-md md:text-[14px]">{service.description}</p>
+                                            />
+                                            <h2 className="text-center my-2 md:my-3 text-md sm:text-lg md:text-xl font-bold">{service.title}</h2>
+                                            <p className="text-center text-background/80 font-medium dark:text-light/80 text-xs sm:text-md md:text-[14px]">{service.description}</p>
 
-                                        <motion.div
-                                            whileInView="show"
-                                            initial="hidden"
-                                            viewport={{ once: false, amount: 0.2 }}
-                                            variants={fadeIn("", "", 0.2, 0.4)}
-                                            animate={{ rotate: 45 }}
-                                            transition={{ duration: 0.3 }}
-                                            className="mt-4 bg-secondary dark:bg-light dark:text-background dark:hover:text-light w-12 h-12 rounded-full relative bottom-1 mx-auto -mb-[58px] flex items-center justify-center border-[4px] text-light border-light dark:border-background transition ease-in-out duration-100 hover:bg-gradient-to-tr hover:from-blue hover:via-indigo-500 hover:to-purple-500 cursor-pointer z-50 group-hover:border-t-primary group-hover:border-l-primary"
-                                        >
-                                            <div className='w-12 h-12 group-hover:w-[44px] group-hover:h-[44px] absolute bg-transparent border-[4px] rounded-full'></div>
-                                            <Icon icon="line-md:facebook" width="20" className="hover:scale-125 transition ease-in-out duration-300 -rotate-45" />
-                                        </motion.div>
+                                            <motion.div
+                                                whileInView="show"
+                                                initial="hidden"
+                                                viewport={{ once: false, amount: 0.2 }}
+                                                variants={fadeIn("", "", 0.2, 0.4)}
+                                                animate={{ rotate: 45 }}
+                                                transition={{ duration: 0.3 }}
+                                                className="mt-4 bg-secondary dark:bg-light dark:text-background dark:hover:text-light w-12 h-12 rounded-full relative bottom-1 mx-auto -mb-[58px] flex items-center justify-center border-[4px] text-light border-light dark:border-background transition ease-in-out duration-100 hover:bg-gradient-to-tr hover:from-blue hover:via-indigo-500 hover:to-purple-500 cursor-pointer z-50 group-hover:border-t-primary group-hover:border-l-primary"
+                                            >
+                                                <div className='w-12 h-12 group-hover:w-[44px] group-hover:h-[44px] absolute bg-transparent border-[4px] rounded-full'></div>
+                                                <Icon icon="line-md:facebook" width="20" className="hover:scale-125 transition ease-in-out duration-300 -rotate-45" />
+                                            </motion.div>
+                                        </div>
                                     </div>
-                                </div>
-                            </SwiperSlide>
-                        ))}
-                    </div>
-                </Swiper>
+                                </SwiperSlide>
+                            ))}
+                        </div>
+                    </Swiper>
+                </div>
             </div>
 
         </section >

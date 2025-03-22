@@ -154,51 +154,54 @@ function About() {
 
       {/* Work Process steps  */}
       <section className="py-8 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-32  xl:px-52 bg-light text-background dark:bg-background dark:text-light flex flex-col justify-center items-center gap-2 sm:gap-4">
-        <motion.p
-          whileInView="show"
-          initial="hidden"
-          viewport={{ once: false, amount: 0.2 }}
-          variants={fadeIn("", "", 0.3, 0.5)}
-          className="text-base sm:text-md lg:text-lg text-center justify-center items-center flex gap-2 text-secondary dark:text-secondlight  font-semibold"
-        >
-          <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span> Work Process{" "}
-          <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>
-        </motion.p>
+        <div className="max-w-[1550px] m-auto">
+          <motion.p
+            whileInView="show"
+            initial="hidden"
+            viewport={{ once: false, amount: 0.2 }}
+            variants={fadeIn("", "", 0.3, 0.5)}
+            className="text-base sm:text-md lg:text-lg text-center justify-center items-center flex gap-2 text-secondary dark:text-secondlight  font-semibold"
+          >
+            <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span> Work Process{" "}
+            <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>
+          </motion.p>
 
-        <motion.h2
-          whileInView="show"
-          initial="hidden"
-          viewport={{ once: false, amount: 0.2 }}
-          variants={fadeIn("", "", 0.2, 0.5)}
-          className="text-2xl sm:text-3xl md:4xl lg:text-5xl xl:6xl font-bold tracking-wide fade_appear text-center"
-        >
-          Easy Step To Achieve Your Goals.
-        </motion.h2>
+          <motion.h2
+            whileInView="show"
+            initial="hidden"
+            viewport={{ once: false, amount: 0.2 }}
+            variants={fadeIn("", "", 0.2, 0.5)}
+            className="text-2xl sm:text-3xl md:4xl lg:text-5xl xl:6xl font-bold tracking-wide fade_appear text-center"
+          >
+            Easy Step To Achieve Your Goals.
+          </motion.h2>
 
-        <div className="w-full md:flex flex-row justify-between items-center gap-4 mt-2 sm:mt-4 lg:mt-6 xl:mt-8">
-          {stepsData.map((step, index) => (
-            <div
-              key={index}
-              className="w-full md:w-4/12 lg:w-4/12 xl:w-3/12 flex flex-row md:flex-col gap-4 items-center justify-center my-4"
-            >
-              <div className="bg-primary w-[40%] md:w-[70%] rounded-full aspect-square flex items-start justify-center">
-                <LazyLoadImage
-                  src={step.stepImage}
-                  alt={step.stepHeading}
-                  className="w-[95%] top-[-4px] relative rounded-full"
-                />
+          <div className="w-full md:flex flex-row justify-between items-center gap-4 mt-2 sm:mt-4 lg:mt-6 xl:mt-8">
+            {stepsData.map((step, index) => (
+              <div
+                key={index}
+                className="w-full md:w-4/12 lg:w-4/12 xl:w-3/12 flex flex-row md:flex-col gap-4 items-center justify-center my-4"
+              >
+                <div className="bg-primary w-[40%] md:w-[70%] rounded-full aspect-square flex items-start justify-center">
+                  <LazyLoadImage
+                    src={step.stepImage}
+                    alt={step.stepHeading}
+                    className="w-[95%] top-[-4px] relative rounded-full"
+                  />
+                </div>
+                <div className="md:text-center">
+                  <h3 className="text-base md:text-lg lg:text-xl xl:text-2xl font-semibold">{step.stepHeading}</h3>
+                  <p className="text-xs md:text-sm lg:text-base xl:text-lg font-medium text-secondary/80 dark:text-secondlight/80">{step.stepData}</p>
+                </div>
               </div>
-              <div className="md:text-center">
-                <h3 className="text-base md:text-lg lg:text-xl xl:text-2xl font-semibold">{step.stepHeading}</h3>
-                <p className="text-xs md:text-sm lg:text-base xl:text-lg font-medium text-secondary/80 dark:text-secondlight/80">{step.stepData}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       {/* video section  */}
       <section className='w-full h-full border-solid text-center px-4 sm:px-12 md:px-28 lg:px-40 xl:px-60 2xl:px-80 py-4 lg:py-8 text-secondary bg-light dark:bg-background dark:text-light flex items-center justify-center'>
+
         <motion.div
           whileInView="show"
           initial="hidden"
