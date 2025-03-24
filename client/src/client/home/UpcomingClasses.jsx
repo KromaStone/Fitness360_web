@@ -55,7 +55,7 @@ function UpcomingClasses() {
                     initial="hidden"
                     viewport={{ once: false, amount: 0.2 }}
                     variants={fadeIn("", "", 0.2, 0.5)}
-                    className="text-2xl sm:text-3xl md:4xl lg:text-5xl xl:6xl font-bold tracking-wide fade_appear text-center">
+                    className="text-2xl sm:text-3xl md:4xl lg:text-5xl xl:6xl font-bold tracking-wide fade_appear text-center capitalize  mb-2 lg:mb-8">
                     Our Upcoming Classes
                 </motion.h2>
 

@@ -3,6 +3,7 @@ import { fadeIn } from '../assets/utils/motion'
 import { watchVideo } from '../components/images'
 import { useState } from 'react';
 import { Icon } from "@iconify/react";
+import { NextButton } from '../components/NextButton';
 
 function ChooseUs() {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -76,7 +77,6 @@ function ChooseUs() {
                             />
                         </button>
                     )}
-
                     {!isPlaying &&
                         <motion.p
                             whileInView="show"
@@ -87,15 +87,23 @@ function ChooseUs() {
                     }
                 </div>
 
-                <div className='w-full lg:w-1/2 p-1 sm:p-2 md:p-4 lg:p-8 xl:p-12 2xl:p-16 bg-secondlight dark:bg-secondary/40'>
-                    <h2 className='text-xl sm:text-2xl lg:text-3xl font-black  text-left'>Invigorating Fitness Workouts For
-                        Body And Mind</h2>
-                    <p className='text-XS sm:text-sm md:text-  lg:text-base xl:text-base 2xl:text-lg my-2 sm:my-4 c-text-gray text-left text-secondary dark:text-secondlight'>
-                        Regular fitness workouts contribute to weight management, improved muscle
-                        tone, increased bone density, and enhanced cardiovascular health. Fitness
-                        workouts are known to have positive effects on mental health, reducing stress,
-                        anxiety, and depression.
-                    </p>
+                <div className='w-full lg:w-1/2 p-1 sm:p-2 md:p-4 lg:p-8 xl:p-12 2xl:p-16 bg-secondlight dark:bg-secondary/40 flex flex-col justify-between'>
+                    <div>
+                        <h2 className='text-xl sm:text-2xl lg:text-3xl font-black  text-left'>Invigorating Fitness Workouts For
+                            Body And Mind</h2>
+                        <p className='text-XS sm:text-sm md:text-  lg:text-base xl:text-base 2xl:text-lg my-2 sm:my-4 c-text-gray text-left text-secondary dark:text-secondlight'>
+                            Regular fitness workouts contribute to weight management, improved muscle
+                            tone, increased bone density, and enhanced cardiovascular health. Fitness
+                            workouts are known to have positive effects on mental health, reducing stress,
+                            anxiety, and depression.
+                        </p>
+                    </div>
+
+                    <div className='flex gap-6  items-start uppercase'>
+                        <NextButton color="secondary" className="w-full md:w-36 xl:w-44 ">Read More</NextButton>
+
+                        <NextButton type="background" className="w-full   md:w-36 xl:w-44">View Class Schedule</NextButton>
+                    </div>
                 </div>
             </div>
         </section>

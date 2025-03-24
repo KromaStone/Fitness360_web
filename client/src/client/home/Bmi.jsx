@@ -1,0 +1,189 @@
+import { motion } from 'framer-motion';
+import { fadeIn } from '../../assets/utils/motion';
+import { useState } from 'react';
+import { Input, Select, SelectItem, Button, Tooltip } from '@nextui-org/react';
+// import {  } from "@heroui/tooltip";
+
+function Bmi() {
+    const [weight, setWeight] = useState('');
+    const [height, setHeight] = useState('');
+    const [age, setAge] = useState('');
+    const [sex, setSex] = useState('male');
+    const [activityFactor, setActivityFactor] = useState('1.2');
+    const [bmi, setBmi] = useState(null);
+    const [weightStatus, setWeightStatus] = useState('');
+
+    const calculateBmi = () => {
+        const heightInMeters = height / 100;
+        const bmiValue = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+        setBmi(bmiValue);
+
+        if (bmiValue < 18.5) {
+            setWeightStatus('Underweight');
+        } else if (bmiValue >= 18.5 && bmiValue <= 24.9) {
+            setWeightStatus('Healthy');
+        } else if (bmiValue >= 25 && bmiValue <= 29.9) {
+            setWeightStatus('Overweight');
+        } else {
+            setWeightStatus('Obese');
+        }
+    };
+
+    const resetCalculator = () => {
+        setWeight('');
+        setHeight('');
+        setAge('');
+        setSex('male');
+        setActivityFactor('1.2');
+        setBmi(null);
+        setWeightStatus('');
+    };
+
+    return (
+        <section className="py-8 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-32 xl:px-52 bg-light text-background dark:bg-background dark:text-light flex flex-col justify-center items-center gap-2 sm:gap-4 relative overflow-hidden w-full">
+            <div className='max-w-[1550px] m-auto'>
+                <div className='flex flex-col md:flex-row justify-between items-start gap-5 w-full'>
+                    <div className="w-full flex flex-col gap-1 md:gap-2 lg:gap-2 xl:gap-3 p-1 sm:p-2 md:p-4 lg:p-6 xl:p-8 2xl:p-10 border dark:border-light/30 rounded-xl">
+                        <motion.p
+                            whileInView="show"
+                            initial="hidden"
+                            viewport={{ once: false, amount: 0.2 }}
+                            variants={fadeIn("", "", 0.3, 0.5)}
+                            className="text-base sm:text-md lg:text-lg text-left w-full justify-start items-center flex gap-2 text-secondary dark:text-secondlight uppercase font-semibold">
+                            <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>
+                            BODY MASS INDEX
+                        </motion.p>
+                        <motion.h2
+                            whileInView="show"
+                            initial="hidden"
+                            viewport={{ once: false, amount: 0.2 }}
+                            variants={fadeIn("", "", 0.2, 0.5)}
+                            className="text-xl sm:text-2xl md:3xl lg:text-4xl xl:5xl font-bold tracking-wide fade_appear text-left w-full">
+                            Calculate Your BMI
+                        </motion.h2>
+                        <motion.p className="text-xs sm:text-base lg:text-md text-left w-full justify-start items-center flex gap-2 text-secondary dark:text-secondlight font-semibold">
+                            Overrides on hanging fruits to identify ball park value added activity to beta overrided the digitals divided with additionals clickthroughs from line.
+                        </motion.p>
+
+                        <div className='flex flex-col gap-4'>
+                            <div className='flex justify-center gap-3'>
+                                <Input
+                                    id='weight'
+                                    type="number"
+                                    label="Weight (KG)"
+                                    value={weight}
+                                    onChange={(e) => setWeight(e.target.value)}
+                                    variant="bordered"
+                                    name='weight'
+                                />
+                                <Input
+                                    type="number"
+                                    label="Height (CM)"
+                                    value={height}
+                                    onChange={(e) => setHeight(e.target.value)}
+                                    variant="bordered"
+                                />
+                            </div>
+                            <div className='flex justify-center gap-3'>
+                                <Input
+                                    type="number"
+                                    label="Age"
+                                    value={age}
+                                    onChange={(e) => setAge(e.target.value)}
+                                    variant="bordered"
+                                />
+                                <Select
+                                    label="Sex"
+                                    selectedKeys={[sex]}
+                                    onChange={(e) => setSex(e.target.value)}
+                                    variant="bordered"
+                                >
+                                    <SelectItem key="male" value="male">Male</SelectItem>
+                                    <SelectItem key="female" value="female">Female</SelectItem>
+                                </Select>
+                            </div>
+
+                            <Select
+                                label="Activity Factor"
+                                selectedKeys={[activityFactor]}
+                                onChange={(e) => setActivityFactor(e.target.value)}
+                                variant="bordered"
+                            >
+                                <SelectItem key="1.2" value="1.2">Sedentary</SelectItem>
+                                <SelectItem key="1.375" value="1.375">Lightly Active</SelectItem>
+                                <SelectItem key="1.55" value="1.55">Moderately Active</SelectItem>
+                                <SelectItem key="1.725" value="1.725">Very Active</SelectItem>
+                                <SelectItem key="1.9" value="1.9">Extra Active</SelectItem>
+                            </Select>
+                            <div className="flex gap-2">
+                                <Button
+                                    onClick={calculateBmi}
+                                    color="primary"
+                                    className="flex-1"
+                                >
+                                    CALCULATE NOW
+                                </Button>
+                                <Button
+                                    onClick={resetCalculator}
+                                    color="secondary"
+                                    className="flex-1"
+                                >
+                                    RESET
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="bg-secondlight/20 dark:bg-background border dark:border-light/30 p-4 sm:p-2 md:p-4 lg:p-6 xl:p-8 2xl:p-10 rounded-xl w-full kkk">
+                        <motion.h2
+                            title='Calculate Your BMI'
+                            whileInView="show"
+                            initial="hidden"
+                            viewport={{ once: false, amount: 0.2 }}
+                            variants={fadeIn("", "", 0.2, 0.5)}
+                            className="text-xl sm:text-2xl md:3xl lg:text-4xl xl:5xl font-bold tracking-wide fade_appear text-left w-full mb-4">
+                            {/* <Tooltip content="I am a tooltip"> */}
+                            BMI CHART
+                            {/* </Tooltip> */}
+                        </motion.h2>
+                        <div className="flex justify-between text-lg sm:text-xl md:2xl lg:text-3xl xl:4xl font-semibold ">
+                            <span className='border-r border-b dark:border-light/20 w-full text-left pl-0 p-3 pt-0'>BMI</span>
+                            <span className='border-l border-b dark:border-light/20 w-full p-3 pt-0'>Weight Status</span>
+                        </div>
+                        <div className="flex justify-between">
+                            <span className='border border-l-0 dark:border-light/20 w-full text-left pl-0 p-3'>Below 18.5</span>
+                            <span className='border border-r-0 dark:border-light/20 w-full p-3'>Underweight</span>
+                        </div>
+                        <div className="flex justify-between">
+                            <span className='border border-l-0 dark:border-light/20 w-full text-left pl-0 p-3'>18.5 - 24.9</span>
+                            <span className='border border-r-0 dark:border-light/20 w-full p-3'>Healthy</span>
+                        </div>
+                        <div className="flex justify-between">
+                            <span className='border border-l-0 dark:border-light/20 w-full text-left pl-0 p-3'>25.0 - 29.9</span>
+                            <span className='border border-r-0 dark:border-light/20 w-full p-3'>Overweight</span>
+                        </div>
+                        <div className="flex justify-between">
+                            <span className='border border-l-0 border-b-0 dark:border-light/20 w-full text-left pl-0 p-3 pb-0'>30.0 and Above</span>
+                            <span className='border border-r-0 border-b-0 dark:border-light/20 w-full p-3 pb-0'>Obese</span>
+                        </div>
+                        <p className='mt-5 mb-1 text-xs sm:text-base lg:text-md text-left w-full justify-start items-center'>BMR metabolic rate / BMI body mass index</p>
+                        {/* {bmi && ( */}
+                        <div className="mt-4">
+                            <h3 className="text-lg font-bold">
+                                Your BMI:&nbsp;&nbsp;
+                                {bmi === null ?
+                                    <label htmlFor='weight' className='font-normal italic hover:underline hover:text-primary transition-all ease-in-out duration-300'>calcualte</label>
+                                    :
+                                    bmi
+                                }
+                            </h3>
+                            <p className={`${bmi ? 'text-md ' : 'text-light dark:text-background'}`}>Status: {weightStatus}</p>
+                        </div>
+                        {/* )} */}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+export default Bmi;
