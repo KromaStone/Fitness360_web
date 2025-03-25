@@ -89,7 +89,7 @@ function ChooseUs() {
 
                 <div className='w-full lg:w-1/2 p-1 sm:p-2 md:p-4 lg:p-8 xl:p-12 2xl:p-16 bg-secondlight dark:bg-secondary/40 flex flex-col justify-between'>
                     <div>
-                        <h2 className='text-xl sm:text-2xl lg:text-3xl font-black  text-left'>Invigorating Fitness Workouts For
+                        <h2 className='text-xl sm:text-2xl lg:text-3xl font-black text-left'>Invigorating Fitness Workouts For
                             Body And Mind</h2>
                         <p className='text-XS sm:text-sm md:text-  lg:text-base xl:text-base 2xl:text-lg my-2 sm:my-4 c-text-gray text-left text-secondary dark:text-secondlight'>
                             Regular fitness workouts contribute to weight management, improved muscle

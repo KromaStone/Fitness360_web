@@ -21,7 +21,7 @@ function JoinToday() {
         if (section) observer.observe(section);
 
         return () => {
-            observer.disconnect(); 
+            observer.disconnect();
         };
     }, []);
 
@@ -43,7 +43,8 @@ function JoinToday() {
                             initial="hidden"
                             viewport={{ once: false, amount: 0.2 }}
                             variants={fadeIn("", "", 0.3, 0.5)}
-                            className='text-xl mx-2  '>Pricing Plan</motion.p>
+                            className='text-xl mx-2 fle '>Pricing Plan
+                            <span className="bg-gradient-to-l from-transparent to-primary h-[2px] rounded-md w-12 inline-block"></span></motion.p>
                         <motion.h2
                             whileInView="show"
                             initial="hidden"
