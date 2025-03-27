@@ -1,9 +1,15 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion, animate, useMotionValue, useTransform } from 'framer-motion'
 import ServiceCard from '../components/ServiceCard'
 import { fadeIn } from '../../assets/utils/motion';
 import { useNavigate } from 'react-router-dom'
+import { trainer5 } from '../../components/images'
+import { NextButton } from '../../components/NextButton';
+
 function ServicesHome() {
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
+
     const navigate = useNavigate()
     const serviceClick = () => {
         navigate('/service')
@@ -61,6 +67,16 @@ function ServicesHome() {
         return () => observer.disconnect()
     }, [])
 
+    const handlePlayPause = () => {
+        const video = document.querySelector('video');
+        if (isPlaying) {
+            video.pause();
+            setIsPlaying(false);
+        } else {
+            video.play();
+            setIsPlaying(true);
+        }
+    };
     const serviceData = [
         {
             serviceHeading: "Workout Videos",
@@ -112,7 +128,7 @@ function ServicesHome() {
                                 initial="hidden"
                                 viewport={{ once: false, amount: 0.2 }}
                                 variants={fadeIn("", "", 0.3, 0.5)}
-                                className="text-base sm:text-md lg:text-lg  items-center flex gap-2 text-secondary dark:text-secondlight uppercase font-semibold">
+                                className="text-base sm:text-md lg:text-lg  items-center flex gap-2 text-primary uppercase font-semibold">
                                 <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span> our services
                             </motion.p>
                             <motion.h2
@@ -140,8 +156,54 @@ function ServicesHome() {
                         ))}
                     </div>
 
+
+                    <div className='w-full flex flex-col lg:flex-row my-6 md:my-12 lg:my-16 xl:my-20'>
+
+                        <div className='w-full lg:w-1/2  flex items-center justify-center rounded-xl'
+                            style={{ backgroundImage: `url(${trainer5})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                        ></div>
+
+                        <div className='w-full lg:w-1/2 p-1 sm:px-2 md:px-4 lg:px-8 xl:px-12 2xl:px-16 flex flex-col'>
+                            <p className="text-base sm:text-md lg:text-lg items-center flex gap-2 text-primary uppercase font-semibold mb-2 md:mb-3 lg:mb-4 xl:mb-5 ">
+                                <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span> about us
+                            </p>
+                            <h2 className='text-xl sm:text-2xl lg:text-3xl font-black text-left'>Invigorating Fitness Workouts For
+                                Unleashing Potential With
+                                Intense Fitness Workouts
+                            </h2>
+                            <p className='text-XS sm:text-sm md:text-  lg:text-base xl:text-base 2xl:text-lg my-2 sm:my-4 c-text-gray text-left text-secondary/60 dark:text-secondlight/50'>
+                                Body fitness encompasses various aspects of physical health and well-being,
+                                involving a combination of exercise, nutrition, and lifestyle choices. Achieving and
+                                maintaining optimal body fitness contributes to overall health, vitality.
+                            </p>
+                            <ul className='text-base sm:text-md lg:text-lg  text-secondary dark:text-secondlight capitalize  text-secondary/60 dark:text-secondlight/50'>
+                                <li className='items-center flex gap-2'>
+                                    <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span> Over 15 years of experience
+                                </li>
+                                <li className='items-center flex gap-2'>
+                                    <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span> Certified Trainers
+                                </li>
+                                <li className='items-center flex gap-2 mb-2 md:mb-3 lg:mb-4 xl:mb-5'>
+                                    <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span> Exceptional work quality
+                                </li>
+
+                            </ul>
+                            {/* mb-2 md:mb-3 lg:mb-4 xl:mb-5 */}
+                            {/* items-center flex gap-2 */}
+                            <div className='flex gap-6  items-start uppercase'>
+                                <NextButton color="secondary" className="w-full md:w-36 xl:w-44 ">Read More</NextButton>
+
+                                <NextButton type="background" className="w-full   md:w-36 xl:w-44">View Class Schedule</NextButton>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
                     {/* stat  */}
-                    <div className='mt-2 md:mt-6 lg:mt-9 xl:mt-12 flex justify-between xl:px-2'>
+                    <div className='flex justify-between xl:px-2'>
                         {stats.map((stat, index) => (
                             <div key={index} ref={stat.ref} className="flex flex-col items-center justify-center w-fit">
                                 <p className="flex justify-center items-center">
@@ -150,7 +212,7 @@ function ServicesHome() {
                                     </motion.span>
                                     <span className="text-base sm:text-md lg:text-lg xl:text-4xl font-bold text-primary">+</span>
                                 </p>
-                                <p className="text-center text-xs sm:text-md lg:text-lg xl:text-xl mt-[1px] md-[2px] xl:mt-1">
+                                <p className="text-center text-[8px] sm:text-sm md:text-base lg:text-lg xl:text-xl mt-[1px] md-[2px] xl:mt-1">
                                     {stat.label}
                                 </p>
                             </div>

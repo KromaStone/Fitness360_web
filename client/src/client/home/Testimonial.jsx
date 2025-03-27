@@ -47,9 +47,9 @@ function Testimonial() {
                     initial="hidden"
                     viewport={{ once: false, amount: 0.2 }}
                     variants={fadeIn('', '', 0.3, 0.5)}
-                    className="text-base sm:text-md lg:text-lg text-center justify-center items-center flex gap-2 text-secondary dark:text-secondlight uppercase font-semibold"
+                    className="text-base sm:text-md lg:text-lg text-center justify-center items-center flex gap-2 text-primary uppercase font-semibold"
                 >
-                    <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>TESTIMONIALS<span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>
+                    <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>TESTIMONIAL<span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span>
                 </motion.p>
                 <motion.h2
                     whileInView="show"

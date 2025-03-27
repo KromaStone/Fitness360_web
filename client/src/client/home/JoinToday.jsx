@@ -43,8 +43,8 @@ function JoinToday() {
                             initial="hidden"
                             viewport={{ once: false, amount: 0.2 }}
                             variants={fadeIn("", "", 0.3, 0.5)}
-                            className='text-xl mx-2 fle '>Pricing Plan
-                            <span className="bg-gradient-to-l from-transparent to-primary h-[2px] rounded-md w-12 inline-block"></span></motion.p>
+                            className='text-xl mx-2 flex items-center  text-primary'>Pricing Plan
+                            <span className="bg-gradient-to-l from-transparent to-primary h-[2px] rounded-md w-12 inline-block ml-1"></span></motion.p>
                         <motion.h2
                             whileInView="show"
                             initial="hidden"
