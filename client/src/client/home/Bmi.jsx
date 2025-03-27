@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../assets/utils/motion';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Input, Select, SelectItem, Button, Tooltip } from '@nextui-org/react';
 // import {  } from "@heroui/tooltip";
 
@@ -12,6 +12,7 @@ function Bmi() {
     const [activityFactor, setActivityFactor] = useState('1.2');
     const [bmi, setBmi] = useState(null);
     const [weightStatus, setWeightStatus] = useState('');
+    const bmiResult = useRef()
 
     const calculateBmi = () => {
         const heightInMeters = height / 100;
@@ -27,6 +28,7 @@ function Bmi() {
         } else {
             setWeightStatus('Obese');
         }
+        bmiResult.current.focus();
     };
 
     const resetCalculator = () => {
@@ -43,7 +45,7 @@ function Bmi() {
         <section className="py-8 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-32 xl:px-52 bg-light text-background dark:bg-background dark:text-light flex flex-col justify-center items-center gap-2 sm:gap-4 relative overflow-hidden w-full">
             <div className='max-w-[1550px] m-auto'>
                 <div className='flex flex-col md:flex-row justify-between items-start gap-5 w-full'>
-                    <div className="w-full flex flex-col gap-1 md:gap-2 lg:gap-2 xl:gap-3 p-1 sm:p-2 md:p-4 lg:p-6 xl:p-8 2xl:p-10 border dark:border-light/30 rounded-xl">
+                    <div className="w-full flex flex-col gap-1 md:gap-2 lg:gap-2 xl:gap-3 p-4 sm:p-2 md:p-4 lg:p-6 xl:p-8 2xl:p-10 dark:border-light/30 rounded-xl">
                         <motion.p
                             whileInView="show"
                             initial="hidden"
@@ -133,7 +135,7 @@ function Bmi() {
                             </div>
                         </div>
                     </div>
-                    <div className="bg-secondlight/20 dark:bg-background border dark:border-light/30 p-4 sm:p-2 md:p-4 lg:p-6 xl:p-8 2xl:p-10 rounded-xl w-full kkk">
+                    <div className="bg-secondlight/40 dark:bg-secondary/60 p-4 sm:p-2 md:p-4 lg:p-6 xl:p-8 2xl:p-10 rounded-xl w-full">
                         <motion.h2
                             title='Calculate Your BMI'
                             whileInView="show"
@@ -176,13 +178,27 @@ function Bmi() {
                                     bmi
                                 }
                             </h3>
-                            <p className={`${bmi ? 'text-md ' : 'text-light dark:text-background'}`}>Status: {weightStatus}</p>
+                            {bmi == 'NaN' || bmi === 0 || bmi === null ?
+                                `` :
+                                <>
+                                    <p className={`${bmi ? 'text-md ' : 'text-light dark:text-background'}`}> {weightStatus}</p>
+                                    <input
+                                        type="text"
+                                        ref={bmiResult}
+                                        placeholder="lll"
+                                        readOnly
+                                        className='bg-transparent text-background dark:text-light p-1'
+                                        value={`Status :  ${weightStatus}`}
+                                    />
+
+                                </>
+                            }
                         </div>
                         {/* )} */}
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 }
 

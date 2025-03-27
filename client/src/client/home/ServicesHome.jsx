@@ -171,12 +171,12 @@ function ServicesHome() {
                                 Unleashing Potential With
                                 Intense Fitness Workouts
                             </h2>
-                            <p className='text-XS sm:text-sm md:text-  lg:text-base xl:text-base 2xl:text-lg my-2 sm:my-4 c-text-gray text-left text-secondary/60 dark:text-secondlight/50'>
+                            <p className='text-XS sm:text-sm lg:text-base xl:text-base 2xl:text-lg my-2 sm:my-4 c-text-gray text-left text-secondary/60 dark:text-secondlight/50'>
                                 Body fitness encompasses various aspects of physical health and well-being,
                                 involving a combination of exercise, nutrition, and lifestyle choices. Achieving and
                                 maintaining optimal body fitness contributes to overall health, vitality.
                             </p>
-                            <ul className='text-base sm:text-md lg:text-lg  text-secondary dark:text-secondlight capitalize  text-secondary/60 dark:text-secondlight/50'>
+                            <ul className='text-base sm:text-md lg:text-lg  text-secondary dark:text-secondlight capitalize  text-secondary/60 dark:text-secondlight/50  mb-2 sm:mb-4'>
                                 <li className='items-center flex gap-2'>
                                     <span className="bg-primary h-[2px] rounded-md w-10 inline-block"></span> Over 15 years of experience
                                 </li>
