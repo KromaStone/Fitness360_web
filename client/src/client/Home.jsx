@@ -12,13 +12,14 @@ const ChooseUs = React.lazy(() => import('../client/ChooseUs.jsx'));
 const Marquee = React.lazy(() => import('../client/home/Marquee .jsx'));
 const Bmi = React.lazy(() => import('../client/home/Bmi.jsx'));
 const Testimonial = React.lazy(() => import('../client/home/Testimonial.jsx'));
+const ClassesSchedule = React.lazy(() => import('../client/home/ClassSchedule.jsx'));
 
 
 function Home() {
   useEffect(() => {
     document.title = 'Home | Fitness360'
   }, [])
-  const components = [Banner, Marquee, ServicesHome, UpcomingClasses, Trainers, ChooseUs, Bmi, Testimonial, JoinToday, CallUs, Faq
+  const components = [Banner, Marquee, ServicesHome, UpcomingClasses, ClassesSchedule, Trainers, ChooseUs, Bmi, Testimonial, JoinToday, CallUs, Faq
   ];
   // const components = [Banner, StatBanner, ChooseUs, Trainers, Coaches, JoinToday, CallUs];
 

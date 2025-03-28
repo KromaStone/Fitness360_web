@@ -58,9 +58,9 @@ function UpcomingClasses() {
 
 
                 <div className='w-full min-w-[320px] rounded-2xl bg-light dark:bg-background p-4'>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8 lg:gap-16 xl:gap-20 mt-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-8 lg:gap-16 xl:gap-20 mt-6">
                         {services.map((service, index) => (
-                            <div className='p-[2px] bg-gradient-to-t from-secondary/40 dark:from-secondlight/40 to-transparent hover:from-primary dark:hover:from-primary rounded-xl group transition-all ease-in-out duration-300 overflow-visible' key={index}>
+                            <div className='p-[2px] bg-gradient-to-t from-secondary/40 dark:from-secondlight/40 to-transparent hover:from-primary dark:hover:from-primary rounded-xl group transition-all ease-in-out duration-300 overflow-visible min-w-[280px]' key={index}>
                                 <div className='w-full bg-secondlight dark:bg-secondary rounded-xl p-2 sm:p-3 md:p-4 lg:p-5 xl:p-7 flex flex-col justify-between'>
                                     <LazyLoadImage
                                         src={service.image}
