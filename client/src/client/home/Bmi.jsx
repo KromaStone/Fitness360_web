@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { fadeIn } from '../../assets/utils/motion';
 import { useRef, useState } from 'react';
 import { Input, Select, SelectItem, Button, Tooltip } from '@nextui-org/react';
-// import {  } from "@heroui/tooltip";
 
 function Bmi() {
     const [weight, setWeight] = useState('');
