@@ -23,6 +23,8 @@ export default {
         blue: "#0064d7",
       },
       backgroundImage: {
+        'marquee-gradient-light': 'linear-gradient(90deg, rgb(221, 221, 221) 1%, rgba(255, 255, 255, 0) 5%, rgba(255, 255, 255, 0) 95%, rgb(221, 221, 221) 99%)',
+        'marquee-gradient-dark': 'linear-gradient(90deg, rgb(29, 32, 41) 1%, rgba(255, 255, 255, 0) 5%, rgba(255, 255, 255, 0) 95%, rgb(29, 32, 41) 99%)',
         'callbanner': "url('./src/assets/images/call-banner.png')",
         'footer-texture': "url('/img/footer-texture.png')",
         'custom-gradient': 'linear-gradient(90deg, rgba(255,255,255,1) 33%, rgba(255,255,255,0) 100%)',

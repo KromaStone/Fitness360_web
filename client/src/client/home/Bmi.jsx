@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { fadeIn } from '../../assets/utils/motion';
 import { useRef, useState } from 'react';
 import { Input, Select, SelectItem, Button, Tooltip } from '@nextui-org/react';
+import { NextButton } from '../../components/NextButton';
 
 function Bmi() {
     const [weight, setWeight] = useState('');
@@ -39,12 +40,13 @@ function Bmi() {
         setBmi(null);
         setWeightStatus('');
     };
-
     return (
         <section className="py-8 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-32 xl:px-52 bg-light text-background dark:bg-background dark:text-light flex flex-col justify-center items-center gap-2 sm:gap-4 relative overflow-hidden w-full">
             <div className='max-w-[1550px] m-auto'>
+                {/* sm:px-2 md:px-4 lg:px-6 xl:px-8 2xl:px-10 */}
+                {/* sm:p-2 md:p-4 lg:p-6 xl:p-8 2xl:p-10 */}
                 <div className='flex flex-col md:flex-row justify-between items-start gap-5 w-full'>
-                    <div className="w-full flex flex-col gap-1 md:gap-2 lg:gap-2 xl:gap-3 p-4 sm:p-2 md:p-4 lg:p-6 xl:p-8 2xl:p-10 dark:border-light/30 rounded-xl">
+                    <div className="w-full flex flex-col gap-1 md:gap-2 lg:gap-2 xl:gap-3 p-4 sm:px-2 md:px-4 lg:px-6 xl:px-8 2xl:px-10  dark:border-light/30 rounded-xl">
                         <motion.p
                             whileInView="show"
                             initial="hidden"
@@ -66,7 +68,7 @@ function Bmi() {
                             Overrides on hanging fruits to identify ball park value added activity to beta overrided the digitals divided with additionals clickthroughs from line.
                         </motion.p>
 
-                        <div className='flex flex-col gap-4'>
+                        <div className='flex flex-col gap-4 sm:pt-1 md:pt-2 lg:pt-3 xl:pt-4 2xl:pt-5'>
                             <div className='flex justify-center gap-3'>
                                 <Input
                                     id='weight'
@@ -116,21 +118,21 @@ function Bmi() {
                                 <SelectItem key="1.725" value="1.725">Very Active</SelectItem>
                                 <SelectItem key="1.9" value="1.9">Extra Active</SelectItem>
                             </Select>
-                            <div className="flex gap-2">
-                                <Button
+                            <div className="flex gap-2 sm:pt-1 md:pt-[2px] lg:pt-[4px] xl:pt-[6px] 2xl:pt-2">
+                                <NextButton
                                     onClick={calculateBmi}
                                     color="primary"
-                                    className="flex-1"
+                                    className="flex-1 py-6"
                                 >
                                     CALCULATE NOW
-                                </Button>
-                                <Button
+                                </NextButton>
+                                <NextButton
                                     onClick={resetCalculator}
                                     color="secondary"
-                                    className="flex-1"
+                                    className="flex-1 py-6"
                                 >
                                     RESET
-                                </Button>
+                                </NextButton>
                             </div>
                         </div>
                     </div>

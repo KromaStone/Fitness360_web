@@ -5,7 +5,7 @@ export const NextButton = extendVariants(Button, {
         // <- modify/add variants
         color: {
             background: "bg-[#111419] text-[#fff]",
-            secondary: "bg-[#1d2029] text-[#fff]",
+            secondary: "bg-[#1d2029] text-[#fff]  border border-light/15",
             light: "bg-[#ffff] text-[#000]",
             secondlight: " bg-[#0064d7]  text-[#ffff]",
             primary: "bg-[#009336] text-[#ffffff]",
