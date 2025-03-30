@@ -96,7 +96,7 @@ function Navbar() {
                     initial="hidden"
                     animate="show"
                     variants={fadeIn('right', 'spring', 0, 0.75)}
-                    className="h-96 w-full bg-transparent absolute z-20 flex items-start justify-end"
+                    className="h-96 w-full bg-transparent absolute z-20 md:flex items-start justify-end"
                 >
                     <div
                         className="rounded-xl flex flex-col w-full float-right items-end pr-4 pl-16 py-4 mx-4 mt-4"
@@ -113,9 +113,10 @@ function Navbar() {
                                 {link.label}
                             </Link>
                         ))}
-                        {/* <div className='w-5/12 flex align-bottom justify-end'> */}
-                        <NextButton onClick={joinNowClick} type="primary" size="medium" >Sign In</NextButton>
-                        {/* </div> */}
+                        <div className='flex flex-col justify-end gap-2 text-light'>
+                            <ThemeToggle />
+                            <NextButton onClick={joinNowClick} type="primary" size="medium" >Sign In</NextButton>
+                        </div>
                     </div>
                 </motion.div>
             )}

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../assets/utils/motion';
 import { useRef, useState } from 'react';
-import { Input, Select, SelectItem, Button, Tooltip } from '@nextui-org/react';
+import { Input, Select, SelectItem } from '@nextui-org/react';
 import { NextButton } from '../../components/NextButton';
 
 function Bmi() {

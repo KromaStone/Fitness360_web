@@ -147,7 +147,7 @@ function ClassSchedule() {
 
                         <div className="md:hidden">
                             {scheduleData.map((row, index) => (
-                                <div key={index} className="p-4 border-b border-gray-200">
+                                <div key={index} className="py-4 border-b border-secondary/40 dark:border-secondlight/80">
                                     <div className="font-bold text-lg mb-2">{row.time}</div>
                                     <div className="grid grid-cols-2 gap-2">
                                         {days.map((day) => {
@@ -155,12 +155,12 @@ function ClassSchedule() {
                                             return (
                                                 <div
                                                     key={day}
-                                                    className="bg-gray-50 p-2 rounded cursor-pointer hover:bg-gray-100"
+                                                    className="group bg-secondlight/50 p-2 rounded cursor-pointer hover:bg-primary hover:text-light"
                                                     onClick={() => { handleClassClick(row[day], row.time, day) }}
                                                 >
                                                     <div className="font-semibold text-sm">{day}</div>
-                                                    <div className="font-medium">{row[day].class}</div>
-                                                    <div className="text-xs text-gray-600">{row[day].instructor}</div>
+                                                    <div className="font-medium hover:text-light">{row[day].class}</div>
+                                                    <div className="text-xs text-secondary/80 dark:text-light/90 group-hover:text-light">oo{row[day].instructor}</div>
                                                 </div>
                                             );
                                         })}
@@ -172,7 +172,7 @@ function ClassSchedule() {
                 </div>
             </div>
 
-            {/* Class Details Modal - Only shows when a class is clicked */}
+            {/*model */}
             {selectedClass && (
                 <Modal
                     isOpen={isOpen}
