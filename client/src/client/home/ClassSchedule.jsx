@@ -160,7 +160,7 @@ function ClassSchedule() {
                                                 >
                                                     <div className="font-semibold text-sm">{day}</div>
                                                     <div className="font-medium hover:text-light">{row[day].class}</div>
-                                                    <div className="text-xs text-secondary/80 dark:text-light/90 group-hover:text-light">oo{row[day].instructor}</div>
+                                                    <div className="text-xs text-secondary/80 dark:text-light/90 group-hover:text-light">{row[day].instructor}</div>
                                                 </div>
                                             );
                                         })}
