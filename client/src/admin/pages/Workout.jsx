@@ -15,6 +15,7 @@ import {
     ModalContent,
     ModalFooter,
     ModalHeader,
+    Spinner,
     Tooltip,
     useDisclosure
 } from "@nextui-org/react";
@@ -117,9 +118,8 @@ function Workout() {
                     </Dropdown>
                 </div>
 
-                <div className={`absolute z-20 rounded-2xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-svh w-svw ${loading === true ? "" : "hidden"}`}>
-                    <Loader />
-                </div>
+                
+                <Spinner label="Loading..." color="success" className={`z-50 bg-light dark:bg-background absolute rounded-2xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-svh w-svw${loading === true ? "" : "hidden"}`} />
 
 
 

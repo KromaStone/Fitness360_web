@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect } from 'react';
 import '../styleSheets/Home.css';
-const Loader = React.lazy(() => import('../components/Loader.jsx'))
+import { Spinner } from '@nextui-org/react';
 const Banner = React.lazy(() => import('./home/Banner.jsx'));
 const ServicesHome = React.lazy(() => import('./home/ServicesHome.jsx'));
 const JoinToday = React.lazy(() => import('./home/JoinToday.jsx'));
@@ -26,9 +26,10 @@ function Home() {
   return (
     <>
       <div className=' text-light p-0'>
-        <Suspense fallback={<div>
-          <Loader />
-        </div>}>
+        <Suspense fallback={
+          <Spinner label="Loading..." color="success" className="bg-light dark:bg-background w-full h-[calc(100vh-74px)]" />
+        }>
+
           {Object.keys(components).map((key) => {
             const Component = components[key];
             return <Component key={key} />;

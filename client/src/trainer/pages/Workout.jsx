@@ -13,6 +13,7 @@ import {
     ModalHeader,
     Select,
     SelectItem,
+    Spinner,
     Textarea,
     Tooltip,
     useDisclosure
@@ -251,10 +252,7 @@ function Workout() {
                     <NextButton color='secondary' className='border-1 dark:border-light/50 dark:bg-background dark:text-light bg-light border-background/50 text-background ' onPress={onOpen}>Add Workout</NextButton>
                 </div>
 
-                <div className={`z-100 absolute z-50 rounded-2xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-svh w-svw ${loading === true ? "" : "hidden"}`}>
-                    <Loader />
-                </div>
-
+                <Spinner label="Loading..." color="success" className={`absolute rounded-2xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-svh w-svw z-50 bg-light dark:bg-background ${loading === true ? "" : "hidden"}`} />
 
 
                 <div className="grid gap-4 grid-cols-[repeat(auto-fill,_minmax(450px,1fr))] ">

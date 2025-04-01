@@ -30,7 +30,7 @@ export const ApplicationUserProvider = ({ children }) => {
     };
 
     if (loading) {
-        return <Loader />
+        return <Spinner label="Loading..." color="success" className="bg-light dark:bg-background w-screen h-screen" />
     }
 
     return (

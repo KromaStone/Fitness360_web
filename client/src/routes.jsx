@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import ProtectedRoute from './authentication/ProtectedRoute';
+import { Spinner } from '@nextui-org/react';
 
 // Lazy loaded components
 const Home = React.lazy(() => import('./client/Home'));
@@ -8,7 +9,6 @@ const Trainers = React.lazy(() => import('./client/Trainers'));
 const Service = React.lazy(() => import('./client/Service'));
 const Shop = React.lazy(() => import('./client/Shop'));
 const About = React.lazy(() => import('./client/About'));
-const Loader = React.lazy(() => import('./components/Loader')); // Check if Loader works fine
 const Login = React.lazy(() => import('./authentication/Login'));
 const Signup = React.lazy(() => import('./authentication/Signup'));
 const HomePage = React.lazy(() => import('./client/HomePage'));
@@ -94,12 +94,11 @@ function AppRoutes() {
         { path: "login", element: <Login /> },
         { path: "signup", element: <Signup /> },
         { path: "trainersignup", element: <TrainerSignUp /> },
-        { path: 'loader', element: <Loader /> },
         { path: 'test', element: <Test /> },
     ];
 
     return (
-        <Suspense fallback={<div><Loader /></div>}>
+        <Suspense fallback={<Spinner label="Loading..." color="success" className="bg-light dark:bg-background w-screen h-screen" />}>
             <BrowserRouter>
                 <Routes>
                     {routesList.map(({ path, element, children }) => (

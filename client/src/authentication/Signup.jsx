@@ -3,7 +3,7 @@
 
 // import React from 'react'
 import { Icon } from "@iconify/react";
-import { Divider, Input, Link, Select, SelectItem, } from "@nextui-org/react";
+import { Divider, Input, Link, Select, SelectItem, Spinner, } from "@nextui-org/react";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import { motion } from "framer-motion";
 import { jwtDecode } from "jwt-decode";
@@ -294,9 +294,8 @@ function Signup() {
   return (
 
     <>
-      <div className={`absolute z-20 rounded-2xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-svh w-svw ${loading === true ? "" : "hidden"}`}>
-        <Loader />
-      </div>
+      <Spinner label="Loading..." color="success" className={`absolute rounded-2xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-svh w-svw z-50 bg-light dark:bg-background ${loading === true ? "" : "hidden"}`} />
+
       <div className="flex flex-col h-full w-full items-center justify-center absolute bg-gradient-to-br from-secondlight to-light dark:from-secondary dark:to-background text-background dark:text-light ">
         <motion.div
           initial="hidden"

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Input } from "@nextui-org/input";
-import { Checkbox, Divider } from "@nextui-org/react";
+import { Checkbox, Divider, Spinner } from "@nextui-org/react";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import { motion } from "framer-motion";
 import { jwtDecode } from "jwt-decode";
@@ -171,9 +171,9 @@ function Login() {
   return (
     <>
       <Toaster className="z-40" richColors position="top-right" />
-      <div className={`absolute z-20 rounded-2xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-svh w-svw ${loading === true ? "" : "hidden"}`}>
-        <Loader />
-      </div>
+
+      <Spinner label="Loading..." color="success" className={`absolute rounded-2xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-svh w-svw z-50 bg-light dark:bg-background ${loading === true ? "" : "hidden"}`} />
+
       {/* <AnimatedBackground /> */}
       <div className="flex items-center justify-center min-h-screen  bg-gradient-to-br from-light to-secondlight  dark:from-background dark:to-secondary">
         <motion.div
