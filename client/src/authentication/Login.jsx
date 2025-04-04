@@ -156,7 +156,6 @@ function Login() {
       oAuthFacebook.profilePicture = profile.picture.data.url;
       const result = await openAuth(oAuthFacebook)
       handleAuthSuccess(result);
-      console.log('-------------', result);
     } catch (error) {
       console.error('Error in handle Facebook Success:', error);
       toast.error(error.message || 'facebook authentication failed');
