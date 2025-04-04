@@ -9,7 +9,6 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { toast, Toaster } from 'sonner';
 import { fadeIn } from "../../assets/utils/motion";
 import MyForm from '../../components/Form';
-import Loader from '../../components/Loader';
 import { NextButton } from "../../components/NextButton";
 import { CreateUser, DeleteUser, getAllUsers, UpdateUser } from '../../services/adminService/userService';
 import { Spinner } from "@nextui-org/react";

@@ -1,6 +1,5 @@
 import { jwtDecode } from "jwt-decode";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import Loader from "../components/Loader";
 
 const ApplicationUserContext = createContext(null);
 

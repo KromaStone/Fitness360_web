@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 "use client";
 
-// import React from 'react'
 import { Icon } from "@iconify/react";
 import { Divider, Input, Link, Select, SelectItem, Spinner, } from "@nextui-org/react";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
@@ -11,7 +10,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from "sonner";
 import { fadeIn } from "../assets/utils/motion";
-import Loader from "../components/Loader";
 import { NextButton } from "../components/NextButton";
 import { CreateUser, openAuth } from "../services/AuthenticationService";
 import FacebookLogin from "./FacebookLogin";

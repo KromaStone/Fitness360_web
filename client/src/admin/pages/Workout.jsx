@@ -23,7 +23,6 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import React, { useEffect, useState } from 'react';
 import { Toaster, toast } from 'sonner';
-import Loader from '../../components/Loader';
 import { NextButton } from '../../components/NextButton';
 import { getTrainersNameDate, getWorkoutData } from '../../services/adminService/Workout';
 

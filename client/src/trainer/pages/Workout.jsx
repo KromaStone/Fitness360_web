@@ -23,7 +23,6 @@ import "ag-grid-community/styles/ag-theme-quartz.css";
 import { jwtDecode } from 'jwt-decode';
 import React, { useEffect, useState } from 'react';
 import { toast, Toaster } from "sonner";
-import Loader from '../../components/Loader';
 import { NextButton } from '../../components/NextButton';
 import { deleteWorkout, getWorkoutData, saveWorkout } from '../../services/trainerServices/Workout';
 

@@ -10,7 +10,6 @@ import { useNavigate } from 'react-router-dom';
 import { toast, Toaster } from "sonner";
 import { fadeIn } from "../assets/utils/motion";
 import { eyeIcon, eyeOffIcon } from '../components/icons';
-import Loader from "../components/Loader";
 import { NextButton } from "../components/NextButton";
 import { LoginUser, openAuth } from "../services/AuthenticationService";
 import FacebookLogin from "./FacebookLogin";
@@ -157,6 +156,7 @@ function Login() {
       oAuthFacebook.profilePicture = profile.picture.data.url;
       const result = await openAuth(oAuthFacebook)
       handleAuthSuccess(result);
+      console.log('-------------', result);
     } catch (error) {
       console.error('Error in handle Facebook Success:', error);
       toast.error(error.message || 'facebook authentication failed');
