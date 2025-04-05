@@ -20,7 +20,7 @@ export const CreateWorkout = async (req, res) => {
         }
         if (workoutData.price === 0 || workoutData.price === '') {
             workoutData.price = 0;
-            console.log('workoutData.price ', workoutData.price )
+            console.log('workoutData.price ', workoutData.price)
         }
         const workoutResponse = await createWorkout(workoutData);
         return res.status(workoutResponse.statusCode).send(workoutResponse);

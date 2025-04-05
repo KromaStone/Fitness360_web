@@ -117,8 +117,8 @@ function Workout() {
                     </Dropdown>
                 </div>
 
-                
-                <Spinner label="Loading..." color="success" className={`z-50 bg-light dark:bg-background absolute rounded-2xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-svh w-svw${loading === true ? "" : "hidden"}`} />
+
+                <Spinner label="Loading..." color="success" className={`z-50 bg-light dark:bg-background absolute rounded-2xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-svh w-svw ${loading === true ? "" : "hidden"}`} />
 
 
 

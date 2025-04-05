@@ -371,7 +371,17 @@ function Workout() {
                                         labelPlacement="outside"
                                         type="file"
                                         accept="video/*"
-                                        onChange={(e) => setVideoFile(e.target.files[0])}
+                                        // onChange={(e) => setVideoFile(e.target.files[0])}
+                                        onChange={(e) => {
+                                            const file = e.target.files[0];
+                                            if (file) {
+                                                if (file.size <= 50 * 1024 * 1024) {
+                                                    setVideoFile(file);
+                                                } else {
+                                                    toast.error("File must be less than 50MB.");
+                                                }
+                                            }
+                                        }}
                                     />
                                     <Select
                                         radius="none"

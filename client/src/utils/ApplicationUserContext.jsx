@@ -1,6 +1,6 @@
 import { jwtDecode } from "jwt-decode";
-import React, { createContext, useContext, useEffect, useState } from "react";
-
+import React, { createContext, useContext, useEffect, useState } from "react"
+import { Spinner } from "@nextui-org/react";
 const ApplicationUserContext = createContext(null);
 
 export const ApplicationUserProvider = ({ children }) => {

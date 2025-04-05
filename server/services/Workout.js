@@ -21,7 +21,6 @@ export const createWorkout = async (workoutData) => {
 
 export const getWorkouts = async (page, pageSize, trainerId) => {
     const skip = (page - 1) * pageSize;
-
     let workoutData;
     if (trainerId && trainerId.length > 0) {
         workoutData = await WorkoutModel.find({ trainerId: trainerId })

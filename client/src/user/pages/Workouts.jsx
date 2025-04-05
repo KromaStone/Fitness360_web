@@ -5,6 +5,7 @@ import {
     ModalBody,
     ModalContent,
     ModalHeader,
+    Spinner,
     Tooltip,
     useDisclosure
 } from "@nextui-org/react";
@@ -18,33 +19,29 @@ import { useApplicationUser } from "../../utils/ApplicationUserContext";
 
 function Workouts() {
     const [selectedCategory, setSelectedCategory] = useState('');
-    const [workOut, setworkOut] = useState('');
     const [workout, setWorkout] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const [pagev, setPagev] = useState(1)
     const { isOpen: isOpenQuestion, onOpen: onOpenQuestion, onClose: onCloesQuestion, onOpenChange: onOpenChangeQuestion } = useDisclosure();
     const [selectedWorkout, setSelectedWorkout] = useState(null);
     const { appUserId } = useApplicationUser();
-    const pageC = 1
-    const pageSizeC = 9;
+    const [pageSize, setPageSize] = useState(9);
     const navigate = useNavigate()
 
     useEffect(() => {
         document.title = 'Workouts | Fitness360'
         const workoutValue = (sessionStorage.getItem('workoutValue'))
         if (workoutValue && workoutValue.length > 0) {
-            setworkOut(selectedCategory);
             sessionStorage.removeItem('workoutValue');
-            getWorkoutByCategory(pageC, pageSizeC, workoutValue)
+            getWorkoutByCategory(currentPage, pageSize, workoutValue)
         } else if (selectedCategory && selectedCategory.length > 0) {
-            getWorkoutByCategory(pageC, pageSizeC, selectedCategory)
+            getWorkoutByCategory(currentPage, pageSize, selectedCategory)
         }
         else {
-            getWorkoutByCategory(pageC, pageSizeC, '')
+            getWorkoutByCategory(currentPage, pageSize, '')
         }
-    }, [selectedCategory])
+    }, [selectedCategory, currentPage])
 
     const categoryData = [
         {
@@ -87,6 +84,7 @@ function Workouts() {
             const result = await getWorkoutByCategoryData(page, pageSize, category);
             setWorkout(result.workoutData.workoutData);
             setTotalPages(result.workoutData.totalPages);
+            console.log('workout---', result.workoutData.workoutData)
         } catch (error) {
             console.log(error);
         } finally {
@@ -95,26 +93,22 @@ function Workouts() {
     };
 
     const workoutDetails = (data) => {
-        // console.log('workout details', data)
         onOpenQuestion();
         setSelectedWorkout(data);
     }
+
     const cancelEnrollment = () => {
         onCloesQuestion()
         toast.info('You Missed Your Enrollment')
     }
+
     const handleEnrollment = async () => {
         onCloesQuestion()
-        // onOpenWorkout()
-        // console.log('appUserId', appUserId)
-        // console.log('selectedWorkout: ', selectedWorkout._id)
-
         const enrollment = {
             userId: appUserId,
             workoutId: selectedWorkout._id,
             paymentStatus: 'paid',
         };
-
         await enrollWorkout(enrollment);
     }
 
@@ -138,6 +132,9 @@ function Workouts() {
 
     return (
         <>
+            {loading === true &&
+                <Spinner className="fixed top-1/2 left-1/2 z-50" isVisible={loading === true} size="xl" color="primary" />
+            }
             <h2 className="font-semibold text-xl mb-2">Start you Workout</h2>
             <Dropdown>
                 <DropdownTrigger>
@@ -163,41 +160,48 @@ function Workouts() {
                 </DropdownMenu>
             </Dropdown>
 
-            <div className="grid gap-4 grid-cols-[repeat(auto-fill,_minmax(450px,1fr))] ">
+            {workout.length > 0 ?
+                (loading ?
+                    (<Spinner className="fixed top-1/2 left-1/2 z-50" isVisible={loading} size="xl" color="primary" />)
+                    : (
+                        <div className="grid gap-4 grid-cols-[repeat(auto-fill,_minmax(450px,1fr))]">
+                            {workout.map((data, index) => (
+                                <Card key={index} isPressable shadow="sm" onPress={() => workoutDetails(data)} className="hover:scale-[.98]">
+                                    <CardBody className="overflow-visible p-0">
+                                        {data?.price !== 0 && (
+                                            <Tooltip content="Premium" color="success">
+                                                <Icon
+                                                    className="pointer-events-none text-2xl text-default-400 absolute z-40 right-[1px] top-[1px] h-8 w-8 p-1 shadow-inner bg-gradient-to-bl from-light to-secondlight rounded-xl"
+                                                    icon="solar:crown-bold"
+                                                    color="green"
+                                                />
+                                            </Tooltip>
+                                        )}
+                                        <Image
+                                            alt={data.title}
+                                            className="w-full object-cover h-[200px] bg-red-700"
+                                            radius="lg"
+                                            shadow="sm"
+                                            src={data.imagePath}
+                                            width="100%"
+                                        />
+                                    </CardBody>
+                                    <CardFooter className="text-small justify-between">
+                                        <b>{data.title}</b>
+                                        <p className="font-thin text-xs">Category: <span className="capitalize text-sm font-normal">{data.category}</span></p>
+                                    </CardFooter>
+                                </Card>
+                            ))}
+                        </div>
+                    )
+                ) : (
+                    <div className="flex justify-center h-full">
+                        No Exercises for now under this category
+                    </div>
+                )}
 
-                {workout.map((data, index) => (
 
-                    <Card key={index} isPressable shadow="sm" onPress={() => workoutDetails(data)} className="hover:scale-[.98]">
-                        <CardBody className="overflow-visible p-0">
-                            {data?.price != 0 &&
-                                <Tooltip content='Premium' color='success'>
-                                    <Icon
-                                        className="pointer-events-none text-2xl text-default-400 absolute z-40 right-[1px] top-[1px] h-8 w-8 p-1 shadow-inner bg-gradient-to-bl from-light to-secondlight rounded-xl"
-                                        icon="solar:crown-bold"
-                                        color="green"
-                                    />
-                                </Tooltip>}
-                            <Image
-                                alt={data.title}
-                                className="w-full object-cover h-[200px]"
-                                radius="lg"
-                                shadow="sm"
-                                src={data.imagePath}
-                                width="100%"
-                            />
-                        </CardBody>
-                        <CardFooter className="text-small justify-between">
-                            {/* import {Icon} from "@iconify/react"; */}
-
-                            <b>{data.title}</b>  <p className="font-thin text-xs">Category: <span className="capitalize text-sm font-normal"> {data.category}</span></p>
-                        </CardFooter>
-                    </Card>
-                ))
-                }
-
-            </div>
-
-            {/*workout card */}
+            {/*paging button */}
             <div className="m-2 border-none rounded-xl flex justify-end items-center w-fit-conte fixed right-4 bottom-4 z-10">
                 <div className="border-1 dark:border-secondlight border-background rounded-lg p-[1px] flex justify-center">
                     <NextButton
@@ -223,7 +227,7 @@ function Workouts() {
             </div>
 
             {/* want to enroll  */}
-            <Modal isOpen={isOpenQuestion} onOpenChange={onOpenChangeQuestion} size="xs">
+            <Modal isOpen={isOpenQuestion} onOpenChange={onOpenChangeQuestion} size="xs" backdrop="blur" className="dark:border dark:border-light/10">
                 <ModalContent>
                     {(onClose) => (
                         <>
