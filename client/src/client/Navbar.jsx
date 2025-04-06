@@ -113,8 +113,8 @@ function Navbar() {
                                 {link.label}
                             </Link>
                         ))}
-                        <div className='flex flex-col justify-end gap-2 text-light'>
-                            <ThemeToggle />
+                        <div className='flex flex-col items-end justify-end gap-2 text-light'>
+                            <div className='w-full'><ThemeToggle /></div>
                             <NextButton onClick={joinNowClick} type="primary" size="medium" >Sign In</NextButton>
                         </div>
                     </div>
