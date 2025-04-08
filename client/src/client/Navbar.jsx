@@ -91,16 +91,23 @@ function Navbar() {
 
             {/* Mobile Menu */}
             {isMenuOpen && (
-                <motion.div
+                <div
                     ref={menuRef}
-                    initial="hidden"
-                    animate="show"
-                    variants={fadeIn('right', 'spring', 0, 0.75)}
-                    className="h-96 w-full bg-transparent absolute z-20 md:flex items-start justify-end"
+
+                    className="h-screen w-full  absolute z-20 md:flex items-start justify-end p-4"
+                    style={{
+                        backdropFilter: 'blur(8px)',
+                        WebkitBackdropFilter: 'blur(8px)',
+                        backgroundColor: 'rgba(0, 0, 0, 0.2)'
+                    }}
+                    onClick={toggleMenu}
                 >
-                    <div
-                        className="rounded-xl flex flex-col w-full float-right items-end pr-4 pl-16 py-4 mx-4 mt-4"
-                        style={{ backgroundColor: 'rgba(0, 0, 0, .8)' }}
+                    <motion.div
+                        initial="hidden"
+                        animate="show"
+                        variants={fadeIn('left', '', 0, 0.3)}
+                        className="rounded-xl flex flex-col w-full float-right items-end pr-4 pl-16 py-4"
+                        style={{ backgroundColor: 'rgba(0, 0, 0, .9)' }}
                     >
                         {navbarLinks.map((link) => (
                             <Link
@@ -117,8 +124,8 @@ function Navbar() {
                             <div className='w-full'><ThemeToggle /></div>
                             <NextButton onClick={joinNowClick} type="primary" size="medium" >Sign In</NextButton>
                         </div>
-                    </div>
-                </motion.div>
+                    </motion.div>
+                </div>
             )}
         </nav>
     );

@@ -68,30 +68,36 @@ function Testimonial() {
                         whileInView="show"
                         initial="hidden"
                         viewport={{ once: false, amount: 0.2 }}
-                        variants={fadeIn('right', '', 0.2, 0.5)}
+                        variants={fadeIn('right', '', 0.2, 0.4)}
                         className="w-full h-[160px] md:w-[220px] md:h-[220px] rounded-[30px] md:rounded-full aspect-square "
                         style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                     ></motion.div>
                     <div className="flex flex-col gap-6 justify-between">
-                        <p className="text-md sm:text-xl md:xl lg:text-xl xl:text-3xl 2xl:text-4xl font-bold tracking-wide fade_appear text-left w-full"
-                        >
-                            <motion.span
-                                key={currentIndex}
-                                whileInView="show"
-                                initial="hidden"
-                                viewport={{ once: false, amount: 0.2 }}
-                                variants={fadeIn('up', '', 0.1, 0.5)}
-                                className="">{text}</motion.span>
-                        </p>
+                        <motion.p
+                            key={currentIndex}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: false, amount: 0.2 }}
+                            variants={fadeIn('right', '', 0.1, 0.4)}
+                            className="text-md sm:text-xl md:xl lg:text-xl xl:text-3xl 2xl:text-4xl font-bold tracking-wide fade_appear text-left w-full"
+                        >{text}
+                        </motion.p>
                         <div className="flex justify-between text-md sm:text-lg lg:text-xl xl:text-2xl font-bold">
                             <p >
-                                {name},
+                                <motion.span
+                                    key={name}
+                                    whileInView="show"
+                                    initial="hidden"
+                                    viewport={{ once: false, amount: 0.2 }}
+                                    variants={fadeIn('', '', 0.2, 0.4)}
+                                > {name},
+                                </motion.span>
                                 <motion.span
                                     key={currentIndex}
                                     whileInView="show"
                                     initial="hidden"
                                     viewport={{ once: false, amount: 0.2 }}
-                                    variants={fadeIn('up', '', 0.05, 0.5)}
+                                    variants={fadeIn('', '', 0.25, 0.4)}
                                     className="text-primary">
                                     &nbsp; {company}
                                 </motion.span>

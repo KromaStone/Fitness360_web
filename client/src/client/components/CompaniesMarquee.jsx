@@ -1,5 +1,5 @@
 import React from 'react'
-import { cocoCompany, coffeeCompany, gym1Company, gym2Company, leafCompany, mixlrCompany, treeCompany,trainer4, trainer5 } from '../../components/images';
+import { cocoCompany, coffeeCompany, gym1Company, gym2Company, leafCompany, mixlrCompany, treeCompany, trainer4, trainer5 } from '../../components/images';
 import { fadeIn } from '../../assets/utils/motion';
 import { motion } from 'framer-motion';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -80,7 +80,7 @@ function CompaniesMarquee() {
     return (
         <section className="py-1 sm:py-2 md:py-2 lg:py-4 xl:py-6 bg-secondlight dark:bg-secondary overflow-hidden relative">
             {/* <div className='w-full max-w-[1550px] m-auto bg-gradient-to-t'> */}
-            <div className='h-[-webkit-fill-available] w-screen top-0 absolute z-50 bg-marquee-gradient-light dark:bg-marquee-gradient-dark'></div>
+            <div className='h-[-webkit-fill-available] w-screen top-0 absolute z-20 bg-marquee-gradient-light dark:bg-marquee-gradient-dark'></div>
             <motion.div
                 whileInView="show"
                 initial="hidden"

@@ -78,7 +78,7 @@ function UpcomingClasses() {
                                         variants={fadeIn("", "", 0.2, 0.4)}
                                         animate={{ rotate: 45 }}
                                         transition={{ duration: 0.3 }}
-                                        className="mt-4 bg-secondary dark:bg-light dark:text-background dark:hover:text-light w-12 h-12 rounded-full relative bottom-1 mx-auto -mb-[58px] flex items-center justify-center border-[4px] text-light border-light dark:border-background transition ease-in-out duration-100 hover:bg-gradient-to-tr hover:from-blue hover:via-indigo-500 hover:to-purple-500 cursor-pointer z-50 group-hover:border-t-primary group-hover:border-l-primary"
+                                        className="mt-4 bg-secondary dark:bg-light dark:text-background dark:hover:text-light w-12 h-12 rounded-full relative bottom-1 mx-auto -mb-[58px] flex items-center justify-center border-[4px] text-light border-light dark:border-background transition ease-in-out duration-100 hover:bg-gradient-to-tr hover:from-blue hover:via-indigo-500 hover:to-purple-500 cursor-pointer z-20 group-hover:border-t-primary group-hover:border-l-primary"
                                     >
                                         <div className='w-12 h-12 group-hover:w-[44px] group-hover:h-[44px] absolute bg-transparent border-[4px] rounded-full'></div>
                                         <Icon icon="line-md:facebook" width="20" className="hover:scale-125 transition ease-in-out duration-300 -rotate-45" />
