@@ -144,7 +144,7 @@ function ServicesHome() {
                             See all Services
                         </button>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 p-4 xl:grid-cols-4 gap-4 sm:gap-8 lg:gap-16 xl:gap-20 mt-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 p-4 xl:grid-cols-4 gap-4 sm:gap-8 lg:gap-2 xl:gap-8 2xl:gap-20 mt-6">
                         {serviceData.map((item, index) => (
                             <ServiceCard
                                 key={index}
