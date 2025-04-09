@@ -1,6 +1,8 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import '../styleSheets/Home.css';
 import { Spinner } from '@nextui-org/react';
+import FitnessBot from '../utils/FitnessBot.jsx';
+import { Modal, ModalContent, Button, } from "@nextui-org/react";
 const Banner = React.lazy(() => import('./home/Banner.jsx'));
 const ServicesHome = React.lazy(() => import('./home/ServicesHome.jsx'));
 const JoinToday = React.lazy(() => import('./home/JoinToday.jsx'));
@@ -18,9 +20,16 @@ const Article = React.lazy(() => import('../client/home/Article.jsx'));
 
 
 function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+  const onOpen = () => setIsOpen(true);
+  const onOpenChange = (open) => setIsOpen(open);
+
+
   useEffect(() => {
     document.title = 'Home | Fitness360'
-  }, [])
+    console.log('Home page loaded', isOpen)
+  }, [isOpen])
+
   const components = [Banner, Marquee, ServicesHome, UpcomingClasses, ClassesSchedule, Trainers, ChooseUs, Bmi, PhotoGallery, Testimonial, Article, CompaniesMarquee, JoinToday, Faq
   ];
 
@@ -36,6 +45,40 @@ function Home() {
             return <Component key={key} />;
           })}
         </Suspense>
+
+        <div className="fixed bottom-4 md:bottom-8 right-4 md:right-8 z-50">
+          <Button
+            onPress={onOpen}
+            isIconOnly
+            color="primary"
+            className="rounded-full w-14 h-14 shadow-lg"
+            aria-label="Open chat"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </Button>
+
+          <Modal
+            isOpen={isOpen}
+            onOpenChange={onOpenChange}
+            placement="bottom-center"
+            backdrop='blur'
+            className="fixed right-8 bottom-0 m-0"
+            classNames={{
+              base: "!max-w-[calc(100%-64px)] sm:!max-w-[380px]",
+              wrapper: "items-end justify-end",
+              body: "p-0"
+            }}
+            scrollBehavior="inside"
+          >
+            <ModalContent className="h-[500px] max-h-[80vh]">
+              {(onClose) => (
+                <FitnessBot />
+              )}
+            </ModalContent>
+          </Modal>
+        </div>
       </div>
     </>
   )

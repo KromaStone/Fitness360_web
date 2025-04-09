@@ -37,7 +37,7 @@ function Faq({
                         whileInView="show"
                         initial="hidden"
                         viewport={{ once: false, amount: 0.2 }}
-                        variants={fadeIn("right", "", 0.2, 0.5)}
+                        variants={fadeIn("", "", 0.2, 0.5)}
                         className='text-xl sm:text-2xl lg:text-3xl font-black text-left'
                     >
                         {title}
@@ -47,7 +47,7 @@ function Faq({
                         whileInView="show"
                         initial="hidden"
                         viewport={{ once: false, amount: 0.2 }}
-                        variants={fadeIn("right", "", 0.3, 0.5)}
+                        variants={fadeIn("", "", 0.3, 0.5)}
                         className='text-sm sm:text-lg lg:text-xl my-2 sm:my-4 c-text-gray text-left text-secondary/90 dark:text-secondlight/90'
                     >
                         {description}
@@ -58,7 +58,7 @@ function Faq({
                     whileInView="show"
                     initial="hidden"
                     viewport={{ once: false, amount: 0.2 }}
-                    variants={fadeIn("left", "", 0.2, 0.5)}
+                    variants={fadeIn("", "", 0.2, 0.5)}
                     className='w-full lg:w-7/12'
                 >
                     <Accordion variant="bordered">
