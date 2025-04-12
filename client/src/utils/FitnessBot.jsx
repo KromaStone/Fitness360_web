@@ -150,7 +150,7 @@ const FitnessBot = () => {
     };
 
     return (
-        <div className="flex flex-col h-full max-w-md mx-auto bg-light dark:bg-secondary rounded-lg shadow-lg shadow-black/30 dark:shadow-white/20 overflow-hidden border border-background/20 dark:border-light/10">
+        <div className="flex flex-col h-full max-w-md mx-auto bg-light dark:bg-secondary rounded-lg shadow-lg overflow-hidden border border-background/20 dark:border-light/10">
             {/* Chat header */}
             <div className="text-background dark:text-light p-4 flex items-center">
                 <Icon icon="mdi:robot-happy" className="text-2xl mr-2" />
