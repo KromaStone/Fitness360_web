@@ -148,7 +148,7 @@ function About() {
           />
           {!(isPlaying) && isHovered && (
             <button
-              className={`absolute flex items-center justify-center text-white text-6xl font-bold cursor-pointer bg-light/50 p-0 hover:p-4 rounded-full border-light/60 border-1 transition-all ease-in-out duration-300 transform hover:scale-110 `}
+              className={`absolute flex items-center justify-center text-white text-6xl font-bold cursor-pointer bg-light/50 hover:p-4 rounded-full border-light/60 border-1 transition-all ease-in-out duration-300 transform hover:scale-110 `}
               onClick={handlePlayPause}
             >
               <Icon
@@ -204,7 +204,7 @@ function About() {
         </motion.h2>
 
 
-        <div className="container mx-auto p-4 mt-4">
+        <div className="container mx-auto mt-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-8 lg:gap-16 xl:gap-20">
             {serviceData.map((item, index) => (
               <ServiceCard

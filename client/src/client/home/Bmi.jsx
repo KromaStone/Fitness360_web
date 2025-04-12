@@ -41,12 +41,12 @@ function Bmi() {
         setWeightStatus('');
     };
     return (
-        <section className="py-8 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-32 xl:px-52 bg-light text-background dark:bg-background dark:text-light flex flex-col justify-center items-center gap-2 sm:gap-4 relative overflow-hidden w-full">
+        <section className="w-full gap-4 h-full border-solid px-6 sm:px-12 lg:px-24 py-10 lg:py-20 bg-light text-background dark:bg-background dark:text-light sm:gap-4 relative overflow-hidden">
             <div className='max-w-[1550px] m-auto'>
                 {/* sm:px-2 md:px-4 lg:px-6 xl:px-8 2xl:px-10 */}
                 {/* sm:p-2 md:p-4 lg:p-6 xl:p-8 2xl:p-10 */}
                 <div className='flex flex-col md:flex-row justify-between items-start gap-5 w-full'>
-                    <div className="w-full flex flex-col gap-1 md:gap-2 lg:gap-2 xl:gap-3 p-4 sm:px-2 md:px-4 lg:px-6 xl:px-8 2xl:px-10  dark:border-light/30 rounded-xl">
+                    <div className="w-full flex flex-col gap-1 md:gap-2 lg:gap-2 xl:gap-3 sm:pr-2 md:pr-4 lg:pxr-6 xl:pxr-8 2xl:pxr-10  dark:border-light/30 rounded-xl">
                         <motion.p
                             whileInView="show"
                             initial="hidden"

@@ -91,7 +91,7 @@ function ChooseUs() {
                     <div>
                         <h2 className='text-xl sm:text-2xl lg:text-3xl font-black text-left'>Invigorating Fitness Workouts For
                             Body And Mind</h2>
-                        <p className='text-XS sm:text-sm md:text-  lg:text-base xl:text-base 2xl:text-lg my-2 sm:my-4 c-text-gray text-left text-secondary dark:text-secondlight'>
+                        <p className='text-XS sm:text-sm md:text-  lg:text-base xl:text-base 2xl:text-lg my-2 px-2 sm:p-0 sm:my-4 c-text-gray text-left text-secondary dark:text-secondlight'>
                             Regular fitness workouts contribute to weight management, improved muscle
                             tone, increased bone density, and enhanced cardiovascular health. Fitness
                             workouts are known to have positive effects on mental health, reducing stress,

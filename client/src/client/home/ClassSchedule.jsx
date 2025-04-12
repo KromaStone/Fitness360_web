@@ -85,7 +85,7 @@ function ClassSchedule() {
     };
 
     return (
-        <section className="py-8 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-32 xl:px-52 bg-light text-background dark:bg-background dark:text-light flex flex-col justify-center items-center gap-2 sm:gap-4 relative overflow-hidden w-full">
+        <section className="w-full gap-4 h-full border-solid px-6 sm:px-12 lg:px-24 py-10 lg:py-20 bg-light text-background dark:bg-background dark:text-light flex flex-col justify-center items-center sm:gap-4 relative overflow-hidden">
             <div className='w-full max-w-[1550px] m-auto'>
                 <motion.p
                     whileInView="show"
@@ -104,7 +104,7 @@ function ClassSchedule() {
                     Training Classes Schedule
                 </motion.h2>
 
-                <div className="p-4 w-full overflow-x-auto">
+                <div className="pt-1 w-full overflow-x-auto">
                     <div className="overflow-hidden">
                         <table className="w-full hidden md:table">
                             <thead className="bg-secondlight dark:bg-secondlight/20 border border-secondlight dark:border-secondlight/20">

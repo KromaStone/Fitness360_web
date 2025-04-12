@@ -40,8 +40,8 @@ function Trainers() {
   ]
 
   return (
-    <section className="py-8  sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-32 xl:px-52 bg-light text-background  dark:bg-background dark:text-light flex flex-col justify-center items-center">
-      <div className=' max-w-[1550px] m-auto'>
+    <section className="w-full gap-4 h-full border-solid px-6 sm:px-12 lg:px-24 py-10 lg:py-20 bg-light text-background  dark:bg-background dark:text-light">
+      <div className='max-w-[1550px] m-auto'>
         <motion.p
           whileInView="show"
           initial="hidden"
@@ -59,8 +59,8 @@ function Trainers() {
           Meet Our Skilled Trainer
         </motion.h2>
 
-        <div className="container mx-auto p-4 -mt-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-4 sm:gap-x-8 lg:gap-x-16 xl:gap-x-20">
+        <div className="container pt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-4 sm:gap-x-8 lg:gap-x-16 xl:gap-x-20 justify-between -mb-8">
 
             {trainerData.map((trainer, index) => (
               <TrainerCard

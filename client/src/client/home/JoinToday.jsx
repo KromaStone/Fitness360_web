@@ -120,7 +120,7 @@ function JoinToday() {
     ];
 
     return (
-        <section className=" py-8  sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-32  xl:px-52 bg-light text-background  dark:bg-background dark:text-light flex flex-col justify-center items-center gap-2 sm:gap-4">
+        <section className="w-full gap-4 h-full border-solid px-6 sm:px-12 lg:px-24 py-10 lg:py-20 bg-light text-background  dark:bg-background dark:text-light flex flex-col justify-center items-center sm:gap-4">
             <div className=' max-w-[1550px] w-full m-auto'>
                 <div className='flex flex-col sm:flex-row justify-between items-center gap-5 w-full'>
                     <div>
@@ -151,7 +151,7 @@ function JoinToday() {
                     </div>
                 </div>
 
-                <div className='w-full min-w-[320px] rounded-2xl bg-light dark:bg-background p-4'>
+                <div className='w-full min-w-[320px] rounded-2xl bg-light dark:bg-background py-2'>
                     {/* Yearly Packs */}
                     <motion.div
                         whileInView="show"
