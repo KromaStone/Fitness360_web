@@ -80,7 +80,11 @@ function PhotoGallery() {
                     className="flex overflow-x-auto scrollbar-hide pb-2 gap-4 "
                 >
                     {carouselItems.map((workout, index) => (
-                        <div
+                        <motion.div
+                            whileInView="show"
+                            initial="hidden"
+                            viewport={{ once: false, amount: 0.2 }}
+                            variants={fadeIn("up", "", ((workout.id - 1) / 10), (0.2))}
                             key={workout.id}
                             className="relative z-0 flex-shrink-0 w-full md:w-1/4 min-w-[250px] mt-4 md:mt-6 lg:mt-11"
                         >
@@ -96,7 +100,7 @@ function PhotoGallery() {
                                     {workout.id}
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 

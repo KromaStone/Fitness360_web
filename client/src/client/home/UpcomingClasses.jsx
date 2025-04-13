@@ -7,32 +7,31 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import ClassCard from '../../client/components/ClassCard';
 
 function UpcomingClasses() {
-    const classes = [
+    const classesList = [
         {
+            id: 1,
             title: "Personal Training",
             description: "Our certified personal trainers will work with you one-on-one to create a customized fitness plan that aligns with your goals, whether it's weight loss, strength training, or overall fitness.",
             image: trainer4
         },
         {
+            id: 2,
             title: "Group Fitness Classes",
             description: "Join our fun and energetic group fitness classes designed to challenge you and keep you motivated. From high-intensity interval training (HIIT) to yoga, there's a class for every fitness level.",
             image: trainer5
         },
         {
+            id: 3,
             title: "Nutrition Coaching",
             description: "Achieve your fitness goals faster with personalized nutrition guidance. Our experts will provide you with meal plans, dietary advice, and the motivation you need to fuel your body correctly.",
             image: trainer6
         },
         {
+            id: 4,
             title: "Virtual Coaching",
-            description: "Can’t make it to the gym? No problem! Our virtual fitness coaching allows you to work with a trainer from the comfort of your home, wherever you are, through video calls and tailored workout plans.",
+            description: "Can't make it to the gym? No problem! Our virtual fitness coaching allows you to work with a trainer from the comfort of your home, wherever you are, through video calls and tailored workout plans.",
             image: trainer7
         },
-        // {
-        //     title: "Workout Recovery",
-        //     description: "Maximize your results and prevent injuries with our post-workout recovery services. From stretching sessions to foam rolling and massages, we help your body recover and prepare for your next session.",
-        //     image: trainer5
-        // }
     ];
 
     return (
@@ -60,7 +59,15 @@ function UpcomingClasses() {
 
                 <div className='w-full min-w-[320px] rounded-2xl bg-light dark:bg-background pt-1'>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-8 lg:gap-16 xl:gap-20 mt-6">
-                        <ClassCard services={classes} />
+                        {classesList.map((classes, index) => (
+                            <ClassCard
+                                key={index}
+                                id={classes.id}
+                                title={classes.title}
+                                description={classes.description}
+                                image={classes.image}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>

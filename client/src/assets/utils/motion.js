@@ -18,3 +18,8 @@ export const fadeIn = (direction, type, delay, duration) => {
         },
     };
 };
+// type values
+// "tween"
+// "spring"
+// "inertia"
+// "keyframes"

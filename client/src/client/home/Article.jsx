@@ -7,6 +7,7 @@ import ArticleCard from '../../client/components/ArticleCard';
 function Article() {
     const articles = [
         {
+            id: 1,
             title: "Personal Training",
             description: "Our certified personal trainers will work with you one-on-one to create a customized fitness plan that aligns with your goals, whether it's weight loss, strength training, or overall fitness.",
             authorName: "John Doe",
@@ -16,6 +17,7 @@ function Article() {
 
         },
         {
+            id: 2,
             title: "Group Fitness Classes",
             description: "Join our fun and energetic group fitness classes designed to challenge you and keep you motivated. From high-intensity interval training (HIIT) to yoga, there's a class for every fitness level.",
             authorName: "Jane Smith",
@@ -24,6 +26,7 @@ function Article() {
             articleImage: trainer5,
         },
         {
+            id: 3,
             title: "Nutrition Coaching",
             description: "Achieve your fitness goals faster with personalized nutrition guidance. Our experts will provide you with meal plans, dietary advice, and the motivation you need to fuel your body correctly.",
             authorName: "Alice Johnson",
@@ -32,6 +35,7 @@ function Article() {
             articleImage: trainer6,
         },
         {
+            id: 4,
             title: "Virtual Coaching",
             description: "Can't make it to the gym? No problem! Our virtual fitness coaching allows you to work with a trainer from the comfort of your home, wherever you are, through video calls and tailored workout plans.",
             authorName: "Bob Brown",

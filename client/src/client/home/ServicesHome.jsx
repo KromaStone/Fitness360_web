@@ -79,24 +79,28 @@ function ServicesHome() {
     };
     const serviceData = [
         {
+            id: 1,
             serviceHeading: "Workout Videos",
             servicePara: "Access to hundreds of free, full-length workout videos.",
             serviceLink: "Learn More",
             serviceIcon: "token:gymnet",
         },
         {
+            id: 2,
             serviceHeading: "Nutrition Guides",
             servicePara: "Get personalized nutrition plans and advice.",
             serviceLink: "Discover More",
             serviceIcon: "game-icons:meal",
         },
         {
+            id: 3,
             serviceHeading: "Training Plans",
             servicePara: "Customized training plans tailored to your goals.",
             serviceLink: "Start Now",
             serviceIcon: "icon-park-solid:gymnastics-one",
         },
         {
+            id: 4,
             serviceHeading: "Community Support",
             servicePara: "Join a community of like-minded fitness enthusiasts.",
             serviceLink: "Join Now",
@@ -152,6 +156,7 @@ function ServicesHome() {
                                 servicePara={item.servicePara}
                                 serviceIcon={item.serviceIcon}
                                 serviceLink={item.serviceLink}
+                                id={item.id}
                             />
                         ))}
                     </div>

@@ -34,9 +34,9 @@ function JoinToday() {
         alert('Join Now button clicked');
     };
 
-    // Realistic pricing plans data
     const yearlyPlans = [
         {
+            id: 1,
             name: "Starter Pack",
             price: 99.9,
             description: "Perfect for individuals getting started with fitness",
@@ -51,6 +51,7 @@ function JoinToday() {
             ]
         },
         {
+            id: 2,
             name: "Premium Pack",
             price: 149.9,
             description: "Ideal for serious fitness enthusiasts",
@@ -65,6 +66,7 @@ function JoinToday() {
             ]
         },
         {
+            id: 3,
             name: "Family Pack",
             price: 249.9,
             description: "Great for families training together",
@@ -82,6 +84,7 @@ function JoinToday() {
 
     const monthlyPlans = [
         {
+            id: 4,
             name: "Basic Plan",
             price: 19.9,
             description: "Try out our services with no long-term commitment",
@@ -94,6 +97,7 @@ function JoinToday() {
             ]
         },
         {
+            id: 5,
             name: "Standard Plan",
             price: 29.9,
             description: "More features for regular gym-goers",
@@ -106,6 +110,7 @@ function JoinToday() {
             ]
         },
         {
+            id: 6,
             name: "VIP Plan",
             price: 49.9,
             description: "Maximum benefits for dedicated fitness lovers",
@@ -118,6 +123,7 @@ function JoinToday() {
             ]
         }
     ];
+
 
     return (
         <section className="w-full gap-4 h-full border-solid px-6 sm:px-12 lg:px-24 py-10 lg:py-20 bg-light text-background  dark:bg-background dark:text-light flex flex-col justify-center items-center sm:gap-4">

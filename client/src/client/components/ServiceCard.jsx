@@ -5,25 +5,20 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { fadeIn } from '../../assets/utils/motion';
 import { trainerCorner } from '../../components/icons';
 
-function ServiceCard({ serviceHeading, servicePara, serviceIcon, serviceLink }) {
+function ServiceCard({ serviceHeading, servicePara, serviceIcon, serviceLink, id }) {
     return (
         <>
             <motion.div
                 whileInView="show"
                 initial="hidden"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={fadeIn("", "", 0.1, 0.2)}
-                className="group hover:bg-primary hover:text-light bg-secondlight dark:bg-secondary rounded-3xl flex flex-col gap-3 transition text ease-in-out duration-300 dark:hover:bg-primary mt-4 relative h-full"
+                viewport={{ once: false, }}
+                variants={fadeIn("up", "", ((id - 1) / 20), (0.2))}
+                className={`group hover:bg-primary hover:text-light bg-secondlight dark:bg-secondary rounded-3xl flex flex-col gap-3 transition text ease-in-out duration-300 dark:hover:bg-primary mt-4 relative h-full x-[${id}]`}
             >
-                <motion.div
-                    whileInView="show"
-                    initial="hidden"
-                    viewport={{ once: false, amount: 0.2 }}
-                    variants={fadeIn("", "", 0.2, 0.4)}
-                    className="group-hover:bg-background dark:group-hover:bg-light dark:group-hover:text-primary bg-primary dark:bg-light dark:text-background w-16 h-16 rounded-full relative -top-[36px] left-7 -mb-[60px] flex items-center justify-center border-[6px] text-light z-20 border-light dark:border-background transition ease-in-out duration-300 "
+                <div className="group-hover:bg-background dark:group-hover:bg-light dark:group-hover:text-primary bg-primary dark:bg-light dark:text-background w-16 h-16 rounded-full relative -top-[36px] left-7 -mb-[60px] flex items-center justify-center border-[6px] text-light z-20 border-light dark:border-background transition ease-in-out duration-300"
                 >
                     <Icon icon={serviceIcon} width="28" />
-                </motion.div>
+                </div>
                 <LazyLoadImage src={trainerCorner} alt="" className="w-20 relative -top-4 -mb-[74px]" />
                 {/* <div className='polygon_div absolute top-0 left-0 bg-primary w-3 h-4 rounded-tl-3xl rounded-tr-3xl llll'></div> */}
 

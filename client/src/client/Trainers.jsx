@@ -6,6 +6,7 @@ import { gymTrainer1, gymTrainer2, gymTrainer3, gymTrainer4 } from '../component
 function Trainers() {
   const trainerData = [
     {
+      id: 1,
       TrainerName: "John Doe",
       TrainerDescription: "Workout Trainer",
       TrainerImage: gymTrainer1,
@@ -14,6 +15,7 @@ function Trainers() {
       socialMediaLink3: "https://fitness360.vercel.app ",
     },
     {
+      id: 2,
       TrainerName: "Jane Smith",
       TrainerDescription: "Yoga Instructor",
       TrainerImage: gymTrainer2,
@@ -22,6 +24,7 @@ function Trainers() {
       socialMediaLink3: "https://fitness360.vercel.app",
     },
     {
+      id: 3,
       TrainerName: "Mike Johnson",
       TrainerDescription: "Strength Coach",
       TrainerImage: gymTrainer3,
@@ -30,6 +33,7 @@ function Trainers() {
       socialMediaLink3: "https://fitness360.vercel.app",
     },
     {
+      id: 4,
       TrainerName: "Emily Davis",
       TrainerDescription: "Pilates Expert",
       TrainerImage: gymTrainer4,
@@ -65,6 +69,7 @@ function Trainers() {
             {trainerData.map((trainer, index) => (
               <TrainerCard
                 key={index}
+                id={trainer.id}
                 TrainerName={trainer.TrainerName}
                 TrainerDescription={trainer.TrainerDescription}
                 TrainerImage={trainer.TrainerImage}

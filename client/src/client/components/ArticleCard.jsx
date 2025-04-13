@@ -1,12 +1,17 @@
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Icon } from '@iconify/react';
-
+import { fadeIn } from '../../assets/utils/motion';
+import { motion } from 'framer-motion';
 const ArticleCard = ({ articles }) => {
     return (
         <>
             {articles.map((article, index) => (
-                <div
+                <motion.div
+                    whileInView="show"
+                    initial="hidden"
+                    viewport={{ once: false, amount: 0.2 }}
+                    variants={fadeIn("up", "", ((article.id - 1) / 5), (0.2))}
                     className='w-full border-2 dark:border-secondlight/20 border-secondary/20 rounded-xl p-2 sm:p-3 md:p-4 lg:p-5 xl:p-7 flex flex-col justify-between group'
                     key={index}
                 >
@@ -43,7 +48,7 @@ const ArticleCard = ({ articles }) => {
                         alt={article.title}
                         className='rounded-xl group-hover:scale-105 transition-all ease-in-out duration-300 aspect-[calc(4*3+1)/8] object-cover'
                     />
-                </div>
+                </motion.div>
             ))}
         </>
     );

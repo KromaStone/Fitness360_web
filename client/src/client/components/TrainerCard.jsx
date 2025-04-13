@@ -5,15 +5,15 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { fadeIn } from '../../assets/utils/motion';
 import { trainerCard } from '../../components/icons';
 
-function TrainerCard({ TrainerName, TrainerDescription, TrainerImage, socialMediaLink1, socialMediaLink2, socialMediaLink3 }) {
+function TrainerCard({ id, TrainerName, TrainerDescription, TrainerImage, socialMediaLink1, socialMediaLink2, socialMediaLink3 }) {
     return (
         <>
             <div className="flex items-center justify-center w-full h-full">
                 <motion.div
                     whileInView="show"
                     initial="hidden"
-                    viewport={{ once: true, amount: 0.2 }}
-                    variants={fadeIn("", "", 0.1, 0.2)}
+                    viewport={{ once: false, amount: 0.2 }}
+                    variants={fadeIn("up", "", ((id - 1) / 5), (0.2))}
                     className={`group bg-transparent dark:bg-transparent p-1 rounded-3xl flex flex-col h-fit transition text ease-in-out duration-300 w-full max-w-[300px] mb-8`}
                 >
                     <div className="relative top-12 flex flex-col items-center">

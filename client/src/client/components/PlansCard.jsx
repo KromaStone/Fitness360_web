@@ -12,7 +12,7 @@ const PlansCard = ({ plans, handleClick }) => {
           whileInView="show"
           initial="hidden"
           viewport={{ once: false, amount: 0.2 }}
-          variants={fadeIn("", "", index * 0.2, 0.4)}
+          variants={fadeIn("up", "", ((plan.id - 1) / 5), (0.2))}
           key={index}
           className="text-left flex flex-col border-primary/50 border-1 rounded-xl xs:rounded-2xl my-2 xs:my-3 sm:my-4 py-3 xs:py-4 px-3 xs:px-4 sm:px-5 transition duration-300 ease-in-out bg-gradient-to-tl from-secondlight/40 from-10% via-secondlight/20 to-secondlight/40 dark:from-background dark:to-secondary"
         >
