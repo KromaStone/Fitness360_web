@@ -155,7 +155,7 @@ function ClassSchedule() {
                                             return (
                                                 <div
                                                     key={day}
-                                                    className="group bg-secondlight/50 p-2 rounded cursor-pointer hover:bg-primary hover:text-light"
+                                                    className="group bg-secondlight/30 dark:bg-secondlight/10 border border-background/20 dark:border-light/15 p-2 rounded cursor-pointer hover:bg-primary hover:text-light dark:hover:bg-primary dark:hover:text-light"
                                                     onClick={() => { handleClassClick(row[day], row.time, day) }}
                                                 >
                                                     <div className="font-semibold text-sm">{day}</div>
