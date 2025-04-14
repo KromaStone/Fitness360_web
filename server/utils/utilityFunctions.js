@@ -21,3 +21,10 @@ export const validatePagination = (page, pageSize) => {
     const validatedPageSize = Math.max(parseInt(pageSize, 10), 1);
     return { validatedPage, validatedPageSize };
 };
+
+export default class ErrorResponse extends Error {
+    constructor(message, statusCode) {
+        super(message);
+        this.statusCode = statusCode;
+    }
+}

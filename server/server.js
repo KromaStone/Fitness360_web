@@ -17,6 +17,7 @@ import bodypars from "body-parser";
 import { EnrollWorkout, GetEnrolledWorkout } from "./controllers/Enrollment.js";
 import os from 'os'
 import cluster from "cluster";
+import { CreateProduct, CreateProductReview, DeleteProduct, GetProductById, GetProducts, GetTopProducts, UpdateProduct } from "./controllers/Product.js";
 const numCPUs = os.cpus().length;
 
 if (cluster.isPrimary) {
@@ -124,9 +125,19 @@ if (cluster.isPrimary) {
     ]), CreateWorkout);
     router.delete("/workout", DeleteWorkout);
 
-
     router.post('/enrollWorkout', EnrollWorkout)
     router.get('/enrollWorkout', GetEnrolledWorkout)
+
+    // product 
+    router.get("/product", GetProducts);
+    router.get("/product/top", GetTopProducts);
+    router.get("/product/:id", GetProductById);
+    router.post("/product", verifyAndCheckRole(['admin']), upload.array("images", 5), CreateProduct);
+    router.put("/product/:id", verifyAndCheckRole(['admin']), UpdateProduct);
+    router.delete("/product/:id", verifyAndCheckRole(['admin']), DeleteProduct);
+    router.post("/product/:id/review", verifyAndCheckRole(['user']), CreateProductReview);
+
+
 
 
     // Database connection
