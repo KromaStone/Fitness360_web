@@ -102,7 +102,7 @@ function Service() {
       px-2 sm:px-20 lg:px-40 xl:px-64
       py-4 sm:py-8 lg:py-16 xl:py-20
        bg-background">
-        <div className="flex flex-col md:flex-row gap-3 md:gap-0  max-w-[1550px] m-auto">
+        <div className="flex flex-col md:flex-row gap-3 md:gap-0  max-w-[1440px] m-auto">
 
           <div className="w-full md:w-1/2 bg-secondary p-4 lg:p-8 xl:p-12 pr-10 sm:pr-16 lg:pr-32 flex flex-col justify-between">
             <motion.h2

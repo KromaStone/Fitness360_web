@@ -12,12 +12,12 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 import { CreateWorkout, DeleteWorkout, GetWorkoutCount, GetWorkouts, GetWorkoutsByCategory } from "./controllers/Workouts.js";
-import { createMulterConfig } from "./multerConfig/MulterConfig.js";
 import bodypars from "body-parser";
 import { EnrollWorkout, GetEnrolledWorkout } from "./controllers/Enrollment.js";
 import os from 'os'
 import cluster from "cluster";
 import { CreateProduct, CreateProductReview, DeleteProduct, GetProductById, GetProducts, GetTopProducts, UpdateProduct } from "./controllers/Product.js";
+import { productUpload, workoutUpload } from "./multerConfig/uploadsConfig.js";
 const numCPUs = os.cpus().length;
 
 if (cluster.isPrimary) {
@@ -108,13 +108,6 @@ if (cluster.isPrimary) {
     // home page data
     router.get("/knowtrainer", GetTrainerDetails)
 
-
-    const folderBase = "uploads/trainer-workout";
-    const workoutUpload = createMulterConfig(
-        folderBase,
-        [".mp4", ".mkv", ".jpg", ".jpeg", ".png"],
-        50 // Max file size in MB
-    );
     // workout 
     router.get("/workout", GetWorkouts)
     router.get("/workoutbycategory", GetWorkoutsByCategory)
@@ -132,10 +125,15 @@ if (cluster.isPrimary) {
     router.get("/product", GetProducts);
     router.get("/product/top", GetTopProducts);
     router.get("/product/:id", GetProductById);
-    router.post("/product", verifyAndCheckRole(['admin']), upload.array("images", 5), CreateProduct);
+    router.post("/product",
+        productUpload.fields([
+            { name: "images", maxCount: 5 },
+        ]),
+        CreateProduct
+    );
     router.put("/product/:id", verifyAndCheckRole(['admin']), UpdateProduct);
     router.delete("/product/:id", verifyAndCheckRole(['admin']), DeleteProduct);
-    router.post("/product/:id/review", verifyAndCheckRole(['user']), CreateProductReview);
+    router.post("/product/review/:id", verifyAndCheckRole(['user']), CreateProductReview);
 
 
 

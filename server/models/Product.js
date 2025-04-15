@@ -9,7 +9,7 @@ const productSchema = new mongoose.Schema({
     },
     slug: {
         type: String,
-        required: true,
+        required: false,
         unique: true,
         lowercase: true
     },
@@ -63,7 +63,7 @@ const productSchema = new mongoose.Schema({
             },
             name: {
                 type: String,
-                required: true
+                required: false
             },
             rating: {
                 type: Number,
@@ -109,4 +109,5 @@ productSchema.virtual('discountedPrice').get(function () {
     return this.price * (1 - this.discount / 100);
 });
 
-export default mongoose.model('Product', productSchema);
+const ProductModel = mongoose.model('Product', productSchema);
+export default ProductModel;

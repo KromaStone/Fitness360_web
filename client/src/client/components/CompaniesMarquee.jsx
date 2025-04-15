@@ -79,7 +79,7 @@ function CompaniesMarquee() {
     ];
     return (
         <section className="py-1 sm:py-2 md:py-2 lg:py-4 xl:py-6 bg-secondlight dark:bg-secondary overflow-hidden relative">
-            {/* <div className='w-full max-w-[1550px] m-auto bg-gradient-to-t'> */}
+            {/* <div className='w-full max-w-[1440px] m-auto bg-gradient-to-t'> */}
             <div className='h-[-webkit-fill-available] w-screen top-0 absolute z-20 bg-marquee-gradient-light dark:bg-marquee-gradient-dark'></div>
             <motion.div
                 whileInView="show"

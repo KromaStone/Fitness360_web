@@ -42,7 +42,7 @@ function Bmi() {
     };
     return (
         <section className="w-full gap-4 h-full border-solid px-6 sm:px-12 lg:px-24 py-10 lg:py-20 bg-light text-background dark:bg-background dark:text-light sm:gap-4 relative overflow-hidden">
-            <div className='max-w-[1550px] m-auto'>
+            <div className='max-w-[1440px] m-auto'>
                 {/* sm:px-2 md:px-4 lg:px-6 xl:px-8 2xl:px-10 */}
                 {/* sm:p-2 md:p-4 lg:p-6 xl:p-8 2xl:p-10 */}
                 <div className='flex flex-col md:flex-row justify-between items-start gap-5 w-full'>

@@ -127,7 +127,7 @@ function JoinToday() {
 
     return (
         <section className="w-full gap-4 h-full border-solid px-6 sm:px-12 lg:px-24 py-10 lg:py-20 bg-light text-background  dark:bg-background dark:text-light flex flex-col justify-center items-center sm:gap-4">
-            <div className=' max-w-[1550px] w-full m-auto'>
+            <div className=' max-w-[1440px] w-full m-auto'>
                 <div className='flex flex-col sm:flex-row justify-between items-center gap-5 w-full'>
                     <div>
                         <motion.p

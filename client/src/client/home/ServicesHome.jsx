@@ -118,7 +118,7 @@ function ServicesHome() {
     return (
         <>
             <section className="w-full gap-4 h-full border-solid px-6 sm:px-12 lg:px-24 py-10 lg:py-20 bg-light text-background  dark:bg-background dark:text-light flex flex-col justify-center items-center sm:gap-4 relative overflow-hidden">
-                <div className='max-w-[1550px] m-auto'>
+                <div className='max-w-[1440px] m-auto'>
 
                     <div className='w-16 md:w-[70px] lg:w-[80px] xl:w-[120px] 2xl:w-[134px] -left-[48px] md: lg: xl:-left-[60px]  2xl:-left-[70px] top-16 md: lg: xl:top-24  2xl: aspect-square absolute -rotate-45 bg-gradient-to-bl from-50% from-gray-400 to-secondlight  to-50% dark:from-black dark:to-secondary'></div>
                     <div className='w-16 md:w-[70px] lg:w-[80px] xl:w-[120px] 2xl:w-[134px] -left-[48px] md: lg: xl:-left-[60px]  2xl:-left-[70px] top-24 md:top-[98px] lg:top-[112px] xl:top-[180px]  2xl:top-[186px]  aspect-square absolute -rotate-45 bg-gradient-to-bl from-50% from-gray-400 to-secondlight  to-50% dark:from-black dark:to-secondary'></div>

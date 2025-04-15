@@ -31,7 +31,7 @@ function Faq({
 }) {
     return (
         <section className="w-full gap-4 h-full border-solid px-6 sm:px-12 lg:px-24 py-10 lg:py-20 text-background bg-light dark:bg-background dark:text-light">
-            <div className='flex flex-col md:flex-row max-w-[1550px] m-auto'>
+            <div className='flex flex-col md:flex-row max-w-[1440px] m-auto'>
                 <div className='w-full md:w-5/12'>
                     <motion.h2
                         whileInView="show"

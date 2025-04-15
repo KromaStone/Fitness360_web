@@ -108,6 +108,8 @@ export const openAuthentication = async (data) => {
 //     return user;
 // };
 export const FindUserByEmail = async (email) => {
+    console.log('email', email);
+
     const models = [UserModel, TrainerModel, AdminModel];
     for (const model of models) {
         const user = await model.findOne({ email });

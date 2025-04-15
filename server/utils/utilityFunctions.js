@@ -16,6 +16,18 @@ export const createResponse = (statusCode, message, token = null) => {
     }
 }
 
+
+export const createProductResponse = (statusCode, message, data = null, meta = null) => {
+    return {
+        statusCode,
+        message,
+        data,
+        meta
+    };
+};
+
+
+
 export const validatePagination = (page, pageSize) => {
     const validatedPage = Math.max(parseInt(page, 10), 1);
     const validatedPageSize = Math.max(parseInt(pageSize, 10), 1);

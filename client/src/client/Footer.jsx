@@ -49,12 +49,12 @@ function Footer() {
     <>
       <div className='h-10 bg-light dark:bg-background'></div>
       <section className="w-full gap-4 h-full border-solid px-6 sm:px-12 lg:px-24 md:py-4 md:pt-16 bg-light text-background dark:bg-background dark:text-light flex flex-col justify-center items-center sm:gap-4 relative" style={{ backgroundImage: "url('https://img.freepik.com/free-vector/abstract-dark-low-poly-background_1409-1860.jpg?t=st=1744478371~exp=1744481971~hmac=f4f8cc089a0bd2dd5ab11babfddfbf6912770fd02b64104f5261b5b8581327f5&w=1380')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div className="max-w-[1550px] m-auto ">
+        <div className="max-w-[1440px] m-auto ">
 
 
 
 
-          <div className="md:flex flex-col hidden md:flex-row justify-center items-center gap-6 absolute top-[-84px] left-0 right-0 w-full mx-auto max-w-[1550px] m-auto z-10 mt-8">
+          <div className="md:flex flex-col hidden md:flex-row justify-center items-center gap-6 absolute top-[-84px] left-0 right-0 w-full mx-auto max-w-[1440px] m-auto z-10 mt-8">
             {/* Call Section */}
             <div className="flex items-center gap-4 w-5/12 lg:w-4/12 p-3 md:p-6 backdrop-blur-sm rounded-2xl bg-secondary/60 dark:bg-secondary/70">
               <div className="bg-primary p-2 md:p-4 rounded-full">

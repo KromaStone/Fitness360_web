@@ -86,7 +86,7 @@ function ClassSchedule() {
 
     return (
         <section className="w-full gap-4 h-full border-solid px-6 sm:px-12 lg:px-24 py-10 lg:py-20 bg-light text-background dark:bg-background dark:text-light flex flex-col justify-center items-center sm:gap-4 relative overflow-hidden">
-            <div className='w-full max-w-[1550px] m-auto'>
+            <div className='w-full max-w-[1440px] m-auto'>
                 <motion.p
                     whileInView="show"
                     initial="hidden"

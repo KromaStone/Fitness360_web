@@ -13,6 +13,7 @@ export const Login = async (req, res) => {
 export const oAuth = async (req, res) => {
     try {
         const data = await openAuthentication(req.body);
+
         return res.status(data.statusCode).send(data);
     } catch (e) {
         res.status(500).send({ error: e.message || "Internal server error" });
