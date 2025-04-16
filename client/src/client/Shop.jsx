@@ -78,7 +78,7 @@ function Shop() {
 
           {/* Product Cards */}
           <div
-            className="px-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-10 w-full ">
+            className="px-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-10 w-full mb-8">
             {products.map((product, index) => (
               <motion.div
                 whileInView="show"

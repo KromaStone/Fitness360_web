@@ -30,7 +30,7 @@ function Navbar() {
         return () => document.removeEventListener('mousedown', handleOutsideClick);
     }, []);
 
-    // Define Navbar Links
+    // Navbar Links
     const navbarLinks = [
         { to: 'home', label: 'Home' },
         { to: 'about', label: 'About' },
@@ -113,7 +113,7 @@ function Navbar() {
                             <Link
                                 key={link.to}
                                 to={link.to}
-                                onClick={() => setIsMenuOpen(false)}
+                                onClick={() => toggleMenu}
                                 className="hover:text-blue-600 transition-colors text-light text-lg mb-2"
                                 aria-current={location.pathname === link.to ? 'page' : undefined}
                             >
