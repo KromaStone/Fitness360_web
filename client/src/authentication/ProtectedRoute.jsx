@@ -12,7 +12,6 @@ function ProtectedRoute({ component: Component, role: role }) {
     }, [navigate]);
 
     const validateToken = async () => {
-        debugger;
         const user = localStorage.getItem('token') || sessionStorage.getItem('token');
         const decodedToken = await jwtDecode(user);
         if (decodedToken.role !== role) {

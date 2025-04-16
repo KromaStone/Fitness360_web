@@ -16,7 +16,8 @@ export const knowTrainer = {
 };
 export const trainerName = `${BASE_URL}trainername`;
 
-
 export const workout = `${BASE_URL}workout`;
 export const workoutbyCategory = `${BASE_URL}workoutbycategory`;
 export const enrollWorkout = `${BASE_URL}enrollWorkout`
+
+export const productsEp = `${BASE_URL}product`;

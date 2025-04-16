@@ -19,7 +19,7 @@ export const getProducts = async (page, pageSize, keyword = '', category = '') =
             filter.category = category;
         }
 
-        const products = await ProductModel.find(filter)
+        const products = await ProductModel.find(filter).select('name images price category')
             .skip(skip)
             .limit(pageSize)
             .sort({ createdAt: -1 });
