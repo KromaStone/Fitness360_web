@@ -94,7 +94,7 @@ function Navbar() {
                 <div
                     ref={menuRef}
 
-                    className="h-screen w-full  absolute z-20 md:flex items-start justify-end p-4"
+                    className=" h-screen w-full  absolute z-20 md:flex items-start justify-end p-4"
                     style={{
                         backdropFilter: 'blur(8px)',
                         WebkitBackdropFilter: 'blur(8px)',
@@ -106,7 +106,7 @@ function Navbar() {
                         initial="hidden"
                         animate="show"
                         variants={fadeIn('left', '', 0, 0.3)}
-                        className="rounded-xl flex flex-col w-full float-right items-end pr-4 pl-16 py-4"
+                        className="md:hidden rounded-xl flex flex-col w-full float-right items-end pr-4 pl-16 py-4"
                         style={{ backgroundColor: 'rgba(0, 0, 0, .9)' }}
                     >
                         {navbarLinks.map((link) => (
