@@ -23,6 +23,12 @@ function Trainers() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [colDefs, setColDefs] = useState([
+        {
+            headerName: 'Sr No',
+            valueGetter: 'node.rowIndex + 1',
+            width: 70,
+            pinned: 'left'
+        },
         { field: "firstName", headerName: "First Name" },
         { field: "lastName", headerName: "Last Name" },
         { field: "contactNumber", headerName: "Phone Number" },

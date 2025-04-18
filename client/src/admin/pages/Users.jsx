@@ -25,6 +25,12 @@ function Users() {
     const [totalPages, setTotalPages] = useState(1);
 
     const [colDefs, setColDefs] = useState([
+        {
+            headerName: 'Sr No',
+            valueGetter: 'node.rowIndex + 1',
+            width: 70,
+            pinned: 'left'
+        },
         { field: "firstName", headerName: "First Name" },
         { field: "lastName", headerName: "Last Name" },
         { field: "age", headerName: "Age" },
@@ -51,10 +57,10 @@ function Users() {
             headerName: "Actions",
             cellRenderer: (params) => (
                 <div>
-                    <button className="bg-cyan-400 mx-1 rounded h-9 px-[14px] text-center" onClick={() => handleEdit(params.data)}>
+                    <button className="bg-cyan-100 border border-cyan-400 hover:bg-cyan-500 hover:text-light transition-all ease-in-out duration-300 mx-1 rounded h-9 px-[14px] text-center" onClick={() => handleEdit(params.data)}>
                         Edit
                     </button>
-                    <button className="bg-red-400 mx-1 rounded h-9 px-[14px] text-center" onClick={() => handleDelete(params.data)}>
+                    <button className="bg-red-100 border border-red-400 hover:bg-red-500 hover:text-light transition-all ease-in-out duration-300 mx-1 rounded h-9 px-[14px] text-center" onClick={() => handleDelete(params.data)}>
                         Delete
                     </button>
                 </div>

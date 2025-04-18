@@ -16,7 +16,7 @@ import bodypars from "body-parser";
 import { EnrollWorkout, GetEnrolledWorkout } from "./controllers/Enrollment.js";
 import os from 'os'
 import cluster from "cluster";
-import { CreateProduct, CreateProductReview, DeleteProduct, GetProductById, GetProducts, GetTopProducts, UpdateProduct } from "./controllers/Product.js";
+import { CreateProduct, CreateProductReview, DeleteProduct, GetProductById, GetProducts, GetProductsAd, GetTopProducts, UpdateProduct } from "./controllers/Product.js";
 import { productUpload, workoutUpload } from "./multerConfig/uploadsConfig.js";
 const numCPUs = os.cpus().length;
 
@@ -123,6 +123,7 @@ if (cluster.isPrimary) {
 
     // product 
     router.get("/product", GetProducts);
+    router.get("/productad", verifyAndCheckRole(['admin']), GetProductsAd);
     router.get("/product/top", GetTopProducts);
     router.get("/product/:id", GetProductById);
     router.post("/product",

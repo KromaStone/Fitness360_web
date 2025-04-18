@@ -21,6 +21,11 @@ export const RoutesData = [
         path: "/admin/workout",
     },
     {
+        title: "Product",
+        icon: "ix:product-management",
+        path: "/admin/product",
+    },
+    {
         title: "Plans",
         icon: "ic:baseline-discount",
         path: "/admin/plans",

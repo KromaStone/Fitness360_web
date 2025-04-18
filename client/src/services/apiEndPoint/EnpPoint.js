@@ -21,3 +21,4 @@ export const workoutbyCategory = `${BASE_URL}workoutbycategory`;
 export const enrollWorkout = `${BASE_URL}enrollWorkout`
 
 export const productsEp = `${BASE_URL}product`;
+export const productsEpAd = `${BASE_URL}productad`;

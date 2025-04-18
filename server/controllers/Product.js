@@ -5,7 +5,8 @@ import {
     updateProduct,
     deleteProduct,
     createProductReview,
-    getTopProducts
+    getTopProducts,
+    getProductsAd
 } from '../services/ProductService.js';
 import { createResponse, validatePagination } from '../utils/utilityFunctions.js';
 
@@ -15,6 +16,26 @@ export const GetProducts = async (req, res) => {
         const { validatedPage, validatedPageSize } = validatePagination(page, pageSize);
 
         const productData = await getProducts(
+            validatedPage,
+            validatedPageSize,
+            keyword,
+            category
+        );
+
+        res.status(200).send({ productData });
+    } catch (e) {
+        res.status(404).send({
+            error: e?.message
+        });
+    }
+}
+
+export const GetProductsAd = async (req, res) => {
+    try {
+        const { page, pageSize, keyword, category } = req.query;
+        const { validatedPage, validatedPageSize } = validatePagination(page, pageSize);
+
+        const productData = await getProductsAd(
             validatedPage,
             validatedPageSize,
             keyword,
@@ -40,22 +61,6 @@ export const GetProductById = async (req, res) => {
     }
 }
 
-// export const CreateProduct = async (req, res) => {
-//     try {
-//         const productData = {
-//             ...req.body,
-//             // user: req.user._id,
-//             images: req.files.map(file => file.path)
-//         };
-
-//         const product = await createProduct(productData);
-//         res.status(201).send({ product });
-//     } catch (e) {
-//         res.status(400).send({
-//             error: e?.message
-//         });
-//     }
-// }
 export const CreateProduct = async (req, res) => {
     try {
         const productData = req.body;
@@ -93,6 +98,9 @@ export const CreateProduct = async (req, res) => {
 };
 
 export const UpdateProduct = async (req, res) => {
+    console.log('updateData ', req.params.id);
+    console.log('updateData ----- ', req)
+
     try {
         const product = await updateProduct(req.params.id, req.body);
         res.status(200).send({ product });
@@ -136,7 +144,7 @@ export const CreateProductReview = async (req, res) => {
         });
     }
 }
-
+    ;
 export const GetTopProducts = async (req, res) => {
     try {
         const products = await getTopProducts();

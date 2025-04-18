@@ -48,6 +48,52 @@ export const getProducts = async (page, pageSize, keyword = '', category = '') =
         throw createResponse(500, 'Failed to fetch products');
     }
 }
+export const getProductsAd = async (page, pageSize, keyword = '', category = '') => {
+    try {
+        const skip = (page - 1) * pageSize;
+
+        const filter = {};
+
+        if (keyword) {
+            filter.name = {
+                $regex: keyword,
+                $options: 'i'
+            };
+        }
+
+        if (category) {
+            filter.category = category;
+        }
+
+        const products = await ProductModel.find(filter)
+            .skip(skip)
+            .limit(pageSize)
+            .sort({ createdAt: -1 });
+
+        const totalProducts = await ProductModel.countDocuments(filter);
+        const totalPages = Math.ceil(totalProducts / pageSize);
+
+        return createProductResponse(
+            200,
+            'Products fetched successfully',
+            products,
+            {
+                pagination: {
+                    page,
+                    pageSize,
+                    totalItems: totalProducts,
+                    totalPages
+                },
+                filters: {
+                    keyword,
+                    category
+                }
+            }
+        );
+    } catch (error) {
+        throw createResponse(500, 'Failed to fetch products');
+    }
+}
 
 export const getProductById = async (id) => {
     try {
