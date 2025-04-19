@@ -97,19 +97,36 @@ export const CreateProduct = async (req, res) => {
     }
 };
 
-export const UpdateProduct = async (req, res) => {
-    console.log('updateData ', req.params.id);
-    console.log('updateData ----- ', req)
+// export const UpdateProduct = async (req, res) => {
+//     console.log('updateData ', req.params.id);
+//     console.log('updateData ----- ', req.body)
 
+//     try {
+//         const product = await updateProduct(req.params.id, req.body);
+//         res.status(200).send({ product });
+//     } catch (e) {
+//         res.status(404).send({
+//             error: e?.message
+//         });
+//     }
+// }
+
+export const UpdateProduct = async (req, res) => {
     try {
+        // console.log('updateData ', req.params.id);
+        // console.log('Body:', req.body.name); // Should now show your form data
+        // console.log('Files:', req.files); // If you have file uploads
+
         const product = await updateProduct(req.params.id, req.body);
         res.status(200).send({ product });
     } catch (e) {
+        // console.error('Update error:', e);
         res.status(404).send({
             error: e?.message
         });
     }
 }
+
 
 export const DeleteProduct = async (req, res) => {
     try {

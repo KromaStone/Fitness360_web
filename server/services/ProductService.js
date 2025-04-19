@@ -124,26 +124,79 @@ export const createProduct = async (productData) => {
     // return createResponse(200, productData)
 }
 
+// export const updateProduct = async (id, updateData) => {
+//     // console.log('updateData id ', id);
+//     console.log('updateData ----- ', updateData)
+
+//     try {
+//         const product = await ProductModel.findById(id);
+//         // console.log('product', product);
+//         if (!product) {
+//             throw createResponse(404, 'Product not found');
+//         }
+
+//         Object.keys(updateData).forEach(key => {
+//             product[key] = updateData[key];
+//         });
+
+//         await product.save();
+
+//         return createProductResponse(200, 'Product updated successfully', product);
+//     } catch (error) {
+//         console.log('error -----', error);
+//         if (error.statusCode === 404) throw error;
+//         throw createResponse(500, 'Failed to update product');
+//     }
+// }
+
 export const updateProduct = async (id, updateData) => {
     try {
         const product = await ProductModel.findById(id);
-
         if (!product) {
             throw createResponse(404, 'Product not found');
         }
 
-        Object.keys(updateData).forEach(key => {
-            product[key] = updateData[key];
+        // Clean up the updateData
+        const cleanUpdateData = { ...updateData };
+
+        // Handle reviews field
+        if (updateData.reviews === '') {
+            cleanUpdateData.reviews = []; // Set to empty array instead of empty string
+        }
+
+        // Handle other problematic fields
+        if (updateData.featured === 'true') {
+            cleanUpdateData.featured = true;
+        } else if (updateData.featured === 'false') {
+            cleanUpdateData.featured = false;
+        }
+
+        // Convert string numbers to actual numbers
+        if (typeof updateData.price === 'string') {
+            cleanUpdateData.price = parseFloat(updateData.price);
+        }
+        if (typeof updateData.stock === 'string') {
+            cleanUpdateData.stock = parseInt(updateData.stock);
+        }
+        if (typeof updateData.discount === 'string') {
+            cleanUpdateData.discount = parseFloat(updateData.discount);
+        }
+
+        // Update the product
+        Object.keys(cleanUpdateData).forEach(key => {
+            product[key] = cleanUpdateData[key];
         });
 
         await product.save();
 
         return createProductResponse(200, 'Product updated successfully', product);
     } catch (error) {
+        console.error('Update error:', error);
         if (error.statusCode === 404) throw error;
         throw createResponse(500, 'Failed to update product');
     }
 }
+
 
 export const deleteProduct = async (id) => {
     try {

@@ -120,7 +120,6 @@ function Product() {
     };
 
     const handleImageChange = (e) => {
-        console.log('e.target.files ------ ', e.target.files);
         const files = Array.from(e.target.files);
         setSelectedImages(files);
         const imagePreviews = files.map(file => URL.createObjectURL(file));
@@ -153,6 +152,26 @@ function Product() {
             pinned: 'left'
         },
         { field: "name", headerName: "Name" },
+        {
+            field: "actionButtons",
+            headerName: "Actions",
+            cellRenderer: (params) => (
+                <div>
+                    <button
+                        className="bg-cyan-100 border border-cyan-400 hover:bg-cyan-500 hover:text-light transition-all ease-in-out duration-300  mx-1 rounded h-9 px-[14px] text-center"
+                        onClick={() => handleEdit(params.data)}
+                    >
+                        Edit
+                    </button>
+                    <button
+                        className="bg-red-100 border border-red-400 hover:bg-red-500 hover:text-light transition-all ease-in-out duration-300  mx-1 rounded h-9 px-[14px] text-center"
+                        onClick={() => handleDelete(params.data)}
+                    >
+                        Delete
+                    </button>
+                </div>
+            ),
+        },
         { field: "description", headerName: "Description" },
         {
             field: "price",
@@ -185,26 +204,7 @@ function Product() {
                 ) : '-'
             ),
         },
-        {
-            field: "actionButtons",
-            headerName: "Actions",
-            cellRenderer: (params) => (
-                <div>
-                    <button
-                        className="bg-cyan-100 border border-cyan-400 hover:bg-cyan-500 hover:text-light transition-all ease-in-out duration-300  mx-1 rounded h-9 px-[14px] text-center"
-                        onClick={() => handleEdit(params.data)}
-                    >
-                        Edit
-                    </button>
-                    <button
-                        className="bg-red-100 border border-red-400 hover:bg-red-500 hover:text-light transition-all ease-in-out duration-300  mx-1 rounded h-9 px-[14px] text-center"
-                        onClick={() => handleDelete(params.data)}
-                    >
-                        Delete
-                    </button>
-                </div>
-            ),
-        },
+
     ]);
 
     const resetForm = () => {

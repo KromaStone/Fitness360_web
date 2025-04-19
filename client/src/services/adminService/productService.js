@@ -27,29 +27,46 @@ export const CreateProduct = async (productData) => {
 };
 
 
+// export const UpdateProduct = async (id, productData) => {
+//     try {
+//         for (let pair of productData.entries()) {
+//             console.log(`-----${pair[0]}:`, pair[1]);
+//         }
+//         console.log('Product data:', productData);
+//         const response = await axios.put(`${productsEp}/${id}`, productData, {
+//             headers: { Authorization: `Bearer ${token}`, }
+//         }
+//         );
+//         return response.data;
+//     } catch (error) {
+//         console.error('Update product error:', error);
+//         throw error;
+//     }
+// };
+
 export const UpdateProduct = async (id, productData) => {
     try {
-        // for (let pair of productData.entries()) {
-        //     console.log(`-----${pair[0]}:`, pair[1]);
+        // Debug form data contents
+        // for (let [key, value] of productData.entries()) {
+        //     console.log(`${key}:`, value);
         // }
-        // console.log('Product data:', productData);
+
         const response = await axios.put(
             `${productsEp}/${id}`,
             productData,
             {
                 headers: {
                     Authorization: `Bearer ${token}`,
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data' // MUST include this
                 }
             }
         );
         return response.data;
     } catch (error) {
-        console.error('Update product error:', error);
+        console.error('Update error:', error.response?.data || error.message);
         throw error;
     }
 };
-
 
 export const DeleteProduct = async (id) => {
     try {

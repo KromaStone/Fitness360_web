@@ -27,7 +27,6 @@ function Home() {
 
   useEffect(() => {
     document.title = 'Home | Fitness360'
-    console.log('Home page loaded', isOpen)
   }, [isOpen])
 
   const components = [Banner, Marquee, ServicesHome, UpcomingClasses, ClassesSchedule, Trainers, ChooseUs, Bmi, PhotoGallery, Testimonial, Article, CompaniesMarquee, JoinToday, Faq

@@ -132,7 +132,7 @@ if (cluster.isPrimary) {
         ]),
         CreateProduct
     );
-    router.put("/product/:id", verifyAndCheckRole(['admin']), UpdateProduct);
+    router.put("/product/:id", upload.none(), verifyAndCheckRole(['admin']), UpdateProduct);
     router.delete("/product/:id", verifyAndCheckRole(['admin']), DeleteProduct);
     router.post("/product/review/:id", verifyAndCheckRole(['user']), CreateProductReview);
 
