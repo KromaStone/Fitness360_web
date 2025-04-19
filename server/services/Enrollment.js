@@ -28,12 +28,22 @@ export const enrollWorkout = async (userId, workoutId, paymentStatus = "pending"
 
 
 export const getEnrolledWorkouts = async (userId) => {
+    console.log("userId", userId)
+
     const enrollments = await EnrollmentModal.find({ userId })
         .populate("workoutId", "title description imagePath videoPath category price")
         .exec();
-    const data = enrollments.map((enrollment) => ({
-        ...enrollment.workoutId.toObject(),
-        paymentStatus: enrollment.paymentStatus,
-    }));
+    // const data = enrollments.map((enrollment) => ({
+    //     ...enrollment.workoutId.toObject(),
+    //     paymentStatus: enrollment.paymentStatus,
+    // }));
+
+    const data = enrollments
+        .filter(enrollment => enrollment.workoutId !== null)
+        .map((enrollment) => ({
+            ...enrollment.workoutId.toObject(),
+            paymentStatus: enrollment.paymentStatus,
+        }));
+
     return data
 }

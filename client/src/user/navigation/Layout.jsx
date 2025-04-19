@@ -22,7 +22,7 @@ const Layout = () => {
                         ${isSideMenuOpen ? 'translate-x-0 ' : '-translate-x-full '} 
                         md:translate-x-0`}
                     >
-                        <SideMenu RoutesData={RoutesData} toggleSideMenu={toggleSideMenu} />
+                            <SideMenu RoutesData={RoutesData} toggleSideMenu={toggleSideMenu} />
                     </div>
 
                     <div className="border-1 border-background/20 dark:border-light/10  flex-1 m-2 ml-2 rounded-lg p-1 px-2 sm:p-2 sm:px-3 bg-light dark:bg-secondary h-[calc(100vh-96px)] overflow-x-hidden">
