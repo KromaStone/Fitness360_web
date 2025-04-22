@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import { AgGridReact } from "ag-grid-react";
@@ -7,13 +6,11 @@ import { useEffect, useState } from "react";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { toast, Toaster } from "sonner";
 import { fadeIn } from "../../assets/utils/motion";
-import MyForm from '../../components/Form';
 import { NextButton } from "../../components/NextButton";
 import { CreateTrainer, DeleteTrainer, getAllTrainers } from "../../services/adminService/TrainerService";
-import { Spinner } from "@nextui-org/react";
-const imgBaseUrl = '';
-function Trainers() {
+import { Spinner, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Input, Select, SelectItem, Textarea, Card, CardBody } from "@nextui-org/react";
 
+function Trainers() {
     const [openForm, setOpenForm] = useState(false);
     const [loading, setLoading] = useState(false);
     const [rowData, setRowData] = useState([]);
@@ -22,86 +19,7 @@ function Trainers() {
     const [deletePopUp, setDeletePopUp] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const [colDefs, setColDefs] = useState([
-        {
-            headerName: 'Sr No',
-            valueGetter: 'node.rowIndex + 1',
-            width: 70,
-            pinned: 'left'
-        },
-        { field: "firstName", headerName: "First Name" },
-        { field: "lastName", headerName: "Last Name" },
-        { field: "contactNumber", headerName: "Phone Number" },
-        { field: "email", headerName: "Email" },
-        { field: "age", headerName: "Age" },
-        {
-            field: "bio", headerName: "Bio",
-            cellRenderer: (params) => (
-                <select className="absolute left-0 top-0 h-full p-1 bg-transparent">
-                    <option value={params.value} className="p-4">
-                        {params.value}
-                    </option>
-                </select>
-            )
-        },
-        { field: "certifications", headerName: "Certifications" },
-        { field: "city", headerName: "City" },
-        { field: "location", headerName: "Location" },
-        { field: "totalClients", headerName: "Total Clients" },
-        {
-            field: "profilePicture", headerName: "Profile Picture",
-            cellRenderer: (params) => (
-                <LazyLoadImage
-                    src={imgBaseUrl + params.value}
-                    alt="Profile"
-                    style={{ width: '50px', borderRadius: '50%' }}
-                />
-            ),
-        },
-        { field: "instaId", headerName: "Insta ID" },
-        { field: "facebook", headerName: "Facebook" },
-        { field: "twitter", headerName: "Twitter" },
-        {
-            field: "actionButtons",
-            headerName: "Actions",
-            cellRenderer: (params) => (
-                <div>
-                    <button className="bg-cyan-400 mx-1 rounded h-9 px-[14px] text-center" onClick={() => handleEdit(params.data)}>
-                        Edit
-                    </button>
-                    <button className="bg-red-400 mx-1 rounded h-9 px-[14px] text-center" onClick={() => handleDelete(params.data)}>
-                        Delete
-                    </button>
-                </div>
-            ),
-        },
-    ]);
-
-
-    const fields = [
-        { label: 'First Name', name: 'firstName', type: 'text', required: true },
-        { label: 'Last Name', name: 'lastName', type: 'text', required: true },
-        { label: 'Email', name: 'email', type: 'email', required: true },
-        { label: 'Password', name: 'password', type: 'password', required: true },
-        { label: 'Age', name: 'age', type: 'number', required: true },
-        { label: 'Contact Number', name: 'contactNumber', type: 'number', required: true },
-        { label: 'Profile Picture', name: 'profilePicture', type: 'text', required: true },
-        { label: 'Gender', name: 'gender', type: 'text', required: true },
-        { label: 'Address', name: 'address', type: 'text', required: true },
-        { label: 'City', name: 'city', type: 'text', required: true },
-        { label: 'State', name: 'state', type: 'text', required: true },
-        { label: 'Bio', name: 'bio', type: 'text', required: true },
-        { label: 'Total Clients', name: 'totalClients', type: 'text', required: true },
-        { label: 'Instagram ID', name: 'instaId', type: 'text', required: true },
-        { label: 'Facebook', name: 'facebook', type: 'text', required: true },
-        { label: 'Twitter', name: 'twitter', type: 'text', required: true }
-    ]
-
-
-    useEffect(() => {
-        document.title = 'Trainers | Fitness360'
-        GetAllTrainers(currentPage); // Fetch the first page initially
-    }, [currentPage]);
+    const [errors, setErrors] = useState({});
 
     const initialFormData = {
         firstName: '',
@@ -125,54 +43,159 @@ function Trainers() {
 
     const [formData, setFormData] = useState(initialFormData);
 
+    const [colDefs] = useState([
+        {
+            headerName: 'Sr No',
+            valueGetter: 'node.rowIndex + 1',
+            width: 70,
+            pinned: 'left'
+        },
+        { field: "firstName", headerName: "First Name" },
+        { field: "lastName", headerName: "Last Name" },
+        { field: "contactNumber", headerName: "Phone Number" },
+        { field: "email", headerName: "Email" },
+        { field: "age", headerName: "Age" },
+        {
+            field: "bio", headerName: "Bio",
+            cellRenderer: (params) => (
+                <div className="max-w-xs truncate">
+                    {params.value}
+                </div>
+            )
+        },
+        { field: "certifications", headerName: "Certifications" },
+        { field: "city", headerName: "City" },
+        { field: "location", headerName: "Location" },
+        { field: "totalClients", headerName: "Total Clients" },
+        {
+            field: "profilePicture", headerName: "Profile Picture",
+            cellRenderer: (params) => (
+                <LazyLoadImage
+                    src={params.value}
+                    alt="Profile"
+                    style={{ width: '50px', height: '50px', borderRadius: '50%' }}
+                />
+            ),
+        },
+        { field: "instaId", headerName: "Insta ID" },
+        { field: "facebook", headerName: "Facebook" },
+        { field: "twitter", headerName: "Twitter" },
+        {
+            field: "actionButtons",
+            headerName: "Actions",
+            cellRenderer: (params) => (
+                <div className="flex gap-2">
+                    <Button
+                        size="sm"
+                        color="primary"
+                        variant="flat"
+                        onClick={() => handleEdit(params.data)}
+                    >
+                        Edit
+                    </Button>
+                    <Button
+                        size="sm"
+                        color="danger"
+                        variant="flat"
+                        onClick={() => handleDelete(params.data)}
+                    >
+                        Delete
+                    </Button>
+                </div>
+            ),
+        },
+    ]);
 
-    const handleEdit = () => {
-        alert('edit')
-    }
+    const genders = [
+        { value: 'Male', label: 'Male' },
+        { value: 'Female', label: 'Female' },
+        { value: 'Other', label: 'Other' }
+    ];
+
+    useEffect(() => {
+        document.title = 'Trainers | Fitness360';
+        GetAllTrainers(currentPage);
+    }, [currentPage]);
+
+    const validateField = (name, value) => {
+        let error = '';
+
+        switch (name) {
+            case 'firstName':
+            case 'lastName':
+                if (!value) error = 'This field is required';
+                break;
+            case 'email':
+                if (!value) error = 'Email is required';
+                else if (!/^\S+@\S+\.\S+$/.test(value)) error = 'Invalid email format';
+                break;
+            case 'contactNumber':
+                if (!value) error = 'Phone number is required';
+                else if (!/^\d{10}$/.test(value)) error = 'Invalid phone number';
+                break;
+            case 'age':
+            case 'totalClients':
+                if (!value) error = 'This field is required';
+                else if (isNaN(value)) error = 'Must be a number';
+                break;
+        }
+
+        return error;
+    };
+
+    const handleChange = (name, value) => {
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+
+        // Validate field
+        const error = validateField(name, value);
+        setErrors(prev => ({
+            ...prev,
+            [name]: error
+        }));
+    };
+
+    const handleEdit = (rowData) => {
+        setEditData(rowData);
+        setFormData(rowData);
+        setOpenForm(true);
+    };
 
     const handleDelete = (rowData) => {
         setselectedTrainer(rowData._id);
         setDeletePopUp(true);
-    }
-
-    const cancelDelete = () => {
-        setDeletePopUp(false);
-        toast.info("User not deleted")
-    }
+    };
 
     const confirmDelete = async () => {
         if (selectedTrainer) {
             await deleteTrianer(selectedTrainer);
             setDeletePopUp(false);
-            selectedTrainer(null)
+            setselectedTrainer(null);
         }
-    }
+    };
 
     const deleteTrianer = async (id) => {
         try {
             setLoading(true);
-            const result = await DeleteTrainer(id);
-            toast.success("Trainer Delete Successfully")
+            await DeleteTrainer(id);
+            toast.success("Trainer Deleted Successfully");
             GetAllTrainers();
-
         } catch (error) {
             console.error("Error deleting trainer:", error);
             toast.error('Unable to delete trainer');
         } finally {
             setLoading(false);
         }
+    };
 
-    }
-
-    // change the pagesize to change get no of records
     const GetAllTrainers = async (page = 1, pageSize = 5) => {
         try {
-            // setLoading(true);
+            setLoading(true);
             const result = await getAllTrainers(page, pageSize);
             setRowData(result.trainers);
             setTotalPages(result.totalPages);
-            setLoading(false);
-
         } catch (error) {
             console.error("Error fetching trainers:", error);
         } finally {
@@ -180,90 +203,295 @@ function Trainers() {
         }
     };
 
-
     const toggleOpenForm = () => {
         setOpenForm(!openForm);
         if (openForm) {
             resetForm();
         }
-    }
+    };
 
     const resetForm = () => {
         setFormData(initialFormData);
+        setErrors({});
         setEditData(null);
     };
 
-    const handleSubmit = async (formData) => {
+    const handleSubmit = async () => {
+        // Validate form
+        const newErrors = {};
+        Object.keys(formData).forEach(key => {
+            const error = validateField(key, formData[key]);
+            if (error) newErrors[key] = error;
+        });
+
+        setErrors(newErrors);
+        if (Object.keys(newErrors).length > 0) return;
+
         try {
             setLoading(true);
-            console.log('formData', formData)
             const result = await CreateTrainer(formData);
-            console.log('result', result)
-            if (result.data.statusCode === 201) toast.success(result.data.message);
-            if (result.data.statusCode === 400) toast.error(result.data.message);
-            if (result.data.statusCode === 404) toast.error(result.data.message);
-        } catch (error) {
-            console.error("Error creating Trainer:", error);
-            toast.error('Unable to Create Trainer')
-        } finally {
+            toast.success('Trainer Created Successfully');
             resetForm();
             setOpenForm(false);
-            setLoading(false);
             GetAllTrainers();
+        } catch (error) {
+            console.error("Error creating trainer:", error);
+            toast.error('Unable to Create Trainer');
+        } finally {
+            setLoading(false);
         }
-    }
+    };
 
-    const handleUpdateTrainer = async (formData) => {
+    const handleUpdateTrainer = async () => {
+        // Validate form
+        const newErrors = {};
+        Object.keys(formData).forEach(key => {
+            const error = validateField(key, formData[key]);
+            if (error) newErrors[key] = error;
+        });
 
-    }
+        setErrors(newErrors);
+        if (Object.keys(newErrors).length > 0) return;
 
+        try {
+            setLoading(true);
+            const result = await CreateTrainer(formData);
+            toast.success('Trainer Updated Successfully');
+            resetForm();
+            setOpenForm(false);
+            GetAllTrainers();
+        } catch (error) {
+            console.error("Error updating trainer:", error);
+            toast.error('Unable to Update Trainer');
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <>
-            {deletePopUp && (
-                <div className="flex  justify-center z-30 absolute inset-0 h-24 top-6">
-                    <div className="bg-white p-3 rounded-lg shadow-2xl border-[1px]">
-                        <p>Do you want to delete this user?</p>
-                        <div className="mt-2 flex justify-around w-full">
-                            <button
-                                className="bg-red-500 text-white px-2 py-1 rounded mr-2 w-2/5"
-                                onClick={confirmDelete}
-                            >
-                                Yes
-                            </button>
-                            <button
-                                className="bg-gray-300 px-2 py-1 rounded w-2/5"
-                                onClick={cancelDelete}
-                            >
-                                No
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
+            {/* Delete Confirmation Modal */}
+            <Modal isOpen={deletePopUp} onClose={() => setDeletePopUp(false)}>
+                <ModalContent>
+                    {(onClose) => (
+                        <>
+                            <ModalHeader>Confirm Delete</ModalHeader>
+                            <ModalBody>
+                                <p>Are you sure you want to delete this trainer?</p>
+                            </ModalBody>
+                            <ModalFooter>
+                                <Button color="danger" onPress={confirmDelete}>
+                                    Delete
+                                </Button>
+                                <Button color="default" onPress={onClose}>
+                                    Cancel
+                                </Button>
+                            </ModalFooter>
+                        </>
+                    )}
+                </ModalContent>
+            </Modal>
 
-            <Spinner label="Loading..." color="success" className={`z-50 bg-light dark:bg-background w-screen h-screen ${loading === true ? "" : "hidden"}`} />
+            {/* Trainer Form Modal */}
+            <Modal
+                isOpen={openForm}
+                onClose={toggleOpenForm}
+                size="5xl"
+                scrollBehavior="inside"
+            >
+                <ModalContent>
+                    {(onClose) => (
+                        <>
+                            <ModalHeader>
+                                {editData ? 'Edit Trainer' : 'Add New Trainer'}
+                            </ModalHeader>
+                            <ModalBody>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <Input
+                                        label="First Name"
+                                        value={formData.firstName}
+                                        onValueChange={(value) => handleChange('firstName', value)}
+                                        isRequired
+                                        isInvalid={!!errors.firstName}
+                                        errorMessage={errors.firstName}
+                                    />
+                                    <Input
+                                        label="Last Name"
+                                        value={formData.lastName}
+                                        onValueChange={(value) => handleChange('lastName', value)}
+                                        isRequired
+                                        isInvalid={!!errors.lastName}
+                                        errorMessage={errors.lastName}
+                                    />
+                                    <Input
+                                        label="Email"
+                                        value={formData.email}
+                                        onValueChange={(value) => handleChange('email', value)}
+                                        isRequired
+                                        isInvalid={!!errors.email}
+                                        errorMessage={errors.email}
+                                    />
+                                    <Input
+                                        label="Password"
+                                        type="password"
+                                        value={formData.password}
+                                        onValueChange={(value) => handleChange('password', value)}
+                                        isRequired={!editData}
+                                        isInvalid={!!errors.password}
+                                        errorMessage={errors.password}
+                                    />
+                                    <Input
+                                        label="Contact Number"
+                                        value={formData.contactNumber}
+                                        onValueChange={(value) => handleChange('contactNumber', value)}
+                                        isRequired
+                                        isInvalid={!!errors.contactNumber}
+                                        errorMessage={errors.contactNumber}
+                                    />
+                                    <Select
+                                        label="Gender"
+                                        selectedKeys={[formData.gender]}
+                                        onChange={(e) => handleChange('gender', e.target.value)}
+                                        isRequired
+                                        isInvalid={!!errors.gender}
+                                        errorMessage={errors.gender}
+                                    >
+                                        {genders.map((gender) => (
+                                            <SelectItem key={gender.value} value={gender.value}>
+                                                {gender.label}
+                                            </SelectItem>
+                                        ))}
+                                    </Select>
+                                    <Input
+                                        label="Age"
+                                        type="number"
+                                        value={formData.age}
+                                        onValueChange={(value) => handleChange('age', value)}
+                                        isRequired
+                                        isInvalid={!!errors.age}
+                                        errorMessage={errors.age}
+                                    />
+                                    <Input
+                                        label="Total Clients"
+                                        type="number"
+                                        value={formData.totalClients}
+                                        onValueChange={(value) => handleChange('totalClients', value)}
+                                        isRequired
+                                        isInvalid={!!errors.totalClients}
+                                        errorMessage={errors.totalClients}
+                                    />
+                                    <Input
+                                        label="Profile Picture URL"
+                                        value={formData.profilePicture}
+                                        onValueChange={(value) => handleChange('profilePicture', value)}
+                                        isRequired
+                                        isInvalid={!!errors.profilePicture}
+                                        errorMessage={errors.profilePicture}
+                                    />
+                                    <Input
+                                        label="Address"
+                                        value={formData.address}
+                                        onValueChange={(value) => handleChange('address', value)}
+                                        isRequired
+                                        isInvalid={!!errors.address}
+                                        errorMessage={errors.address}
+                                    />
+                                    <Input
+                                        label="City"
+                                        value={formData.city}
+                                        onValueChange={(value) => handleChange('city', value)}
+                                        isRequired
+                                        isInvalid={!!errors.city}
+                                        errorMessage={errors.city}
+                                    />
+                                    <Input
+                                        label="State"
+                                        value={formData.state}
+                                        onValueChange={(value) => handleChange('state', value)}
+                                        isRequired
+                                        isInvalid={!!errors.state}
+                                        errorMessage={errors.state}
+                                    />
+                                    <Textarea
+                                        label="Bio"
+                                        value={formData.bio}
+                                        onValueChange={(value) => handleChange('bio', value)}
+                                        isRequired
+                                        isInvalid={!!errors.bio}
+                                        errorMessage={errors.bio}
+                                    />
+                                    <Input
+                                        label="Instagram ID"
+                                        value={formData.instaId}
+                                        onValueChange={(value) => handleChange('instaId', value)}
+                                        isRequired
+                                        isInvalid={!!errors.instaId}
+                                        errorMessage={errors.instaId}
+                                    />
+                                    <Input
+                                        label="Facebook"
+                                        value={formData.facebook}
+                                        onValueChange={(value) => handleChange('facebook', value)}
+                                        isRequired
+                                        isInvalid={!!errors.facebook}
+                                        errorMessage={errors.facebook}
+                                    />
+                                    <Input
+                                        label="Twitter"
+                                        value={formData.twitter}
+                                        onValueChange={(value) => handleChange('twitter', value)}
+                                        isRequired
+                                        isInvalid={!!errors.twitter}
+                                        errorMessage={errors.twitter}
+                                    />
+                                </div>
+                            </ModalBody>
+                            <ModalFooter>
+                                <Button color="danger" variant="light" onPress={onClose}>
+                                    Cancel
+                                </Button>
+                                <Button
+                                    color="primary"
+                                    onPress={editData ? handleUpdateTrainer : handleSubmit}
+                                >
+                                    {editData ? 'Update Trainer' : 'Add Trainer'}
+                                </Button>
+                            </ModalFooter>
+                        </>
+                    )}
+                </ModalContent>
+            </Modal>
+
+            <Spinner
+                label="Loading..."
+                color="success"
+                className={`absolute rounded-2xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-svh w-svw z-50 bg-light dark:bg-background ${loading ? "" : "hidden"}`}
+            />
+
             <Toaster className="z-40" richColors position="top-right" />
+
             <motion.div
                 initial="hidden"
                 animate="show"
-                variants={fadeIn('', 'spring', .2, 0.75)} className="flex justify-between h-10 mb-8">
-                <h2 className="text-2xl">Application Trainers List</h2>
-                <button type="submit" className={`transition ease-in-out duration-300 bg-background px-4 py-2 rounded-lg border text-white hover:bg-white hover:text-black hover:border hover:border-black ${openForm === true ? 'hidden' : ''}`} onClick={toggleOpenForm}>Add Trainer</button>
+                variants={fadeIn('', 'spring', .2, 0.75)}
+                className="flex justify-between items-center mb-8"
+            >
+                <h2 className="text-xl">Application Trainers List</h2>
+                <Button
+                    color="primary"
+                    onClick={toggleOpenForm}
+                    className={openForm ? 'hidden' : ''}
+                >
+                    Add Trainer
+                </Button>
             </motion.div>
-            <div className={`z-40 transition ease-in-out duration-900 w-6/12 border-2 shadow-lg border-black bg-white p-8 rounded-3xl absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 ${openForm ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
-                <div className="flex justify-between mb-4">
-                    <p className="text-xl">  {editData ? 'Edit Trainer' : 'Add New Trainer'}</p>
-                    <button type="submit" className='transition ease-in-out duration-300 bg-background px-4 py-2 rounded-lg border text-white hover:bg-white hover:text-black hover:border hover:border-black' onClick={toggleOpenForm}>Close</button>
-                </div>
-                <MyForm fields={fields} onSubmit={editData ? handleUpdateTrainer : handleSubmit} initialValues={formData} />
-            </div>
-
 
             <motion.div
                 initial="hidden"
                 animate="show"
-                variants={fadeIn('', 'spring', .4, 0.75)} className="ag-theme-quartz h-[80%]"            >
+                variants={fadeIn('', 'spring', .4, 0.75)}
+                className="ag-theme-quartz h-[80%]"
+            >
                 <AgGridReact
                     rowData={rowData}
                     columnDefs={colDefs}
@@ -278,7 +506,7 @@ function Trainers() {
                         >
                             Previous
                         </NextButton>
-                        <span className="mx-[2px] border-1 border-background dark:border-light rounded-lg px-2 pt-[8px]  text-background dark:text-light">
+                        <span className="mx-[2px] border-1 border-background dark:border-light rounded-lg px-2 pt-[8px] text-background dark:text-light">
                             Page {currentPage} of {totalPages}
                         </span>
                         <NextButton
@@ -291,10 +519,9 @@ function Trainers() {
                         </NextButton>
                     </div>
                 </div>
-
             </motion.div>
         </>
-    )
+    );
 }
 
-export default Trainers
+export default Trainers;

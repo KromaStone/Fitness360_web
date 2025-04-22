@@ -152,6 +152,40 @@ function Product() {
             pinned: 'left'
         },
         { field: "name", headerName: "Name" },
+
+        { field: "description", headerName: "Description" },
+        {
+            field: "price",
+            headerName: "Price",
+            cellRenderer: (params) => `$${(params.value / 100).toFixed(2)}`
+        },
+        {
+            field: "discountedPrice",
+            headerName: "Discounted Price",
+            cellRenderer: (params) => params.value ? `$${(params.value / 100).toFixed(2)}` : '-'
+        },
+        { field: "category", headerName: "Category" },
+        { field: "stock", headerName: "Stock" },
+        { field: "ratings", headerName: "Rating" },
+
+        {
+            field: "images",
+            headerName: "Image",
+            cellRenderer: (params) => (
+                params.value?.length > 0 ? (
+                    <LazyLoadImage
+                        src={params.value[0]}
+                        alt="Product"
+                        style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                    />
+                ) : '-'
+            ),
+        },
+        {
+            field: "featured",
+            headerName: "Featured",
+            cellRenderer: (params) => params.value ? 'Yes' : 'No'
+        },
         {
             field: "actionButtons",
             headerName: "Actions",
@@ -170,38 +204,6 @@ function Product() {
                         Delete
                     </button>
                 </div>
-            ),
-        },
-        { field: "description", headerName: "Description" },
-        {
-            field: "price",
-            headerName: "Price",
-            cellRenderer: (params) => `$${(params.value / 100).toFixed(2)}`
-        },
-        {
-            field: "discountedPrice",
-            headerName: "Discounted Price",
-            cellRenderer: (params) => params.value ? `$${(params.value / 100).toFixed(2)}` : '-'
-        },
-        { field: "category", headerName: "Category" },
-        { field: "stock", headerName: "Stock" },
-        { field: "ratings", headerName: "Rating" },
-        {
-            field: "featured",
-            headerName: "Featured",
-            cellRenderer: (params) => params.value ? 'Yes' : 'No'
-        },
-        {
-            field: "images",
-            headerName: "Image",
-            cellRenderer: (params) => (
-                params.value?.length > 0 ? (
-                    <LazyLoadImage
-                        src={params.value[0]}
-                        alt="Product"
-                        style={{ width: '50px', height: '50px', objectFit: 'cover' }}
-                    />
-                ) : '-'
             ),
         },
 

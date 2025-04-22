@@ -48,41 +48,6 @@ export const createWorkoutMulterConfig = (folderBase, allowedExtensions, maxFile
 };
 
 
-// export const createProductMulterConfig = (baseFolder, allowedExtensions, maxFileSizeMB) => {
-//     return multer({
-//         storage: multer.diskStorage({
-//             destination: async (req, file, cb) => {
-//                 try {
-//                     const productName = req.body.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
-//                     const productFolder = `${baseFolder}/${productName}`;
-//                     await createDirectoryIfNotExists(productFolder);
-//                     cb(null, productFolder);
-//                 } catch (error) {
-//                     cb(error);
-//                 }
-//             },
-//             filename: (req, file, cb) => {
-//                 const productName = req.body.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
-//                 const files = req.files ? Object.values(req.files).flat() : [];
-//                 const existingImages = files.filter(f => f.fieldname === file.fieldname);
-//                 const fileNumber = existingImages.length;
-//                 const filename = `${productName}${fileNumber}${path.extname(file.originalname)}`;
-//                 cb(null, filename);
-//             }
-//         }),
-//         fileFilter: (req, file, cb) => {
-//             const fileExt = path.extname(file.originalname).toLowerCase();
-//             if (allowedExtensions.includes(fileExt)) {
-//                 cb(null, true);
-//             } else {
-//                 cb(new Error(`Unsupported file type: ${fileExt}`));
-//             }
-//         },
-//         limits: { fileSize: maxFileSizeMB * 1024 * 1024 },
-//     });
-// };
-
-
 export const createProductMulterConfig = (baseFolder, allowedExtensions, maxFileSizeMB) => {
     // Track file counts per product
     const fileCounts = new Map();

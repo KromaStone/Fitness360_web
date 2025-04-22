@@ -1,50 +1,16 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-quartz.css"; import {
-    AgGridReact
-} from "ag-grid-react";
-import {
-    motion
-} from 'framer-motion';
-import {
-    useEffect,
-    useState
-} from "react";
-import {
-    LazyLoadImage
-} from 'react-lazy-load-image-component';
-import {
-    toast,
-    Toaster
-} from 'sonner';
-import {
-    fadeIn
-} from "../../assets/utils/motion";
-import {
-    NextButton
-} from "../../components/NextButton";
-import {
-    CreateUser,
-    DeleteUser,
-    getAllUsers,
-    UpdateUser
-} from '../../services/adminService/userService';
-import {
-    Spinner,
-    Modal,
-    ModalContent,
-    ModalHeader,
-    ModalBody,
-    ModalFooter,
-    Button,
-    Input,
-    Select,
-    SelectItem,
-    Card,
-    CardBody,
-    Divider
-} from "@nextui-org/react";
+import "ag-grid-community/styles/ag-theme-quartz.css";
+import { AgGridReact } from "ag-grid-react";
+import { motion } from 'framer-motion';
+import { useEffect, useState } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { toast, Toaster } from 'sonner';
+import { fadeIn } from "../../assets/utils/motion";
+import { NextButton } from "../../components/NextButton";
+import { CreateUser, DeleteUser, getAllUsers, UpdateUser } from '../../services/adminService/userService';
+import { Spinner, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Input, Select, SelectItem, Card, CardBody, Divider } from "@nextui-org/react";
 
 function Users() {
     const [loading, setLoading] = useState(false);
