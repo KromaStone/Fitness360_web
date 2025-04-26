@@ -7,7 +7,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { toast, Toaster } from "sonner";
 import { fadeIn } from "../../assets/utils/motion";
 import { NextButton } from "../../components/NextButton";
-import { CreateTrainer, DeleteTrainer, getAllTrainers } from "../../services/adminService/TrainerService";
+import { CreateTrainer, UpdateTrainer, DeleteTrainer, getAllTrainers } from "../../services/adminService/TrainerService";
 import { Spinner, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Input, Select, SelectItem, Textarea, Card, CardBody } from "@nextui-org/react";
 
 function Trainers() {
@@ -20,6 +20,7 @@ function Trainers() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [errors, setErrors] = useState({});
+    const [imagePreview, setImagePreview] = useState(null);
 
     const initialFormData = {
         firstName: '',
@@ -29,13 +30,11 @@ function Trainers() {
         password: '',
         age: '',
         contactNumber: '',
-        profilePicture: '',
         gender: '',
         address: '',
         city: '',
         state: '',
         bio: '',
-        totalClients: '',
         instaId: '',
         facebook: '',
         twitter: '',
@@ -134,10 +133,6 @@ function Trainers() {
                 else if (!/^\d{10}$/.test(value)) error = 'Invalid phone number';
                 break;
             case 'age':
-            case 'totalClients':
-                if (!value) error = 'This field is required';
-                else if (isNaN(value)) error = 'Must be a number';
-                break;
         }
 
         return error;
@@ -157,9 +152,23 @@ function Trainers() {
         }));
     };
 
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setImagePreview(URL.createObjectURL(file));
+            setFormData(prev => ({
+                ...prev,
+                profilePicture: file
+            }));
+        }
+    };
+
     const handleEdit = (rowData) => {
         setEditData(rowData);
-        setFormData(rowData);
+        setFormData({
+            ...rowData,
+            _id: rowData._id
+        });
         setOpenForm(true);
     };
 
@@ -217,33 +226,34 @@ function Trainers() {
     };
 
     const handleSubmit = async () => {
-        // Validate form
-        const newErrors = {};
+        const formDataToSend = new FormData();
         Object.keys(formData).forEach(key => {
-            const error = validateField(key, formData[key]);
-            if (error) newErrors[key] = error;
+            if (key !== 'profilePicture') {
+                formDataToSend.append(key, formData[key]);
+            }
         });
 
-        setErrors(newErrors);
-        if (Object.keys(newErrors).length > 0) return;
+        if (formData.profilePicture instanceof File) {
+            formDataToSend.append('profilePicture', formData.profilePicture);
+        }
 
         try {
             setLoading(true);
-            const result = await CreateTrainer(formData);
+            const result = await CreateTrainer(formDataToSend);
             toast.success('Trainer Created Successfully');
             resetForm();
+            setImagePreview(null);
             setOpenForm(false);
             GetAllTrainers();
         } catch (error) {
             console.error("Error creating trainer:", error);
-            toast.error('Unable to Create Trainer');
+            toast.error(error.response?.data?.error || 'Unable to Create Trainer');
         } finally {
             setLoading(false);
         }
     };
 
     const handleUpdateTrainer = async () => {
-        // Validate form
         const newErrors = {};
         Object.keys(formData).forEach(key => {
             const error = validateField(key, formData[key]);
@@ -255,14 +265,31 @@ function Trainers() {
 
         try {
             setLoading(true);
-            const result = await CreateTrainer(formData);
+            const formDataToSend = new FormData();
+
+            Object.keys(formData).forEach(key => {
+                if (key !== 'profilePicture' && formData[key] !== null) {
+                    formDataToSend.append(key, formData[key]);
+                }
+            });
+
+            if (formData.profilePicture instanceof File) {
+                formDataToSend.append('profilePicture', formData.profilePicture);
+            }
+
+            const result = await UpdateTrainer(formDataToSend);
+            console.log("result", result.statusCode)
+            if (result.statusCode !== 200) {
+                toast.error(result.message || 'Unable to Update Trainer');
+            }
             toast.success('Trainer Updated Successfully');
             resetForm();
+            setImagePreview(null);
             setOpenForm(false);
             GetAllTrainers();
         } catch (error) {
             console.error("Error updating trainer:", error);
-            toast.error('Unable to Update Trainer');
+            toast.error(error.response?.data?.error || 'Unable to Update Trainer');
         } finally {
             setLoading(false);
         }
@@ -372,23 +399,6 @@ function Trainers() {
                                         errorMessage={errors.age}
                                     />
                                     <Input
-                                        label="Total Clients"
-                                        type="number"
-                                        value={formData.totalClients}
-                                        onValueChange={(value) => handleChange('totalClients', value)}
-                                        isRequired
-                                        isInvalid={!!errors.totalClients}
-                                        errorMessage={errors.totalClients}
-                                    />
-                                    <Input
-                                        label="Profile Picture URL"
-                                        value={formData.profilePicture}
-                                        onValueChange={(value) => handleChange('profilePicture', value)}
-                                        isRequired
-                                        isInvalid={!!errors.profilePicture}
-                                        errorMessage={errors.profilePicture}
-                                    />
-                                    <Input
                                         label="Address"
                                         value={formData.address}
                                         onValueChange={(value) => handleChange('address', value)}
@@ -411,14 +421,6 @@ function Trainers() {
                                         isRequired
                                         isInvalid={!!errors.state}
                                         errorMessage={errors.state}
-                                    />
-                                    <Textarea
-                                        label="Bio"
-                                        value={formData.bio}
-                                        onValueChange={(value) => handleChange('bio', value)}
-                                        isRequired
-                                        isInvalid={!!errors.bio}
-                                        errorMessage={errors.bio}
                                     />
                                     <Input
                                         label="Instagram ID"
@@ -444,6 +446,52 @@ function Trainers() {
                                         isInvalid={!!errors.twitter}
                                         errorMessage={errors.twitter}
                                     />
+
+                                    {/* Bio and Image side by side */}
+                                    <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <Textarea
+                                            label="Bio"
+                                            value={formData.bio}
+                                            onValueChange={(value) => handleChange('bio', value)}
+                                            isRequired
+                                            isInvalid={!!errors.bio}
+                                            errorMessage={errors.bio}
+                                            className="h-full"
+                                        />
+                                        <div>
+                                            <label className="block text-sm font-medium mb-1">Profile Picture</label>
+                                            <input
+                                                type="file"
+                                                accept="image/*"
+                                                onChange={handleFileChange}
+                                                className="block w-full text-sm text-gray-500
+                file:mr-4 file:py-2 file:px-4
+                file:rounded-md file:border-0
+                file:text-sm file:font-semibold
+                file:bg-primary file:text-white
+                hover:file:bg-primary-dark"
+                                            />
+                                            <div className="mt-4 flex justify-center">
+                                                {imagePreview ? (
+                                                    <img
+                                                        src={imagePreview}
+                                                        alt="Preview"
+                                                        className="h-40 w-40 rounded-full object-cover border-2 border-gray-200"
+                                                    />
+                                                ) : editData?.profilePicture ? (
+                                                    <img
+                                                        src={editData.profilePicture}
+                                                        alt="Current Profile"
+                                                        className="h-40 w-40 rounded-full object-cover border-2 border-gray-200"
+                                                    />
+                                                ) : (
+                                                    <div className="h-40 w-40 rounded-full bg-gray-200 flex items-center justify-center">
+                                                        <span className="text-gray-500">No Image</span>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </ModalBody>
                             <ModalFooter>

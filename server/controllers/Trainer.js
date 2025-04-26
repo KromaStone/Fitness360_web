@@ -50,24 +50,48 @@ export const GetTrainersName = async (req, res) => {
 }
 
 
+// export const CreateTrainer = async (req, res) => {
+//     try {
+//         const trainerData = await createTrainer(req.body);
+//         return res.status(trainerData.statusCode).send(trainerData)
+//     } catch (e) {
+//         return res.status(500).send({
+//             error: e?.message || "Internal Server Erro"
+//         })
+//     }
+// }
 export const CreateTrainer = async (req, res) => {
     try {
-        const trainerData = await createTrainer(req.body);
-        return res.status(trainerData.statusCode).send(trainerData)
-    } catch (e) {
+        const trainerData = req.body;
+        const imageBaseUrl = process.env.BASE_URL_MEDIA || '';
+
+        if (req.file) {
+            trainerData.profilePicture = `${imageBaseUrl}/${req.file.path.replace(/\\/g, "/")}`;
+        }
+
+        const trainerResponse = await createTrainer(trainerData);
+        return res.status(trainerResponse.statusCode).send(trainerResponse);
+    } catch (error) {
         return res.status(500).send({
-            error: e?.message || "Internal Server Erro"
-        })
+            error: error?.message || "Internal Server Error"
+        });
     }
 }
 
-
 export const UpdateTrainer = async (req, res) => {
     try {
-        const trainerData = await updateTrainer(req)
-        return res.status(trainerData.statusCode).send(trainerData);
+        const trainerData = req.body;
+        const imageBaseUrl = process.env.BASE_URL_MEDIA || '';
+
+        if (req.file) {
+            trainerData.profilePicture = `${imageBaseUrl}/${req.file.path.replace(/\\/g, "/")}`;
+        }
+        const updatedTrainer = await updateTrainer(trainerData);
+        return res.status(updatedTrainer.statusCode).send(updatedTrainer);
     } catch (e) {
-        res.status(404).send({ error: e?.message });
+        res.status(500).send({
+            error: e?.message || "Internal Server Error"
+        });
     }
 }
 

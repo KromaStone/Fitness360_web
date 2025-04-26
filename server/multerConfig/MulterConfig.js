@@ -5,13 +5,11 @@ import path from "path";
 export const createMulterStorage = (folderBase) => {
     return multer.diskStorage({
         destination: (req, file, cb) => {
-            // Extract trainer ID from the request body
             const trainerId = req.body.trainerId;
             if (!trainerId) {
                 return cb(new Error("Trainer ID is required in the request body."));
             }
 
-            // Create folder structure: uploads/trainer-workout/{trainerId}
             const folderPath = `${folderBase}/${trainerId}/`;
             if (!fs.existsSync(folderPath)) {
                 fs.mkdirSync(folderPath, { recursive: true });
@@ -19,7 +17,6 @@ export const createMulterStorage = (folderBase) => {
             cb(null, folderPath);
         },
         filename: (req, file, cb) => {
-            // Use the workout title as the filename
             const workoutTitle = req.body.title?.replace(/[^a-zA-Z0-9]/g, "_").toLowerCase();
             if (!workoutTitle) {
                 return cb(new Error("Workout title is required in the request body."));
@@ -47,9 +44,8 @@ export const createWorkoutMulterConfig = (folderBase, allowedExtensions, maxFile
     });
 };
 
-
 export const createProductMulterConfig = (baseFolder, allowedExtensions, maxFileSizeMB) => {
-    // Track file counts per product
+
     const fileCounts = new Map();
 
     return multer({
@@ -60,7 +56,6 @@ export const createProductMulterConfig = (baseFolder, allowedExtensions, maxFile
                     const productFolder = `${baseFolder}/${productName}`;
                     await createDirectoryIfNotExists(productFolder);
 
-                    // Initialize counter for this product if it doesn't exist
                     if (!fileCounts.has(productName)) {
                         fileCounts.set(productName, 0);
                     }
@@ -98,3 +93,35 @@ export const createDirectoryIfNotExists = async (dirPath) => {
         throw new Error(`Failed to create directory: ${error.message}`);
     }
 };
+
+
+export const createTrainerMulterConfig = (baseFolder, allowedExtensions, maxFileSizeMB) => {
+    return multer({
+        storage: multer.diskStorage({
+            destination: async (req, file, cb) => {
+                try {
+                    const trainerName = req.body.firstName.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+                    const trainerFolder = `${baseFolder}/${trainerName}`;
+                    await createDirectoryIfNotExists(trainerFolder);
+                    cb(null, trainerFolder);
+                } catch (error) {
+                    cb(error);
+                }
+            },
+            filename: (req, file, cb) => {
+                const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+                const filename = `${uniqueSuffix}${path.extname(file.originalname)}`;
+                cb(null, filename);
+            }
+        }),
+        fileFilter: (req, file, cb) => {
+            const fileExt = path.extname(file.originalname).toLowerCase();
+            if (allowedExtensions.includes(fileExt)) {
+                cb(null, true);
+            } else {
+                cb(new Error(`Unsupported file type: ${fileExt}`));
+            }
+        },
+        limits: { fileSize: maxFileSizeMB * 1024 * 1024 },
+    });
+}

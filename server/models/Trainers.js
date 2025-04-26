@@ -10,7 +10,7 @@ const TrainerSchema = new mongoose.Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
     contactNumber: { type: Number, required: true },
-    profilePicture: { type: String, required: true },
+    profilePicture: { type: String, required: false },
     gender: { type: String, required: true },
     address: { type: String, required: true },
     city: { type: String, required: true },

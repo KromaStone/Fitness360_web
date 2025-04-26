@@ -17,7 +17,7 @@ import { EnrollWorkout, GetEnrolledWorkout } from "./controllers/Enrollment.js";
 import os from 'os'
 import cluster from "cluster";
 import { CreateProduct, CreateProductReview, DeleteProduct, GetProductById, GetProducts, GetProductsAd, GetTopProducts, UpdateProduct } from "./controllers/Product.js";
-import { productUpload, workoutUpload } from "./multerConfig/uploadsConfig.js";
+import { productUpload, trainerUpload, workoutUpload } from "./multerConfig/uploadsConfig.js";
 const numCPUs = os.cpus().length;
 
 if (cluster.isPrimary) {
@@ -96,8 +96,15 @@ if (cluster.isPrimary) {
     //trainers
     router.get("/trainercount", verifyAndCheckRole(['admin']), TrainerCount)
     router.get("/trainer", verifyAndCheckRole(['admin']), GetTrainers);
-    router.post("/trainer", CreateTrainer);
-    router.put("/trainer", verifyAndCheckRole(['admin', 'trainer']), UpdateTrainer);
+    router.post("/trainer",
+        trainerUpload.single('profilePicture'),
+        CreateTrainer
+    );
+    router.put("/trainer",
+        verifyAndCheckRole(['admin', 'trainer']),
+        trainerUpload.single('profilePicture'), 
+        UpdateTrainer
+    );
     router.delete("/trainer", verifyAndCheckRole(['admin', 'trainer']), DeleteTrainer);
     router.get("/findtrainerbyid", verifyAndCheckRole(['admin', 'trainer']), FindTrainerById);
     router.get("/trainername", GetTrainersName)
