@@ -11,7 +11,7 @@ const ClassCard = ({ id, title, description, image }) => {
                 whileInView="show"
                 initial="hidden"
                 viewport={{ once: false, }}
-                variants={fadeIn("up", "", ((id - 1) / 20), (0.2))}
+                variants={fadeIn("up", "", ((id - 1) / 20), 0)}
                 className='p-[2px] bg-gradient-to-t from-secondary/40 dark:from-secondlight/40 to-transparent hover:from-primary dark:hover:from-primary rounded-xl group transition-all ease-in-out duration-300 overflow-visible min-w-[280px] mb-4 sm:mb-0'
             >
                 <div className='w-full h-full bg-secondlight dark:bg-secondary rounded-xl p-2 sm:p-3 md:p-4 lg:p-5 xl:p-7 pb-7 sm:pb-7 md:pb-7 lg:pb-7 flex flex-col justify-between'>

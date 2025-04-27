@@ -41,7 +41,7 @@ function Banner() {
                     <h1 className='font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[110px] text-left mb-4 text-white uppercase'>
                         Your Fitness<br /> Your Victory
                     </h1>
-                    <p className="text-xs md:text-sm lg:text-base xl:text-lg mb-4 capitalize">Ready to change your physique, But can't  work out in the gym ?</p>
+                    <p className="text-xs md:text-sm lg:text-base xl:text-lg mb-4 capitalize">Ready to change your physique, But can't  work out in the gym?</p>
                     <div className='flex gap-6  items-start   '>
                         <NextButton color="secondary" className="w-full md:w-36 xl:w-44 " onClick={shopClick}>Shop Trend</NextButton>
 
