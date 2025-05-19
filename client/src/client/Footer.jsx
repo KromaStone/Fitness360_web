@@ -1,5 +1,6 @@
 import { Icon } from '@iconify/react/dist/iconify.js';
-import logo from '../assets/logos/logo.png';
+import logo from '../assets/logos/logo_white.png';
+import logo_dark from '../assets/logos/logo.png';
 
 function Footer() {
   const footerData = {
@@ -48,32 +49,38 @@ function Footer() {
   return (
     <>
       <div className='h-10 bg-light dark:bg-background'></div>
-      <section className="w-full gap-4 h-full border-solid px-6 sm:px-12 lg:px-24 md:py-4 md:pt-16 bg-light text-background dark:bg-background dark:text-light flex flex-col justify-center items-center sm:gap-4 relative" style={{ backgroundImage: "url('https://img.freepik.com/free-vector/abstract-dark-low-poly-background_1409-1860.jpg?t=st=1744478371~exp=1744481971~hmac=f4f8cc089a0bd2dd5ab11babfddfbf6912770fd02b64104f5261b5b8581327f5&w=1380')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div className="max-w-[1440px] m-auto ">
+      <section className="w-full gap-4 h-full border-solid px-6 sm:px-12 lg:px-24 md:py-4 md:pt-16 bg-light text-background dark:bg-background dark:text-light flex flex-col justify-center items-center sm:gap-4 relative" >
+
+        <div className='w-full dark:w-0 h-full absolute z-0'
+          style={{ backgroundImage: "url('https://static.vecteezy.com/system/resources/thumbnails/005/169/581/small/banner-abstract-geometric-white-and-gray-color-background-illustration-free-vector.jpg')", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.4 }}></div>
+
+        <div className='w-0 dark:w-full h-full absolute z-0'
+          style={{ backgroundImage: "url('https://img.freepik.com/free-vector/abstract-dark-low-poly-background_1409-1860.jpg?t=st=1744478371~exp=1744481971~hmac=f4f8cc089a0bd2dd5ab11babfddfbf6912770fd02b64104f5261b5b8581327f5&w=1380')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
 
 
+        <div className="max-w-[1440px] m-auto z-20 ">
 
 
-          <div className="md:flex flex-col hidden md:flex-row justify-center items-center gap-6 absolute top-[-84px] left-0 right-0 w-full mx-auto max-w-[1440px] m-auto z-10 mt-8">
+          <div className="z md:flex flex-col hidden md:flex-row justify-center items-center gap-6 absolute top-[-84px] left-0 right-0 w-full mx-auto max-w-[1440px] m-auto z-10 mt-8">
             {/* Call Section */}
-            <div className="flex items-center gap-4 w-5/12 lg:w-4/12 p-3 md:p-6 backdrop-blur-sm rounded-2xl bg-secondary/60 dark:bg-secondary/70">
+            <div className="flex items-center gap-4 w-5/12 lg:w-4/12 p-3 md:p-6 backdrop-blur-sm rounded-2xl bg-secondlight/60 border border-secondlight/80 dark:border-secondlight/10 dark:bg-secondary/70 text-background dark:text-light">
               <div className="bg-primary p-2 md:p-4 rounded-full">
-                <Icon icon="ph:phone-fill" className="w-6 h-6 md:w-6 md:h-6 text-white" />
+                <Icon icon="ph:phone-fill" className="w-6 h-6 md:w-6 md:h-6  text-light" />
               </div>
-              <div className='text-light'>
+              <div className=''>
                 <p className="text-xs md:text-sm">CALL US ANYTIME:</p>
                 <a
                   href="tel:+1635-698-2541"
                   className="text-lg md:text-2xl font-semibold hover:text-primary transition-colors"
                 >
-                  +1 635-698-2541
+                  +91 635-698-2541
                 </a>
               </div>
             </div>
 
             {/* Email Section */}
-            <div className="flex items-center gap-4 w-5/12 lg:w-4/12 p-3 md:p-6 backdrop-blur-sm rounded-2xl bg-secondary/60 dark:bg-secondary/70 justify-end">
-              <div className='text-light'>
+            <div className="flex items-center gap-4 w-5/12 lg:w-4/12 p-3 md:p-6 backdrop-blur-sm rounded-2xl justify-end  bg-secondlight/60 border border-secondlight/80 dark:border-secondlight/20 dark:bg-secondary/70 text-background dark:text-light">
+              <div className=''>
                 <p className="text-xs md:text-sm">EMAIL US:</p>
                 <a
                   href="mailto:info@fitkit.com"
@@ -89,18 +96,12 @@ function Footer() {
           </div>
 
 
-
-
-
-
-
-
-
           <footer className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 lg:gap-2 xl:gap-8 2xl:gap-20 mt-6">
             {/* Brand */}
             <div className="space-y-4 w-full mb-6">
               <div className="flex items-center gap-2 justify-start">
-                <img src={brand.logo} alt="" className="h-12 mr-2" />
+                <img src={brand.logo} alt="" className="h-12 mr-2 hidden dark:block" />
+                <img src={logo_dark} alt="" className="h-12 mr-2 block dark:hidden" />
                 <a href="/" className="text-4xl font-bold hover:text-primary transition duration-250">{brand.name}</a>
               </div>
               <p className="text-secondary/80 dark:text-light/80">{brand.description}</p>
@@ -168,10 +169,11 @@ function Footer() {
             </div>
           </footer>
         </div>
-      </section>
+      </section >
 
-      <div className="h-[1px] bg-secondlight dark:bg-background/50"></div>
-      <div className="px-16 py-2 sm:px-8 bg-light dark:bg-background dark:text-light sm:text-center text-[14px]">
+      <div className="h-[1px] dark:bg-background  pt-3"></div>
+
+      <div className="px-16 py-2 sm:px-8 mt-3 bg-light dark:bg-background dark:text-light sm:text-center text-[14px] z-30 dark:z-30 overflow-hidden">
         &copy; 2024 {brand.name}. All Rights Reserved.
       </div>
     </>
