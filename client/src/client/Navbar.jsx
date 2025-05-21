@@ -6,6 +6,7 @@ import { fadeIn } from '../assets/utils/motion.js';
 import { NextButton } from '../components/NextButton';
 import ThemeToggle from '../theme/ThemeToggle.jsx';
 import logo from './../assets/logos/logo.png';
+import logo_white from './../assets/logos/logo_white.png';
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navigate = useNavigate();
@@ -44,11 +45,12 @@ function Navbar() {
             {/* <nav className="py-2 bg-gradient-to-t from-secondary to-background"> */}
             <div className=' top-2 left-0 w-full px-1 md:px-4 z-10'>
                 <div
-                    className="rounded-xl p-2 flex justify-between  bg-background/50 dark:bg-background/90 border border-background/20 dark:border-light/10"
+                    className="rounded-xl p-2 flex justify-between  bg-background/10 dark:bg-background/40 border border-background/15 dark:border-light/10"
                 // style={{ backgroundColor: 'rgba(0, 0, 0, .4)' }}
                 >
                     {/* Logo */}
-                    <LazyLoadImage src={logo} alt="logo" className="h-10" />
+                    <LazyLoadImage src={logo} alt="logo" className="h-10 block dark:hidden" />
+                    <LazyLoadImage src={logo_white} alt="logo" className="h-10 hidden dark:block" />
 
                     {/* Desktop Menu */}
                     <div className={`md:flex items-center gap-6 hidden md:visible z-10 flex-col md:flex-row`}>
@@ -57,7 +59,7 @@ function Navbar() {
                                 key={link.to}
                                 to={link.to}
                                 aria-current={location.pathname === link.to ? 'page' : undefined}
-                                className="hover:text-light transition-colors text-light/90  group relative"
+                                className="hover:text-background transition-colors text-background/90 dark:text-light/90 dark:hover:text-light  group relative"
                             >
                                 {link.label}
                                 <span className='absolute bottom-0 left-0 bg-primary pt-[2px] w-0 group-hover:w-full transition-all ease-in-out duration-300'>
