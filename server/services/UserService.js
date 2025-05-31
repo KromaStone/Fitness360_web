@@ -13,14 +13,9 @@ export const getUsers = async (page, pageSize) => {
     };
 }
 
-
-// export const getUsers = async () => {
-//     return await UserModel.find().select('firstName lastName age gender email profilePicture ');
-// }
-
 export const userCount = async () => {
-    const count = UserModel.countDocuments()
-    return await count;
+    const count = await UserModel.countDocuments()
+    return count;
 }
 
 
@@ -34,8 +29,6 @@ export const createUser = async (userData) => {
         try {
             const hashedPassword = await passwordHash(userData.password);
             userData.password = hashedPassword;
-
-            // Save user data, including profilePicture, to the database
             const newUser = await UserModel.create(userData);
             if (newUser) {
                 return createResponse(201, "User Created", null);
