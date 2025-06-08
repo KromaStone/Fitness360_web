@@ -17,7 +17,7 @@ export const verifyAndCheckRole = (allowedRoles) => {
             req.user = decodedToken;
             const userRole = decodedToken.role.toLowerCase();
 
-            // Note: complete after validations and workout work
+            // // Note: complete after validations and workout work
             // const currentTime = Date.now() / 1000;
             // if (decodedToken.exp < currentTime) {
             //     return res.status(205).json({ message: 'Token has expired' });

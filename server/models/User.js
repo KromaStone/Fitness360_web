@@ -18,6 +18,7 @@ const UserSchema = new mongoose.Schema({
     googleId: { type: String, required: false, },
     facebookId: { type: String, required: false, },
     dateCreated: { type: Date, default: Date.now },
+    fitnessGoals: { type: String, required: false, default: "Not specified", },
 });
 
 const UserModel = mongoose.model('users', UserSchema);

@@ -5,9 +5,11 @@ const WorkoutSchema = new mongoose.Schema({
     imagePath: { type: String, required: false },
     videoPath: { type: String, required: false },
     price: { type: Number, default: 0 },
-    dateCreated: { type: Date, default: Date.now },
     trainerId: { type: mongoose.Schema.Types.ObjectId, ref: 'user', required: true },
-    category: { type: String, required: true }
+    category: { type: String, required: true },
+    duration: { type: Number, required: true },
+    dateCreated: { type: Date, default: Date.now },
+    dateUpdated: { type: Date, default: Date.now },
 });
 const WorkoutModel = mongoose.model('workouts', WorkoutSchema);
 export default WorkoutModel;
