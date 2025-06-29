@@ -33,9 +33,9 @@ function Navbar() {
     const navbarLinks = [
         { to: 'home', label: 'Home' },
         { to: 'about', label: 'About' },
-        { to: 'trainers', label: 'Trainers' },
         { to: 'service', label: 'Service' },
         { to: 'shop', label: 'Shop' },
+        { to: 'diet', label: 'Diet' },
     ];
 
     // Function to check if a link is active
@@ -45,8 +45,8 @@ function Navbar() {
     };
 
     return (
-        <section className='bg-light dark:bg-background'>
-            <nav className="z-50 sticky top-0 py-1 md:py-2 bg-gradient-to-b from-light via-light dark:from-background dark:via-background to-transparent md:h-[74px]">
+        <section className='bg-light dark:bg-background md:h-[74px]'>
+            <nav className="z-50 fixed w-full top-0 py-1 md:py-2 bg-gradient-to-b from-light via-light dark:from-background dark:via-background to-transparent md:h-[74px]">
                 <div className=' top-2 left-0 w-full px-1 md:px-4 z-10'>
                     <div
                         className="rounded-xl p-2 flex justify-between  bg-light dark:bg-secondary border border-secondlight/90 dark:border-light/20 shadow-whitell shadow-innerkk"

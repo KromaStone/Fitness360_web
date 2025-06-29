@@ -11,7 +11,7 @@ const ArticleCard = ({ articles }) => {
                     whileInView="show"
                     initial="hidden"
                     viewport={{ once: false, amount: 0.2 }}
-                    variants={fadeIn("up", "", ((article.id - 1) / 5), (0.2))}
+                    variants={fadeIn("", "", ((article.id - 1) / 5), (0.2))}
                     className='w-full border-2 dark:border-secondlight/20 border-secondary/20 rounded-xl p-2 sm:p-3 md:p-4 lg:p-5 xl:p-7 flex flex-col justify-between group'
                     key={index}
                 >

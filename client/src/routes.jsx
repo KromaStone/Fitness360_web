@@ -5,7 +5,6 @@ import { Spinner } from '@nextui-org/react';
 
 // Lazy loaded components
 const Home = React.lazy(() => import('./client/Home'));
-const Trainers = React.lazy(() => import('./client/Trainers'));
 const Service = React.lazy(() => import('./client/Service'));
 const Shop = React.lazy(() => import('./client/Shop'));
 const About = React.lazy(() => import('./client/About'));
@@ -17,6 +16,7 @@ const Dashboard = React.lazy(() => import('./user/pages/Dashboard'))
 const PageNotFound = React.lazy(() => import('./components/PageNotFound'))
 const Test = React.lazy(() => import('./components/Test'))
 const Profile = React.lazy(() => import('./components/Profile'))
+const Diet = React.lazy(() => import('./client/Diet'));
 // user 
 const UserPlans = React.lazy(() => import('./user/pages/Plans'));
 const UserCategory = React.lazy(() => import('./user/pages/Category'));
@@ -47,10 +47,10 @@ function AppRoutes() {
                 { path: "", element: <Navigate to="home" /> },
                 { path: "home", element: <Home /> },
                 { path: "about", element: <About /> },
-                { path: "trainers", element: <Trainers /> },
                 { path: "service", element: <Service /> },
                 { path: "shop", element: <Shop /> },
                 { path: "cart", element: <Cart /> },
+                { path: "diet", element: <Diet /> },
             ]
         },
 

@@ -58,15 +58,17 @@ const SideMenu = ({ RoutesData, toggleSideMenu }) => {
     return (
         <motion.div
             variants={fadeIn("right", "", 0, 0)}
-            className={`border-1 border-background/20 dark:border-light/10 shadow-xl sm:m-1 rounded-lg md:block h-[calc(100vh-96px)] overflow-auto max-w-full text-light dark:text-light z-40 bg-light dark:bg-secondary ${collapsed ? "w-20" : "w-64"} transition-all duration-300 overflow-x-hidden`}
+            className={`border-1 border-background/20 dark:border-light/10 shadow-xl  rounded-lg md:block h-full overflow-auto max-w-full text-light dark:text-light z-40 bg-light dark:bg-secondary ${collapsed ? "w-20" : "w-64"} transition-all duration-300 overflow-x-hidden`}
         >
             <div className={`flex justify-between items-center ${collapsed ? "flex-col border-b-1 border-background/10 dark:border-light/10 pb-2" : "flex-row"}`}>
-                <h2 className="flex mb-4 mt-2 items-center justify-center">
-                    <LazyLoadImage src={logo} alt="logo" className={`${collapsed ? "w-24" : "h-16"}`} />
+                <h2 className="flex mb-4 mt-2 items-center justify-center h-5">
+                    {!collapsed &&
+                        < LazyLoadImage src={logo} alt="logo" className={`${collapsed ? "w-24" : "h-16"}`} />
+                    }
                 </h2>
                 <button
                     aria-label="Toggle Sidebar"
-                    className={`text-background hidden md:block ${collapsed ? "pr-0" : "pr-4"}`}
+                    className={`text-background dark:text-light hidden md:block ${collapsed ? "pr-0" : "pr-4"}`}
                     onClick={toggleCollapse}
                 >
                     {collapsed ? (
@@ -91,6 +93,7 @@ const SideMenu = ({ RoutesData, toggleSideMenu }) => {
                         </span>
                     ) : (
                         <span className="text-background dark:text-light transition-all ease-in-out duration-150">
+                            sd
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <g
                                     fill="none"

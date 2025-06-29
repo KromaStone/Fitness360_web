@@ -67,7 +67,7 @@ const TopMenu = ({ RoutesData, toggleSideMenu }) => {
                 whileInView="show"
                 initial="hidden"
                 viewport={{ once: false, amount: 0.2 }}
-                variants={fadeIn("down", "", 0.1, .2)}
+                variants={fadeIn("", "", 0.1, .2)}
                 className="border-1 border-background/20 dark:border-light/10 h-fit flex bg-light dark:bg-secondary items-center justify-between px-[2px] sm:px-1 md:px-2 lg:px-3 xl:px-4 rounded-lg py-2">
                 {/* <span className="bg-red-400 relative"></span> */}
                 <button
