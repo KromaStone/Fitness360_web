@@ -24,10 +24,28 @@ function Login() {
   const [oAuthProvider, setOAuthProvider] = useState({ provider: '', token: '' })
   const [oAuthFacebook, setOAuthFacebook] = useState({ provider: '', firstName: '', lastName: '', email: '', profilePicture: '', facebookId: '' })
   const loginRef = useRef()
+
   useEffect(() => {
     loginRef.current.focus();
     document.title = 'Login | Fitness360'
+    handleCurrentUser()
   }, [])
+
+  const handleCurrentUser = async () => {
+    const user = localStorage.getItem('token') || sessionStorage.getItem('token');
+    const decodedToken = await jwtDecode(user);
+    console.log('Decoded Token:---', decodedToken.role);
+    if (decodedToken.role === 'admin') {
+      navigate('/admin/dashboard');
+    }
+    if (decodedToken.role === 'user') {
+      navigate('/user/dashboard');
+    }
+    if (decodedToken.role === 'trainer') {
+      navigate('/trainer/dashboard');
+    }
+  }
+
 
   const toggleEye = () => {
     setViewType(viewType === 'password' ? 'text' : 'password');
